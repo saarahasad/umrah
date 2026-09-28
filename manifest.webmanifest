@@ -1,0 +1,16 @@
+{
+  "name": "Preparing for Umrah",
+  "short_name": "Umrah",
+  "description": "Notes, key texts and your du'a list for Umrah.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFF7F9",
+  "theme_color": "#F9DCE5",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}

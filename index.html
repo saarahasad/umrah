@@ -1,0 +1,1598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Preparing for Umrah</title>
+<meta name="description" content="Preparing for Umrah — notes from the Umrah preparation series.">
+<meta name="theme-color" content="#F9DCE5">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Umrah">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Figtree:wght@400;500;600;700&family=Marcellus&display=swap">
+<style>
+@font-face{font-family:"Uthmanic Hafs";src:url("fonts/uthmanic-hafs.woff2") format("woff2");font-display:swap}
+:root{
+  --bg:#FFF7F9; --surface:#FFFFFF; --surface-2:#FEF0F4; --ink:#3B2A31; --muted:#8B7078; --line:#F2DCE3;
+  --blush:#F9DCE5; --blush-2:#FBE8EE; --rose:#E7A9BC; --rose-deep:#C0677F; --rose-ink:#8C3A55;
+  --parch:#FCF4E4; --parch-ink:#4A3A1E;
+  --fs:17px;
+  --display:"Marcellus", "Cormorant Garamond", Georgia, serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --arabic:"Uthmanic Hafs", "Amiri", "Traditional Arabic", serif;
+  --tabh:64px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--rose-deep);outline-offset:2px;border-radius:6px}
+[hidden]{display:none!important}
+.ar{font-family:var(--arabic);direction:rtl;text-align:right;line-height:2.25}
+.ari{font-family:var(--arabic);font-size:1.15em;direction:rtl;unicode-bidi:isolate}
+
+/* App bar */
+.appbar{position:sticky;top:0;z-index:20;background:var(--blush);padding:calc(env(safe-area-inset-top,0px) + 10px) 16px 10px;display:flex;align-items:center;gap:12px}
+.appbar .brand{font-family:var(--display);font-size:21px;letter-spacing:.02em;flex:1;color:var(--ink)}
+.appbar .nm{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.appbar .nm-ar{font-family:var(--arabic);font-size:22px;color:var(--rose-ink);line-height:1}
+.appbar .brand small{display:block;font-family:var(--body);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-deep)}
+.iconbtn{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--rose-ink)}
+.iconbtn:active{background:rgba(140,58,85,.08)}
+.iconbtn svg{width:22px;height:22px}
+
+main{padding:0 16px calc(var(--tabh) + env(safe-area-inset-bottom,0px) + 28px);max-width:720px;margin:0 auto}
+.view{display:flex;flex-direction:column;gap:22px;padding-top:18px}
+
+/* Hero */
+.hero{margin:-18px -16px 0;background:var(--blush);padding:4px 20px 28px;border-radius:0 0 32px 32px}
+.hero-grid{display:grid;gap:4px;align-items:center;max-width:720px;margin:0 auto}
+.mataf{width:min(290px,76vw);aspect-ratio:1;margin:0 auto;display:block;max-width:100%}
+.mataf .spin{transform-origin:100px 100px;animation:ccw 60s linear infinite}
+@keyframes ccw{to{transform:rotate(-360deg)}}
+@media (prefers-reduced-motion:reduce){.mataf .spin{animation:none}}
+.hero .ar-title{font-size:30px;color:var(--rose-ink);text-align:center;line-height:1.8;margin:0}
+.hero .en-title{text-align:center;font-family:var(--display);font-size:15.5px;letter-spacing:.04em;margin:0}
+.hero .ref{text-align:center;font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-deep);margin:2px 0 0}
+.circuits{display:flex;justify-content:center;align-items:baseline;gap:8px;margin-top:14px;font-variant-numeric:tabular-nums;flex-wrap:wrap;text-align:center}
+.circuits b{font-family:var(--display);font-size:34px;font-weight:400;color:var(--rose-ink)}
+.circuits span{font-size:13.5px;color:var(--muted)}
+
+.label{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-deep);margin:0}
+.h-display{font-family:var(--display);font-weight:400;font-size:26px;line-height:1.2;margin:0;text-wrap:balance}
+.stack{display:flex;flex-direction:column;gap:10px}
+
+/* Home cards */
+.continue{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px 16px;text-align:left;width:100%}
+.continue .num{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:20px;color:var(--d);background:var(--c)}
+.continue .t{font-weight:600;font-size:16px;line-height:1.3}
+.continue .s{font-size:13px;color:var(--muted)}
+.continue svg{width:20px;height:20px;color:var(--rose)}
+.prep{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.prep div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.prep b{display:block;font-family:var(--display);font-weight:400;font-size:18px;color:var(--rose-ink)}
+.prep span{font-size:13px;color:var(--muted);line-height:1.4;display:block}
+@media (min-width:560px){.prep{grid-template-columns:repeat(4,1fr)}}
+
+/* Chapter list */
+.part-head{display:flex;flex-direction:column;gap:4px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.part-head .meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.part-head .meta span{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.chlist{display:flex;flex-direction:column;gap:10px;list-style:none;margin:0;padding:0}
+.ch{display:grid;grid-template-columns:52px 1fr 26px;gap:14px;align-items:center;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:12px 14px 12px 12px}
+.ch .no{width:52px;height:52px;border-radius:14px;background:var(--c);color:var(--d);display:grid;place-items:center;font-family:var(--display);font-size:22px}
+.ch .tt{font-weight:600;font-size:16px;line-height:1.3;display:block}
+.ch .ss{font-size:13.5px;color:var(--muted);line-height:1.4;margin-top:2px;display:block}
+.ch .tick{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center}
+.ch.done .tick{background:var(--rose-deep);border-color:var(--rose-deep);color:#fff}
+.ch .tick svg{width:15px;height:15px}
+.coming{border:1.5px dashed var(--rose);border-radius:18px;padding:16px;color:var(--muted);font-size:14px;text-align:center}
+
+/* Reader */
+.reader{position:fixed;inset:0;z-index:40;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.r-bar{position:sticky;top:0;z-index:2;background:var(--c);color:var(--d);padding:calc(env(safe-area-inset-top,0px) + 8px) 8px 8px;display:flex;align-items:center;gap:6px}
+.r-bar .iconbtn{color:var(--d)}
+.r-bar .where{flex:1;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-align:center}
+.r-prog{position:sticky;top:calc(env(safe-area-inset-top,0px) + 56px);z-index:2;height:3px;background:var(--line)}
+.r-prog i{display:block;height:100%;width:0;background:var(--d)}
+.r-head{background:var(--c);color:var(--d);padding:14px 20px 30px;border-radius:0 0 28px 28px}
+.r-head .inner{max-width:680px;margin:0 auto}
+.r-head .n{font-family:var(--display);font-size:54px;line-height:1;opacity:.4}
+.r-head h1{font-family:var(--display);font-weight:400;font-size:32px;line-height:1.15;margin:6px 0 8px;text-wrap:balance;color:var(--ink)}
+.r-head p{margin:0;font-size:15px;color:var(--ink);opacity:.8}
+.r-body{max-width:680px;margin:0 auto;padding:26px 16px calc(40px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:18px;font-size:var(--fs)}
+.r-body p{margin:0;line-height:1.7}
+.r-body h3{font-family:var(--display);font-weight:400;font-size:1.35em;line-height:1.25;margin:10px 0 -4px;display:flex;gap:12px;align-items:baseline;text-wrap:balance}
+.r-body h3 .badge{flex:none;font-family:var(--body);font-size:12px;font-weight:700;width:28px;height:28px;border-radius:50%;display:inline-grid;place-items:center;background:var(--c);color:var(--d);transform:translateY(-3px)}
+.r-body ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:8px;line-height:1.6}
+.r-body li::marker{color:var(--d)}
+
+.box{border-radius:18px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:10px}
+.box .kind{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.box .ar{font-size:1.5em;margin:0}
+.box .en{font-size:.97em;line-height:1.65}
+.box .src{font-size:12.5px;letter-spacing:.03em;opacity:.8}
+.quran{background:var(--parch);color:var(--parch-ink);border:1px solid #EEDDB8}
+.quran .kind{color:#A07A30}
+.hadith{background:color-mix(in srgb,var(--c) 45%,#fff);border:1px solid var(--c)}
+.hadith .kind{color:var(--d)}
+.dua{background:var(--blush);color:var(--ink);border:1px solid var(--rose)}
+.dua .kind{color:var(--rose-deep)}
+.dua .ar{color:var(--rose-ink)}
+.key{border-left:4px solid var(--d);background:var(--surface);border-radius:4px 16px 16px 4px;padding:14px 16px;font-weight:500;line-height:1.6}
+.story{background:var(--surface);border:1.5px dashed var(--line);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.story .kind{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.story p{line-height:1.65}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-size:.9em;font-weight:500}
+.chips span b{color:var(--d);font-weight:700}
+.all{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.all div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.all b{display:block;font-family:var(--display);font-weight:400;font-size:1.1em;color:var(--d)}
+.all span{font-size:.85em;color:var(--muted);line-height:1.45;display:block}
+.yn{display:flex;flex-direction:column;gap:8px}
+.yn div{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 12px;line-height:1.5;font-size:.95em}
+.yn i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:14px}
+.yn .ok i{background:#D6EFE3;color:#2B7152}
+.yn .no i{background:#F9D6DF;color:#A3435D}
+.cta{background:var(--blush);border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.cta h4{margin:0;font-family:var(--display);font-weight:400;font-size:1.3em;color:var(--rose-ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;font-weight:600;font-size:15px;text-align:center}
+.btn.rose{background:var(--rose-deep);color:#fff}
+.btn.ghost{border:1.5px solid var(--line);background:var(--surface)}
+.r-end{display:flex;flex-direction:column;gap:12px;padding-top:14px;border-top:1px solid var(--line);margin-top:8px}
+.r-end .row{display:flex;gap:10px;flex-wrap:wrap}
+.r-end .row .btn{flex:1 1 150px}
+.done-note{text-align:center;color:var(--muted);font-size:14px}
+.pack{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.pack button{display:flex;align-items:center;gap:10px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-size:.9em;font-weight:500;min-height:46px}
+.pack i{flex:none;width:22px;height:22px;border-radius:7px;border:1.5px solid var(--rose);display:grid;place-items:center;color:#fff}
+.pack i svg{width:13px;height:13px;opacity:0}
+.pack button[aria-pressed="true"]{background:var(--blush-2)}
+.pack button[aria-pressed="true"] i{background:var(--rose-deep);border-color:var(--rose-deep)}
+.pack button[aria-pressed="true"] i svg{opacity:1}
+
+.steps{list-style:none;margin:0;padding:0;counter-reset:st;display:flex;flex-direction:column;gap:0}
+.steps li{counter-increment:st;display:grid;grid-template-columns:40px 1fr;column-gap:14px;padding-bottom:18px;position:relative}
+.steps li::before{content:counter(st);grid-row:span 2;width:40px;height:40px;border-radius:50%;background:var(--c);color:var(--d);display:grid;place-items:center;font-family:var(--display);font-size:19px}
+.steps li:not(:last-child)::after{content:"";position:absolute;left:19px;top:44px;bottom:2px;width:2px;background:var(--c)}
+.steps b{font-family:var(--display);font-weight:400;font-size:1.2em;line-height:1.3;padding-top:6px}
+.steps span{line-height:1.6;font-size:.95em;color:var(--ink)}
+.plan{display:flex;flex-direction:column;gap:8px}
+.round{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px 10px 8px 8px}
+.round .rn{width:34px;height:34px;border-radius:50%;background:var(--c);color:var(--d);display:grid;place-items:center;font-family:var(--display);font-size:17px}
+.round .rl{font-weight:600;font-size:.95em}
+.round select{font:inherit;font-size:15px;color:var(--ink);background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:8px 10px;min-width:0;max-width:44vw}
+
+/* Memorise */
+.seg{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px}
+.seg button{flex:1;min-height:38px;border-radius:999px;font-size:14px;font-weight:600;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--rose-deep);color:#fff}
+.mem-stat{display:flex;justify-content:space-between;align-items:baseline;font-variant-numeric:tabular-nums;gap:12px}
+.mem-stat b{font-family:var(--display);font-weight:400;font-size:28px;color:var(--rose-ink)}
+.mem-stat span{color:var(--muted)}
+.mcard{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.mcard .top{padding:14px 16px 0}
+.mcard .top .kind{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-deep)}
+.mcard .top h4{margin:2px 0 0;font-size:15.5px;font-weight:600;line-height:1.3}
+.mcard .arw{margin:0;padding:8px 18px 4px;font-size:25px;color:var(--rose-ink);cursor:pointer}
+.mcard .enw{margin:0;padding:0 18px 12px;font-size:15px;line-height:1.6;cursor:pointer}
+.mcard .why{margin:0 16px 14px;font-size:13.5px;color:var(--muted);line-height:1.5;border-top:1px solid var(--line);padding-top:10px}
+.mcard .why b{color:var(--ink);font-weight:600}
+.mcard .foot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 16px;background:var(--surface-2);border-top:1px solid var(--line)}
+.mcard .foot .src{font-size:12.5px;color:var(--muted)}
+.mbtn{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 14px;border-radius:999px;border:1.5px solid var(--rose);font-size:13.5px;font-weight:600;color:var(--rose-ink);background:var(--surface);flex:none}
+.mbtn svg{width:15px;height:15px}
+.mcard.got .mbtn{background:var(--rose-deep);border-color:var(--rose-deep);color:#fff}
+.blur{filter:blur(7px);user-select:none;transition:filter .2s}
+.hint{font-size:13px;color:var(--muted);text-align:center;margin:0}
+
+/* Du'a list */
+.intro{background:var(--blush);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:8px;line-height:1.6;font-size:15px}
+.intro .kind{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-deep)}
+.adder{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:14px}
+.adder textarea{width:100%;min-height:70px;resize:vertical;border:1px solid var(--line);border-radius:14px;background:var(--surface-2);color:var(--ink);font:inherit;font-size:16px;padding:10px 12px}
+.adder .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.adder .seg{flex:1 1 220px}
+.adder .seg button{font-size:13px}
+.prompts{display:flex;flex-wrap:wrap;gap:6px}
+.prompts button{border:1px dashed var(--rose);border-radius:999px;padding:5px 11px;font-size:12.5px;color:var(--rose-ink)}
+.dgroup{display:flex;flex-direction:column;gap:8px}
+.ditem{display:grid;grid-template-columns:30px 1fr 34px;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px}
+.ditem .chk{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--rose);display:grid;place-items:center}
+.ditem .chk svg{width:15px;height:15px;opacity:0}
+.ditem.asked .chk{background:var(--rose-deep);border-color:var(--rose-deep);color:#fff}
+.ditem.asked .chk svg{opacity:1}
+.ditem .tx{line-height:1.5;padding-top:3px;overflow-wrap:anywhere}
+.ditem.asked .tx{color:var(--muted)}
+.ditem .del{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:var(--muted)}
+.ditem .del svg{width:17px;height:17px}
+.empty{text-align:center;color:var(--muted);font-size:14px;padding:6px 0;margin:0}
+
+/* Tabs */
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface);border-top:1px solid var(--line);padding:6px 8px calc(env(safe-area-inset-bottom,0px) + 6px);display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.tabs button{display:flex;flex-direction:column;align-items:center;gap:3px;min-height:52px;justify-content:center;font-size:11.5px;font-weight:600;color:var(--muted);border-radius:14px}
+.tabs button svg{width:23px;height:23px}
+.tabs button[aria-selected="true"]{color:var(--rose-ink);background:var(--blush-2)}
+.tabs button[aria-selected="true"] svg{color:var(--rose-deep)}
+
+/* Sheet */
+.scrim{position:fixed;inset:0;background:rgba(59,42,49,.35);z-index:50}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:51;background:var(--surface);border-radius:24px 24px 0 0;padding:10px 20px calc(env(safe-area-inset-bottom,0px) + 22px);display:flex;flex-direction:column;gap:18px;max-width:720px;margin:0 auto}
+.sheet .grab{width:40px;height:5px;border-radius:9px;background:var(--line);margin:0 auto}
+.sheet h2{font-family:var(--display);font-weight:400;margin:0;font-size:24px}
+.size{display:flex;align-items:center;gap:14px}
+.size input{flex:1;accent-color:var(--rose-deep)}
+.size span{font-family:var(--display)}
+.danger{color:#B3261E;font-size:14px;font-weight:600;align-self:flex-start;padding:6px 0}
+.confirm{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px}
+.toast{position:fixed;left:50%;bottom:calc(var(--tabh) + env(safe-area-inset-bottom,0px) + 18px);transform:translateX(-50%);background:var(--rose-ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;z-index:60;box-shadow:0 6px 20px rgba(140,58,85,.25);white-space:nowrap}
+</style>
+</head>
+<body>
+
+<header class="appbar">
+  <div class="brand"><span class="nm">Preparing for Umrah</span><small>Notes from the lecture series</small></div>
+  <button class="iconbtn" id="openSettings" aria-label="Settings">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>
+  </button>
+</header>
+
+<main id="main">
+  <section class="view" id="v-home"></section>
+  <section class="view" id="v-chapters" hidden></section>
+  <section class="view" id="v-memorise" hidden></section>
+  <section class="view" id="v-list" hidden></section>
+</main>
+
+<nav class="tabs" role="tablist" aria-label="Sections">
+  <button role="tab" data-tab="home" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="8" width="8" height="8" rx="1"/><circle cx="12" cy="12" r="8.5" stroke-dasharray="2 2.4"/></svg>Home</button>
+  <button role="tab" data-tab="chapters" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 5.5C6.5 4.5 9.5 4.5 12 6v13c-2.5-1.5-5.5-1.5-8-.5z"/><path d="M20 5.5c-2.5-1-5.5-1-8 .5v13c2.5-1.5 5.5-1.5 8-.5z"/></svg>Chapters</button>
+  <button role="tab" data-tab="memorise" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg>Memorise</button>
+  <button role="tab" data-tab="list" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 11V6.5a1.5 1.5 0 013 0V11M10 10V5a1.5 1.5 0 013 0v5M13 10V6a1.5 1.5 0 013 0v7c0 4-2.5 7-6 7s-5-2-6.5-5L3 12.5a1.5 1.5 0 012.5-1.6L7 13"/></svg>My Du'as</button>
+</nav>
+
+<div class="reader" id="reader" hidden></div>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" hidden role="dialog" aria-label="Settings">
+  <div class="grab"></div>
+  <h2>Settings</h2>
+  <div>
+    <p class="label" style="margin-bottom:10px">Reading size</p>
+    <div class="size"><span style="font-size:14px">A</span><input type="range" id="fsize" min="15" max="23" step="1" value="17" aria-label="Reading text size"><span style="font-size:22px">A</span></div>
+  </div>
+  <div id="resetWrap"></div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* =========================================================
+   CONTENT: taken only from the lecture transcripts.
+   To add a session: push a new part into PARTS (and cards
+   into MEMORISE), then bump CACHE in sw.js.
+   Chapter colours are [pastel background, deep text].
+   ========================================================= */
+const PAL = {
+  mint:["#D3EFE7","#2E7566"], peri:["#DCE1F8","#43539F"], rose:["#F9D6DF","#A3435D"], sage:["#E0EACF","#566D32"],
+  butter:["#F7E9BC","#86661A"], sky:["#D5E7F6","#2E5F8C"], lilac:["#E8DCF4","#6A4996"], peach:["#FBDFCC","#9E5527"],
+  aqua:["#CFECF0","#28707E"], blush:["#F8D9E8","#963D6A"], sand:["#F1E4D2","#7A5A34"]
+};
+const ari = s=>`<span class="ari">${s}</span>`;
+
+const PARTS = [
+{
+  id:"p1", num:"Part One", title:"Understanding Umrah", session:"Session 1",
+  chapters:[
+  {
+    id:"c1", title:"Preparing for the Journey", color:PAL.mint,
+    summary:"Why this journey needs preparation before you set out.",
+    blocks:[
+      {t:"p",h:"Out of so many people, Allah ﷻ has given you the ability and the opportunity to make the intention for Umrah and to prepare for this journey. That in itself is a huge blessing."},
+      {t:"dua",kind:"Each session opens with",ar:"رَبِّ اشْرَحْ لِي صَدْرِي ۝ وَيَسِّرْ لِي أَمْرِي ۝ وَاحْلُلْ عُقْدَةً مِّن لِّسَانِي ۝ يَفْقَهُوا قَوْلِي — اللَّهُمَّ اهْدِ قَلْبِي وَسَدِّدْ لِسَانِي وَاسْلُلْ سَخِيمَةَ قَلْبِي",en:"My Lord, expand for me my chest, ease for me my task, and untie the knot from my tongue so they may understand my speech. O Allah, guide my heart, make my tongue firm and true, and remove the resentment from my heart."},
+      {t:"p",h:"Whenever a person travels somewhere, they must prepare in advance. If they do not prepare mentally and physically, and do not prepare their supplies for the journey, they feel lost. They feel their time is being wasted and that they are missing a huge opportunity. They are not able to make the most of it the way they could have, had they been better prepared."},
+      {t:"key",h:"We do not want to be of those who regret. We want to be fully prepared for this journey."},
+      {t:"all",items:[["Spiritually","Your heart and intention"],["Mentally","Ready for what the journey asks"],["Physically","Your body and your supplies"],["Informationally","The knowledge of what to do"]]},
+      {t:"p",h:"So this series begins with the foundations: what Umrah is, its significance, its reward, why we want to go, and how we can prepare."},
+      {t:"dua",kind:"A du'a for you",en:"May Allah facilitate it for you in every single step of the way. May this journey be a means of forgiveness, a means of increase in many, many rewards, and a means of drawing ever closer to Allah ʿazza wa jall. Āmīn."}
+    ]
+  },
+  {
+    id:"c2", title:"What Umrah Is", color:PAL.peri,
+    summary:"The meaning of the word, and what it means in the Shariʿah.",
+    blocks:[
+      {t:"h",h:"In the language"},
+      {t:"p",h:"Linguistically, <em>ʿumrah</em> means a visit: to visit a place that is inhabited. The word is also used for a visit that builds love and affection, where you visit someone in order to build better relations with them."},
+      {t:"h",h:"In the Shariʿah"},
+      {t:"p",h:"In the Shariʿah, the word Umrah refers to the minor pilgrimage. It is called so because it is a religious visit."},
+      {t:"list",items:["It is not a visit to a city to take the perfect Instagrammable pictures.","It is not about eating at the fanciest of restaurants.","It is not a visit where a person is only concerned with their hotel and where they are going to dine."]},
+      {t:"p",h:"The objective of this visit is to go to sacred places in Makkah and to perform certain rituals in the state of <em>iḥrām</em>:"},
+      {t:"chips",items:["<b>Ṭawāf</b> around the Kaʿbah","<b>Saʿī</b> between aṣ-Ṣafā and al-Marwah"]},
+      {t:"key",h:"Umrah is a religious visit to sacred places in Makkah, performing ṭawāf and saʿī in the state of iḥrām."}
+    ]
+  },
+  {
+    id:"c3", title:"Worship That Takes All of You", color:PAL.rose,
+    summary:"Why Umrah is unlike any other act of worship, and why its reward is so great.",
+    blocks:[
+      {t:"h",h:"Only in one place on earth"},
+      {t:"p",h:"Umrah is a very significant act of worship, and a unique one: it can only be performed in Makkah, in al-Masjid al-Ḥarām. You cannot perform Umrah anywhere else on earth."},
+      {t:"p",h:"Salah you can pray in Makkah, on a plane, in Canada or in Greenland. Sadaqah and zakat you give wherever you are. Umrah has to be performed in Makkah."},
+      {t:"h",h:"It requires every part of you"},
+      {t:"p",h:"Umrah does not only involve certain actions, or only statements on the tongue, or only the heart. It requires all of you:"},
+      {t:"all",items:[["Wealth","You spend from what you have"],["Time & travel","You journey to Makkah"],["Body","You walk around the Kaʿbah; men run in a certain area between Ṣafā and Marwah"],["Tongue","There are words you must say"],["Heart","Your heart has to be present"]]},
+      {t:"h",h:"So its reward is huge"},
+      {t:"list",items:["It is a means of forgiveness of sins.","It removes poverty, as the Prophet ﷺ said.","It is a means of drawing close to Allah.","It is a means of having our du'as accepted."]}
+    ]
+  },
+  {
+    id:"c4", title:"Answering the Call", color:PAL.sage,
+    summary:"Going for Umrah is a response to the call Ibrahim عليه السلام was commanded to make.",
+    blocks:[
+      {t:"p",h:"When a person goes for Umrah or Hajj, they are actually responding to the call of Allah. Allah ﷻ commanded His Khalīl, Ibrahim عليه السلام:"},
+      {t:"q",ar:"وَأَذِّن فِي النَّاسِ بِالْحَجِّ يَأْتُوكَ رِجَالًا وَعَلَىٰ كُلِّ ضَامِرٍ يَأْتِينَ مِن كُلِّ فَجٍّ عَمِيقٍ",en:"And proclaim to the people the pilgrimage. They will come to you on foot and on every lean camel; they will come from every distant pass.",ref:"Sūrat al-Ḥajj 22:27"},
+      {t:"p",h:"There are two types of Hajj: the major Hajj, which is well known, and the minor Hajj, which is Umrah."},
+      {t:"p",h:"Ibrahim عليه السلام had to make the announcement that people should come, visit the Kaʿbah and worship Allah there. When you go for Umrah, you are responding to that invitation."},
+      {t:"key",h:"Being able to travel for Umrah is a huge privilege and an honour: you are able to respond to the call of Allah."}
+    ]
+  },
+  {
+    id:"c5", title:"Complete It for Allah", color:PAL.butter,
+    summary:"One short ayah, and at least five meanings the ʿulamāʾ draw from it.",
+    blocks:[
+      {t:"p",h:"Umrah is mentioned in the Qur'an. Allah ﷻ tells us:"},
+      {t:"q",ar:"وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ",en:"And complete the Hajj and Umrah for Allah.",ref:"Sūrat al-Baqarah 2:196"},
+      {t:"p",h:"It is mainly four words, yet the ʿulamāʾ interpret this ayah in at least five different ways."},
+      {t:"h",n:1,h:"Purely for the sake of Allah"},
+      {t:"p",h:"From the beginning until the end, your intention should be purely for Allah: to please Him, to draw closer to Him, and to have your sins forgiven, so that the barriers we have put up between ourselves and Allah are taken down."},
+      {t:"p",h:"Umrah should not be done to impress people: <em>“I'm going for Umrah again this year”</em>, <em>“my whole family is going”</em>, <em>“I'm going with such-and-such group”</em>, <em>“as I do every six months.”</em>"},
+      {t:"list",items:["If the intention is to impress people, the reward is wasted.","If the intention is to boast about one's wealth, the reward is wasted.","If the intention is to look good in the eyes of others and feel great about oneself, it is not purely for Allah."]},
+      {t:"dua",kind:"The intention to carry",en:"Yā Allah, whatever I do, every step that I take, every cent that I spend, and every moment that I spend in preparing for this journey, in going on this journey and in performing this noble act of worship, I want to do it purely for You, so that You are pleased with me, You forgive me and You reward me."},
+      {t:"h",n:2,h:"Once you begin, finish it"},
+      {t:"p",h:"When you start Umrah, don't leave it halfway: <em>“I'm quite tired from the ṭawāf, so I think I'll just call it quits.”</em> No, you have to complete it. There are exceptional cases in which a person is allowed to exit the state of iḥrām, but those are very unusual circumstances. In general, once a person begins Umrah, they must complete it."},
+      {t:"h",n:3,h:"Complete it properly"},
+      {t:"p",h:"Perform it the way you should, the way the Prophet ﷺ taught. About the pilgrimage he said:"},
+      {t:"hd",en:"“Take your rituals from me.” Meaning, learn them from me.",ref:"Ṣaḥīḥ Muslim"},
+      {t:"p",h:"So in order to perform Umrah completely and properly, and to follow what Allah tells us in this ayah, we have to learn how to perform Umrah."},
+      {t:"h",n:4,h:"Complete it with excellence"},
+      {t:"p",h:"Some people do only the bare minimum, going down a list to check boxes. That is fine; they have completed it. But doing the bare minimum is one thing, and doing it at the level of excellence is another. Perform ṭawāf with excellence. Perform saʿī with excellence. From the beginning of the journey until the end, keep your tongue busy in the dhikr of Allah and in gratitude to Allah."},
+      {t:"story",kind:"From the teacher",h:"<p>“I remember once I was going for Umrah and I wasn't that well at the time. My mother advised me that being able to go is such a huge blessing that any discomfort or inconvenience along the way is worth it. Whatever hardship you experience is worth it, because being able to go for Umrah is such a big deal.”</p>"},
+      {t:"p",h:"People have lined up outside the Apple store for hours to be the first to buy a new iPhone. People stood fourteen hours just to pass by the Queen and pay their respects. So when we are going for the sake of Allah and experience some inconvenience, whether hunger, thirst or waiting:"},
+      {t:"chips",items:["Be careful what you <b>say</b>","Be careful what you <b>think</b>","Be careful how you <b>respond</b>"]},
+      {t:"key",h:"You want to complete this journey with excellence, with iḥsān."},
+      {t:"h",n:5,h:"It is an obligation"},
+      {t:"p",h:"The ʿulamāʾ also say this ayah establishes the obligation of Hajj and of Umrah, since Allah tells us to do both for His sake. Just as Hajj is obligatory, a pillar of Islam, Umrah is also an act of worship that is obligatory on those who are able to perform it."}
+    ]
+  },
+  {
+    id:"c6", title:"Is Umrah Obligatory?", color:PAL.sky,
+    summary:"What the Prophet ﷺ instructed, what the Companions held, and doing it for others.",
+    blocks:[
+      {t:"p",h:"The Prophet ﷺ instructed people:"},
+      {t:"hd",ar:"أَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَحُجُّوا وَاعْتَمِرُوا",en:"Establish the prayer, give zakat, perform Hajj, and perform Umrah.",ref:"Hadith"},
+      {t:"p",h:"When ʿĀʾishah رضي الله عنها asked whether women must perform jihad, the Prophet ﷺ said yes: upon them is a jihad in which there is no fighting, and that jihad is Hajj and Umrah."},
+      {t:"h",h:"What the Companions said"},
+      {t:"list",items:["<b>Ibn ʿAbbās</b> رضي الله عنهما: Hajj and Umrah are companions of one another in the Book of Allah; they are mentioned together.","<b>Ibn ʿUmar</b> رضي الله عنهما: Hajj and Umrah are obligatory on every Muslim.","<b>Jābir</b> رضي الله عنه said:"]},
+      {t:"hd",kind:"Saying of a Companion",ar:"لَيْسَ مُسْلِمٌ إِلَّا عَلَيْهِ عُمْرَةٌ",en:"There is no Muslim except that upon him is the duty to perform Umrah."},
+      {t:"h",h:"As soon as you are able"},
+      {t:"p",h:"Hajj and Umrah are deeds a person should perform as soon as they can."},
+      {t:"story",kind:"In the time of ʿUmar رضي الله عنه",h:"<p>A Christian Bedouin embraced Islam and came to some Muslims, who told him to do Hajj and Umrah before doing anything else. When he mentioned this to ʿUmar رضي الله عنه, ʿUmar confirmed it: yes, this is how it should be. The man went for his Hajj and Umrah and took his sacrificial animal along.</p><p>The view of the Companions was that even before jihad, you do Hajj and Umrah. It is that important.</p>"},
+      {t:"p",h:"Ibn ʿUmar رضي الله عنهما also said that the Prophet ﷺ performed Umrah before performing Hajj."},
+      {t:"h",h:"On behalf of someone else"},
+      {t:"p",h:"Umrah can be performed on behalf of someone else, for example someone elderly, or someone with an illness from which they do not expect to recover, who has not been able to perform it."},
+      {t:"hd",en:"A man came to the Prophet ﷺ and said his father was a very old man who was not able to perform Hajj and Umrah. The Prophet ﷺ told him: do Hajj and Umrah on behalf of your father."},
+      {t:"p",h:"He did not only say to do Hajj on his father's behalf. He also said to do Umrah."},
+      {t:"key",h:"Many people think Umrah is voluntary: if you do it, fine, and if you don't, fine. No. At least once in a person's lifetime, they must do it."},
+      {t:"p",h:"Umrah is open all year round: you can perform it in any month. Hajj has to be performed in the months of Hajj."}
+    ]
+  },
+  {
+    id:"c7", title:"The Virtues of Umrah", color:PAL.lilac,
+    summary:"Forgiveness, the removal of poverty, and being the guests of Allah.",
+    blocks:[
+      {t:"h",n:1,h:"It is in the way of Allah"},
+      {t:"hd",ar:"إِنَّ الْحَجَّ وَالْعُمْرَةَ مِنْ سَبِيلِ اللَّهِ",en:"Indeed, Hajj and Umrah are from the way of Allah."},
+      {t:"p",h:"<em>Sabīl Allāh</em> is the religion of Allah. It is also the path of Allah: the path that takes one to Allah's approval, the path He has legislated. In the Qur'an the word is sometimes also used for jihad, striving in the way of Allah."},
+      {t:"p",h:"Hajj and Umrah require a lot of effort. You have to be physically fit, you have to endure, and you have to spend a great deal of money. These are extraordinary acts of worship."},
+      {t:"h",n:2,h:"It expiates the sins in between"},
+      {t:"hd",en:"From one Umrah to another is an expiation for the sins that came in between them."},
+      {t:"p",h:"If a person performed Umrah ten years ago and performs Umrah again this year, then once they complete it, all the sins they committed in between will be forgiven. We don't even remember the sins we have committed. We do them and forget them, or we think they are not really a big deal."},
+      {t:"key",h:"This is an encouragement to perform Umrah again and again. Don't think this is the one and only time. Intend to go again and again."},
+      {t:"p",h:"Umrah is a visit. When you visit a loved one or a place you love, you don't go just once. You visit repeatedly, because you know there are many benefits."},
+      {t:"h",n:3,h:"It removes poverty and sin"},
+      {t:"hd",ar:"تَابِعُوا بَيْنَ الْحَجِّ وَالْعُمْرَةِ فَإِنَّ الْمُتَابَعَةَ بَيْنَهُمَا تَنْفِي الْفَقْرَ وَالذُّنُوبَ كَمَا يَنْفِي الْكِيرُ خَبَثَ الْحَدِيدِ",en:"Perform Hajj and Umrah one after the other, for following them one after the other removes poverty and sins just as the furnace removes impurity from iron."},
+      {t:"p",h:"One Hajj is obligatory, but if you are able to go again, go again. The same with Umrah: if you are able to go again, you go."},
+      {t:"story",kind:"The furnace",h:"<p>Something made of iron is not like glass that you wash with warm soapy water and it's shiny. The dirtier something is, the more rigorous the cleaning needs to be. Iron is purified by putting it in the furnace: in the heat, any impurity rises to the surface, and then you wipe it off.</p>"},
+      {t:"p",h:"Some sins are like that. A person tries so hard to leave them, repents and feels bad, and after some time the desire returns. It is as if the sin is stuck to them."},
+      {t:"p",h:"Poverty can be the same. A person tries to have a stable income, to save, to invest, to build a business, and cannot. As the family grows, expenses grow and rent goes up. Everyone complains, if not of poverty, then at least of shortage of money."},
+      {t:"key",h:"The solution: go for Hajj and Umrah repeatedly, and Allah will remove these sins from you and remove poverty from you."},
+      {t:"p",h:"The ʿulamāʾ explain this in two ways:"},
+      {t:"list",items:["<b>Literally.</b> Sins are removed and poverty is erased, so the person is no longer poor. When you go for Umrah you are spending in the way of Allah, and when you spend in His way, Allah blesses your wealth and causes it to increase.","<b>Contentment.</b> The removal of poverty also means satisfaction of the heart. Some people cannot live comfortably on a six-figure salary, and others live with peace of mind and joy on much less. The difference is the state of the heart."]},
+      {t:"p",h:"When you travel for Allah, you learn to live with much less. Your only focus is worship and your basic needs. This teaches you the reality of this world and its true worth, helps purify your heart, and helps you reorient yourself. So the removal of poverty means an increase in sustenance, and also the satisfaction that Allah bestows on a person."},
+      {t:"h",n:4,h:"You are the guests of Allah"},
+      {t:"hd",ar:"الْحُجَّاجُ وَالْعُمَّارُ وَفْدُ اللَّهِ إِنْ دَعَوْهُ أَجَابَهُمْ وَإِنِ اسْتَغْفَرُوهُ غَفَرَ لَهُمْ",en:"Those who perform Hajj and those who perform Umrah are the delegation of Allah. If they call upon Him, He answers them, and if they seek His forgiveness, He forgives them."},
+      {t:"p",h:"If a guest in your house asks you for something, will you refuse? No. Part of honouring a guest is granting what they ask for. "+ari("وَلِلَّهِ الْمَثَلُ الْأَعْلَىٰ")+", and to Allah belongs the highest example: He honours those who come to visit His House, and He responds to their du'as."},
+      {t:"cta",title:"Start your list from now",h:"List the things that are heavy on your heart: what causes you stress and worry, what pushes you into unhealthy habits, what makes you anxious, irritable, short-tempered or on edge. Whether it is your own struggle or your family's or your loved ones', write it down, and when you go, beg Allah and ask Him for a lot. There is no limit to how much you can ask Allah."},
+      {t:"h",n:5,h:"You are in Allah's protection"},
+      {t:"p",h:"Those who go for Umrah are in the protection of Allah, as we learn in the hadith. Allah honours them so much that they are given special protection."},
+      {t:"h",n:6,h:"The jihad of those who cannot fight"},
+      {t:"hd",en:"The jihad of the elderly, the young, the weak and the women is Hajj and Umrah."},
+      {t:"h",n:7,h:"Reward in proportion to the effort"},
+      {t:"hd",en:"The Prophet ﷺ said to ʿĀʾishah رضي الله عنها that the reward of her Umrah would be in proportion to the hardship she endured and the wealth she spent."},
+      {t:"p",h:"You may not have gone yet, and already you are enduring some hardship for it: working overtime, or wrapping up certain projects quickly so that you are able to travel."},
+      {t:"p",h:"The hardship can come in the form of travel, hunger, physical exertion or fatigue. Then in the Umrah itself you do ṭawāf and saʿī in the state of iḥrām; you probably have not slept well, your feet hurt, your legs hurt, maybe the weather doesn't suit you."},
+      {t:"key",h:"There is hardship one has to endure, but your reward is in proportion to how much hardship you endure and how much you spend."},
+      {t:"h",n:8,h:"If you die on the way"},
+      {t:"hd",en:"When a person intends to go for Umrah and dies on the journey, not able to complete the Umrah or make it back home, the reward of Umrah is written for them until the Day of Judgement."}
+    ]
+  },
+  {
+    id:"c8", title:"Umrah in Ramadan", color:PAL.peach,
+    summary:"The reward of Hajj with the Prophet ﷺ, and the story of Umm Ṭalīq.",
+    blocks:[
+      {t:"p",h:"Depending on when a person performs it, the reward of Umrah can be even more."},
+      {t:"hd",en:"When a person performs Umrah in the month of Ramadan, the reward is equal to performing Hajj with the Prophet ﷺ."},
+      {t:"story",kind:"Abū Ṭalīq and Umm Ṭalīq رضي الله عنهما",h:"<p>Umm Ṭalīq came to her husband Abū Ṭalīq and said: let's go for Hajj together. He had two camels: a she-camel he went for Hajj on, and a male camel he had kept for jihad fī sabīlillāh.</p><p>She asked to borrow the male camel. He said: you know I use it for jihad, how can I lend it to you? She said: Hajj is also fī sabīlillāh, may Allah have mercy on you, please lend it to me. He refused.</p><p>She said: then give me the she-camel, and you take the other. He said: I am not going to give you preference over myself. She asked for some money to find a ride, saying Allah would give him something even better. He said he did not have that much, and refused.</p><p>So she said: when you go to the Prophet ﷺ, give him my salām and tell him what I asked you for and what you said.</p><p>When he did, the Prophet ﷺ said Umm Ṭalīq was right. Had he given her the camel kept for jihad, it would still be in the way of Allah, because going for Hajj and Umrah is in the way of Allah. Had he given her the she-camel, both of them would be in the way of Allah. And had he given her some of his wealth, Allah would have given him something even better.</p><p>Then he said: O Messenger of Allah, she was also asking what action equals the reward of Hajj with you. The Prophet ﷺ replied: performing Umrah in the month of Ramadan.</p>"},
+      {t:"h",h:"Lessons from the hadith"},
+      {t:"list",items:["Men should be generous with their wives.","Men should support their wives in worshipping Allah, and when they do, Allah ﷻ blesses them in their wealth.","Umrah in Ramadan brings the reward of doing Hajj with the Prophet ﷺ."]},
+      {t:"p",h:"The Prophet ﷺ also said to a man from the Anṣār and his wife:"},
+      {t:"hd",ar:"اعْتَمِرَا فِي رَمَضَانَ",en:"Both of you, perform Umrah in Ramadan, for Umrah in Ramadan is equal to the reward of Hajj."}
+    ]
+  },
+  {
+    id:"c9", title:"Who Must Perform Umrah", color:PAL.aqua,
+    summary:"The conditions that make Umrah obligatory, and two more for women.",
+    blocks:[
+      {t:"p",h:"There are certain conditions, prerequisites you could say. Umrah is obligatory on a person who is:"},
+      {t:"all",items:[["Muslim","The first condition"],["Sane","Of sound mind"],["An adult","Has reached adulthood"],["Free","It is not an obligation on a slave"],["Able","Physical health and financial capacity"]]},
+      {t:"h",h:"For women: a maḥram"},
+      {t:"p",h:"For women there is an additional condition: she should have her maḥram with her."},
+      {t:"hd",en:"It is not permissible for a man to be alone with a woman who is not related to him, and no woman should travel except with a maḥram. A man stood up and said: O Messenger of Allah, I have intended to go for such-and-such jihad, and my wife is going for Hajj. The Prophet ﷺ said: go and perform Hajj with your wife.",ref:"Ṣaḥīḥ al-Bukhārī"},
+      {t:"p",h:"He did not say: let your wife go alone. He said: go with her, because she should not go on her own."},
+      {t:"h",h:"For women: not in ʿiddah"},
+      {t:"p",h:"A woman should not be in her ʿiddah, her state of <em>ḥidād</em>. If a woman's husband has passed away and she is observing the mourning period of four months and ten days, she should not go during it."},
+      {t:"story",kind:"In the time of ʿUmar رضي الله عنه",h:"<p>When women in ḥidād came for Umrah, ʿUmar would turn them back from Dhul-Ḥulayfah, the place where people make the intention. He would send them back: you cannot do it right now, you are in your ʿiddah.</p>"}
+    ]
+  },
+  {
+    id:"c10", title:"Why We Go: Four Objectives", color:PAL.blush,
+    summary:"Sincerity, taqwā, remembrance of Allah, and purifying the nafs. Set these goals now.",
+    blocks:[
+      {t:"p",h:"What are the objectives of Umrah? Why are we performing it? It is important to set these goals now, in shāʾ Allāh."},
+      {t:"h",n:1,h:"Purely for Allah"},
+      {t:"p",h:"We want to please Allah ʿazza wa jall and establish tawḥīd in our lives, doing something purely for His sake alone. Umrah is an act of worship dedicated to Allah alone."},
+      {t:"q",ar:"وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ",en:"And they were not commanded except to worship Allah, being sincere to Him in religion.",ref:"Sūrat al-Bayyinah 98:5"},
+      {t:"p",h:"All acts of worship we dedicate to Allah should be sincerely for His sake alone."},
+      {t:"h",n:2,h:"To develop taqwā"},
+      {t:"p",h:"Allah mentions Hajj and Umrah in several places in the Qur'an, and in these verses taqwā is mentioned many times."},
+      {t:"p",h:"Taqwā is a state of heightened consciousness of Allah. Because a person is so conscious of Him, they don't want to do anything that would anger or displease Him, so they stay away from disobedience, big and small. They become very careful. And they want to make Allah happy with them, so they are eager to do every deed that pleases Him, the big things and the little things."},
+      {t:"q",ar:"وَاتَّقُوا اللَّهَ وَاعْلَمُوا أَنَّ اللَّهَ شَدِيدُ الْعِقَابِ",en:"And have taqwā of Allah, and know that Allah is severe in penalty.",ref:"Sūrat al-Baqarah 2:196"},
+      {t:"q",ar:"وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ",en:"And take provisions, but the best provision is taqwā.",ref:"Sūrat al-Baqarah 2:197"},
+      {t:"key",h:"We want to do Umrah so that we increase in our taqwā."},
+      {t:"h",n:3,h:"To remember Allah"},
+      {t:"hd",en:"Ṭawāf of the Kaʿbah, going between Ṣafā and Marwah, and at Hajj the stoning of the pillars: all of these rituals have been established for the remembrance of Allah."},
+      {t:"p",h:"You remember Allah with your tongue, and you remember Him with your actions. When you are doing ṭawāf, your tongue is busy in His remembrance. You want to develop the habit of remembering Allah."},
+      {t:"h",n:4,h:"To purify the nafs"},
+      {t:"p",h:"When a person enters the state of iḥrām, they put aside their personal preferences and desires and make obedience to Allah their ultimate goal. Even if you want to cut your nails, you won't. Even if you want to use perfume, which people like, you won't. Men who want to wear comfortable clothes cannot."},
+      {t:"q",ar:"فَمَن فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ",en:"Whoever has made Hajj obligatory upon himself therein, there is to be no sexual relations, no disobedience and no disputing during Hajj.",ref:"Sūrat al-Baqarah 2:197"},
+      {t:"p",h:"There are rules a person has to observe in the state of iḥrām. These are covered in detail in Part Two."}
+    ]
+  },
+  {
+    id:"c11", title:"Start Preparing Now", color:PAL.sand,
+    summary:"Mental and physical preparation, and packing wisely.",
+    blocks:[
+      {t:"h",h:"Mental preparation begins now"},
+      {t:"p",h:"From now, remind yourself: I'm doing this for the sake of Allah. I'm going for the sake of Allah. Repeat the ayah:"},
+      {t:"q",ar:"وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ",en:"And complete the Hajj and Umrah for Allah.",ref:"Sūrat al-Baqarah 2:196"},
+      {t:"p",h:"If family are going with you, remind them too: we are doing this for Allah, we want to please Allah. Allah only accepts deeds done sincerely for His sake."},
+      {t:"dua",kind:"ʿUmar's du'a for sincerity",ar:"اللَّهُمَّ اجْعَلْ عَمَلِي كُلَّهُ صَالِحًا وَاجْعَلْهُ لِوَجْهِكَ خَالِصًا وَلَا تَجْعَلْ لِأَحَدٍ فِيهِ شَيْئًا",en:"O Allah, make all of my actions righteous, make them sincerely for Your Face alone, and do not give anyone else a share in them."},
+      {t:"dua",kind:"The Prophet's ﷺ words at his Hajj",ar:"اللَّهُمَّ حَجَّةٌ لَا رِيَاءَ فِيهَا وَلَا سُمْعَةَ",en:"O Allah, a Hajj in which there is no showing off and no seeking of reputation."},
+      {t:"p",h:"Meaning: I am doing this purely for You, not to show off to people, nor to earn a reputation of being a Ḥājjah or Ḥājjī."},
+      {t:"p",h:"Part of the preparation is learning the rituals and steps of Umrah, as the Prophet ﷺ said:"},
+      {t:"hd",ar:"لِتَأْخُذْ أُمَّتِي مَنَاسِكَهَا",en:"Let my Ummah learn its rituals."},
+      {t:"h",h:"Physical preparation"},
+      {t:"p",h:"Umrah requires a lot of walking. Someone recently told the teacher they were averaging <b>10,000 steps a day</b> during their Umrah. So start walking now to build that capacity. Otherwise you will miss praying in al-Masjid al-Ḥarām, where one salah is <b>100,000 times</b> more rewarding than salah anywhere else."},
+      {t:"h",h:"Take your provisions"},
+      {t:"story",kind:"The people of Yemen",h:"<p>The people of Yemen used to go for Hajj without bringing any supplies, saying: we put our trust in Allah. But in Makkah they had needs, and they would ask people to give them something. Basically, they would beg. So Allah revealed:</p>"},
+      {t:"q",ar:"وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ",en:"And take provisions, but the best provision is taqwā.",ref:"Sūrat al-Baqarah 2:197"},
+      {t:"p",h:"Taking provisions doesn't mean taking your entire wardrobe, many pairs of shoes and a lot of food. Pack, but pack wisely, so you don't struggle to manage it all there. Talk to people about which clothing, shoes, slippers and bag are best."},
+      {t:"pack"},
+      {t:"key",h:"Don't forget simplicity, because simplicity is from faith."},
+      {t:"p",h:"This is not a journey for taking photos all the time. Focus on the moment, and enjoy the moments there by immersing yourself in the remembrance and worship of Allah."},
+      {t:"hd",kind:"Narration",en:"The Prophet ﷺ performed Hajj on an old saddle, wearing a cloak worth four dirhams or less."},
+      {t:"p",h:"You don't have to buy everything new. Unbranded things are fine, as long as they are comfortable and useful, so your ʿibādah is easy. Prefer comfort over looks."},
+      {t:"key",h:"Begin preparing now, because when you begin preparing, that is when your reward begins too, in shāʾ Allāh."},
+      {t:"dua",kind:"Each session closes with",ar:"سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا أَنْتَ أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ",en:"Glory be to You, O Allah, and praise. I bear witness that there is no god but You. I seek Your forgiveness and turn to You in repentance."}
+    ]
+  }
+  ]
+},
+{
+  id:"p2", num:"Part Two", title:"The Pillars and Iḥrām", session:"Session 2",
+  chapters:[
+  {
+    id:"s2c1", title:"Pillars and Obligations", color:PAL.rose,
+    summary:"The three arkān of Umrah and its two wājibāt.",
+    blocks:[
+      {t:"p",h:"After the first session on what Umrah is and why we do it, I hope you have started preparing for this journey, mentally, spiritually and physically. To take advantage of it, we really need to prepare in advance."},
+      {t:"h",h:"The arkān: three pillars"},
+      {t:"p",h:"The arkān are the rituals of Umrah that are necessary to perform. If a person misses any one of them, their Umrah is incomplete; it does not count. It is like salah: if a person does not recite al-Fātiḥah or does not make sajdah at all, the salah is not valid."},
+      {t:"all",items:[["1 · Iḥrām","The intention to begin the rituals"],["2 · Ṭawāf","Around the Kaʿbah"],["3 · Saʿī","Between Ṣafā and Marwah"]]},
+      {t:"h",n:1,h:"Iḥrām"},
+      {t:"p",h:"Iḥrām is having the intention to perform the rituals of Umrah or Hajj. It is not merely certain clothing: it is the intention of the heart. The Prophet ﷺ said:"},
+      {t:"hd",ar:"إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ",en:"Actions are only by intentions."},
+      {t:"p",h:"Before the action, the intention must be there. The intention of Umrah begins with the iḥrām."},
+      {t:"h",n:2,h:"Ṭawāf"},
+      {t:"p",h:"Ṭawāf is the first act of worship to perform on entering al-Masjid al-Ḥarām. If a person does not perform it, their Umrah does not count."},
+      {t:"q",ar:"وَلْيَطَّوَّفُوا بِالْبَيْتِ الْعَتِيقِ",en:"And let them perform ṭawāf of the Ancient House.",ref:"Sūrat al-Ḥajj 22:29"},
+      {t:"p",h:"When the Prophet ﷺ entered Makkah and the masjid, he went straight to the Black Stone, did <em>istilām</em>, and began the ṭawāf right away."},
+      {t:"h",n:3,h:"Saʿī"},
+      {t:"hd",ar:"اسْعَوْا فَإِنَّ اللَّهَ كَتَبَ عَلَيْكُمُ السَّعْيَ",en:"Perform saʿī, for Allah has prescribed saʿī for you."},
+      {t:"h",h:"The wājibāt: two obligations"},
+      {t:"p",h:"The wājibāt are obligatory parts of Umrah. If for some reason a person is not able to perform them, their Umrah still counts, but they have to give the <em>fidyah</em>."},
+      {t:"all",items:[["1 · Iḥrām at the mīqāt","Entering iḥrām at the appointed place"],["2 · Shaving or trimming","Men shave or trim; women trim"]]}
+    ]
+  },
+  {
+    id:"s2c3", title:"The Mīqāt", color:PAL.sky,
+    summary:"The appointed places you must not pass without iḥrām.",
+    blocks:[
+      {t:"p",h:"<em>Mīqāt</em> means the specified time for doing something: when you reach a certain time, or a certain place, it is time to perform the required action."},
+      {t:"p",h:"For Umrah and Hajj there are "+ari("مَوَاقِيتُ مَكَانِيَّةٌ")+", appointed places. When a person on the way to Makkah reaches one, they must enter the state of iḥrām. They must not pass that point without it. Different mawāqīt have been appointed depending on which side people come from."},
+      {t:"hd",en:"The people of Madinah should assume iḥrām from Dhul-Ḥulayfah, the people of Shām from al-Juḥfah, and the people of Najd from Qarn. And in another version: the people of Yemen from Yalamlam.",ref:"Ṣaḥīḥ al-Bukhārī"},
+      {t:"all",items:[["Dhul-Ḥulayfah","For Madinah, north of Makkah"],["Al-Juḥfah","For Shām"],["Qarn","For Najd"],["Yalamlam","For Yemen"]]},
+      {t:"h",h:"In practice"},
+      {t:"list",items:["<b>By plane:</b> an announcement is usually made a few minutes before passing the mīqāt. That is when you make sure you are in your iḥrām and enter the state of iḥrām.","<b>By road from Madinah:</b> it is very easy. People typically stop at the masjid at Dhul-Ḥulayfah and put on iḥrām there."]},
+      {t:"key",h:"Entering iḥrām at the mīqāt is wājib. If for some reason it is not done, the fidyah has to be given."},
+      {t:"h",h:"Where and when to put it on"},
+      {t:"list",items:["It is best to put on the iḥrām on reaching the mīqāt.","If you feel you won't be able to change on the plane, it is better to put it on at the airport. That is allowed, though the mīqāt is better.","Don't think it is better to put it on at Masjid an-Nabawī or some other masjid. Follow the Prophet ﷺ: wear iḥrām where he wore it, or where he told people to wear it."]}
+    ]
+  },
+  {
+    id:"s2c4", title:"Shaving and Trimming", color:PAL.sage,
+    summary:"The second wājib, and the Prophet's ﷺ du'a for those who shave.",
+    blocks:[
+      {t:"p",h:"The second wājib is trimming the hair for women, and shaving the head or trimming the hair for men. It is mentioned in the Qur'an: you will enter al-Masjid al-Ḥarām, if Allah wills, in security,"},
+      {t:"q",ar:"مُحَلِّقِينَ رُءُوسَكُمْ وَمُقَصِّرِينَ",en:"with your heads shaved and your hair trimmed.",ref:"Sūrat al-Fatḥ 48:27"},
+      {t:"hd",ar:"اللَّهُمَّ اغْفِرْ لِلْمُحَلِّقِينَ",en:"The Prophet ﷺ said: “O Allah, forgive those who shave their heads.” The people said: “And those who trim?” He repeated: “O Allah, forgive those who shave.” This happened three times, and then he said: “And those who trim.”"},
+      {t:"p",h:"The Prophet ﷺ made du'a three times for the men who shave their heads and once for those who trim."},
+      {t:"key",h:"For men, shaving is better than trimming. For women, it is only trimming."}
+    ]
+  },
+  {
+    id:"s2c5", title:"What Iḥrām Means", color:PAL.butter,
+    summary:"Entering a sacred state in which some lawful things become forbidden.",
+    blocks:[
+      {t:"h",h:"In the language"},
+      {t:"p",h:"Linguistically, iḥrām means to enter a sacred state, a state of sanctity. "+ari("أَحْرَمَ الرَّجُلُ")+" is said when a person enters a state or time in which what was previously lawful for him becomes forbidden."},
+      {t:"p",h:"For example, the word was used for a person who made a contract or a promise: once they entered the state of fulfilling its terms, what was previously allowed for them was no longer allowed."},
+      {t:"h",h:"In the dīn"},
+      {t:"p",h:"When you begin Umrah or Hajj, you enter the state of iḥrām, in which certain things that were allowed for you are no longer allowed."},
+      {t:"all",items:[["Nails","Allowed before; not trimmed in iḥrām"],["Perfume","Allowed before; not worn in iḥrām"],["Trousers","Men wear them normally; not in iḥrām"]]},
+      {t:"p",h:"Figuratively, the word iḥrām is also used for the two sheets men wear. But iḥrām is not just the clothing. Iḥrām is the intention, and the state in which certain things are forbidden."}
+    ]
+  },
+  {
+    id:"s2c6", title:"Iḥrām for Men", color:PAL.aqua,
+    summary:"The two sheets, the sandals, what is not worn, and the exceptions.",
+    blocks:[
+      {t:"p",h:"For men the iḥrām is well known: two white sheets, the <em>izār</em> as a waist wrapper and the <em>ridāʾ</em> to cover the upper body."},
+      {t:"hd",en:"One of you should wear iḥrām in his izār, his ridāʾ and sandals (naʿlayn). Whoever does not find sandals should wear leather socks, cut from the top so they are below the ankles."},
+      {t:"p",h:"So iḥrām affects not only what a man wears, but also his footwear: the ankles should not be covered."},
+      {t:"h",h:"What men do not wear"},
+      {t:"hd",en:"A man asked the Prophet ﷺ what a muḥrim should wear. He replied: he should not wear a shirt, a turban, trousers, a hooded cloak, or a garment scented with saffron or wars. If he has no sandals, he may wear leather socks cut short so the ankles are bare."},
+      {t:"list",items:["<b>No stitched clothing.</b> This does not mean clothing with thread in it, but clothing cut and tailored to fit: a shirt, a jacket, trousers.","<b>Nothing covering the head,</b> such as a turban or a hat.","<b>No socks</b> that go up over the ankles, like cotton socks."]},
+      {t:"story",kind:"Arriving at night",h:"<p>A man passes the mīqāt and reaches Makkah at night, or right at Jumuʿah time, and cannot perform Umrah right away. He needs to sleep. Can he change into his pyjamas and T-shirt? No. He is still in the state of iḥrām.</p>"},
+      {t:"h",h:"Wrapping is not wearing"},
+      {t:"p",h:"If it is cold or raining, or the air conditioning on the plane is very cold, a man may put a sweater or jacket over himself without putting his arms in the sleeves. He can wrap it, but he cannot wear it. Men are not forbidden from touching shirts or jackets; they are forbidden from wearing them."},
+      {t:"h",h:"If he has no izār"},
+      {t:"hd",en:"Whoever does not find an izār should wear trousers, and whoever does not find sandals should wear leather socks.",ref:"Ṣaḥīḥ al-Bukhārī"},
+      {t:"story",kind:"Forgot the iḥrām on the plane",h:"<p>A man thinks he packed his iḥrām in his backpack, but on the plane finds only one sheet. Or he loses the bag, or checks in all his luggage by accident. He cannot pass the mīqāt without iḥrām.</p><p>Shaykh Ibn ʿUthaymīn was asked about exactly this. He said the man should take off his head covering, remove his shirt and wrap it around his upper body, and keep his trousers on since he has no izār. There is no fidyah, because the Prophet ﷺ said whoever does not find an izār should wear trousers.</p>"},
+      {t:"key",h:"Hajj and Umrah are not only for the rich. In exceptional situations our dīn grants exceptions and conveniences."},
+      {t:"p",h:"Some men get chafing on their thighs from walking without trousers, and there is a lot of walking in ṭawāf and saʿī. For this, or eczema or another skin condition, the ʿulamāʾ have permitted wearing something like small shorts under the izār to protect the skin. In a situation like this, consult someone of knowledge. No fidyah is required, and the iḥrām is valid."},
+      {t:"h",h:"Changing the sheets"},
+      {t:"p",h:"A man may change his iḥrām as long as he wears iḥrām again. If his upper sheet gets dirty, he can put on another white sheet. He cannot put on a T-shirt."}
+    ]
+  },
+  {
+    id:"s2c7", title:"Iḥrām for Women", color:PAL.blush,
+    summary:"Your regular clothing with proper hijab, and no gloves or niqāb.",
+    blocks:[
+      {t:"p",h:"For a woman there is no specific clothing required as iḥrām. She can wear any clothing she generally wears, while observing proper hijab and remaining within the limits Allah has set for women's clothing."},
+      {t:"key",h:"Some women think they should wear white in iḥrām. This is not required, and it is not more virtuous either."},
+      {t:"list",items:["Not too thin, as in see-through.","Not too tight.","Not too short."]},
+      {t:"hd",kind:"Narration of ʿĀʾishah رضي الله عنها",en:"When asked what a woman should wear in iḥrām, she said: she can wear her silk and woollen clothes, her linen and cotton clothes, her coloured clothes, and her jewellery."},
+      {t:"p",h:"ʿĀʾishah رضي الله عنها herself wore red clothes dyed with safflower in iḥrām (her clothes, not her hijab), and she saw no harm in a woman wearing jewellery, black or pink clothing, or leather socks. The material, colour, and how fancy it is do not matter; what matters is proper hijab."},
+      {t:"h",h:"Changing clothes"},
+      {t:"story",kind:"Example",h:"<p>A woman made her intention on the plane, began the talbiyah, reached the Ḥaram and did her ṭawāf. Then her baby throws up on her, and her clothes are dirty and smell. She goes and changes, then does her saʿī. Is that permissible? Absolutely.</p>"},
+      {t:"h",h:"No gloves, no niqāb"},
+      {t:"hd",en:"The Prophet ﷺ forbade women in iḥrām from wearing gloves, the niqāb, and clothing touched by wars or saffron."},
+      {t:"p",h:"Clothing with fragrance on it is not permissible for women in iḥrām."},
+      {t:"h",h:"Covering the face is different from wearing a niqāb"},
+      {t:"p",h:"A niqāb is a garment made to fit the face in order to cover it, just as trousers are made to fit the legs and a shirt the upper body. Men in iḥrām don't wear trousers and shirts, but they are not left uncovered; they wear two sheets. In the same way, a woman who usually covers her face will not wear a garment made to fit the face: a niqāb tucked at the sides of the face, or one stitched with elastic behind it."},
+      {t:"hd",kind:"Narration",en:"Fāṭimah bint al-Mundhir said: we used to veil our faces while in iḥrām, in the company of Asmāʾ bint Abī Bakr رضي الله عنها."},
+      {t:"p",h:"Since Asmāʾ approved of this, it is correct, and other narrations say the same. So when needed, for example when men pass by, a woman lets part of her head covering or hijab come down over her face."},
+      {t:"p",h:"She will not wear gloves either. If she feels the need, she can use her sleeves to cover her wrists and hands."}
+    ]
+  },
+  {
+    id:"s2c8", title:"Before Entering Iḥrām", color:PAL.mint,
+    summary:"Cleanliness, ghusl, perfume, and when to put on iḥrām.",
+    blocks:[
+      {t:"h",h:"Clean your body before you leave"},
+      {t:"p",h:"Before leaving the house for the airport and the journey:"},
+      {t:"list",items:["Take a shower.","Make sure your nails are trimmed.","Men should trim their moustache.","Remove any body hair that is to be removed.","Take ghusl."]},
+      {t:"hd",kind:"Narration",en:"Ibn ʿUmar رضي الله عنهما said: it is from the sunnah that the person who intends to wear iḥrām first makes ghusl."},
+      {t:"p",h:"The Prophet ﷺ made ghusl before entering iḥrām, and the Companions followed him in that. Even a menstruating woman takes ghusl and then enters iḥrām:"},
+      {t:"hd",en:"A menstruating woman and one who has delivered a child should take a bath, put on iḥrām, and perform all the rites except the ṭawāf."},
+      {t:"p",h:"If this is for the woman who is menstruating, then men and other women should certainly bathe before iḥrām. Since you cannot bathe on the plane, shower before you leave the house."},
+      {t:"h",h:"Perfume: men"},
+      {t:"hd",kind:"Narration of ʿĀʾishah رضي الله عنها",en:"When the Prophet ﷺ wanted to enter iḥrām, he would perfume himself with the best perfume he could find, and I would then see the shining traces of musk on his head and beard. In another narration: on the parting of his hair."},
+      {t:"p",h:"So men apply perfume to the body, the skin and even the hair, but not to the iḥrām clothes. No ʿiṭr, bakhūr or perfume spray on the white sheets. Before iḥrām, a man's perfume on his skin can even be strong."},
+      {t:"h",h:"Perfume: women"},
+      {t:"p",h:"Women should not wear clothes with perfume on them, nor apply perfume that spreads before entering iḥrām."},
+      {t:"hd",ar:"أَلَا وَطِيبُ النِّسَاءِ لَوْنٌ لَا رِيحَ لَهُ",en:"Indeed, the perfume of women is that which has colour and no scent that spreads."},
+      {t:"p",h:"<em>Rīḥ</em> is wind: the fragrance should not spread in the air around her."},
+      {t:"hd",kind:"Narration of ʿĀʾishah رضي الله عنها",en:"We were going to Makkah with the Prophet ﷺ, and at the time of putting on iḥrām we pasted on our foreheads the perfume known as sukk. When one of us sweated, it would run down her face. The Prophet ﷺ saw it and did not forbid it."},
+      {t:"p",h:"Sukk is a very light perfume that doesn't spread. So, for example, if a woman wears a deodorant with a light fragrance before iḥrām, that is okay, as long as the fragrance does not spread. If it is strong and spreads, it is not permissible. If it gets on the clothes, of a man or a woman, it should be washed off."},
+      {t:"h",h:"When to put it on"},
+      {t:"p",h:"If possible, put on iḥrām after an obligatory prayer: for example, pray ẓuhr and put on iḥrām right after it."},
+      {t:"key",h:"There is no nafl prayer required for iḥrām. Some people think that once they put on the clothes, make the intention and start the talbiyah, they must pray two rakʿahs. That is not required."}
+    ]
+  },
+  {
+    id:"s2c9", title:"What Is Allowed in Iḥrām", color:PAL.sage,
+    summary:"Bathing, combing, oils, watches, belts, treatment, and more.",
+    blocks:[
+      {t:"p",h:"When you learn that there are rules about what you can wear and do, you want to be clear about what is actually allowed in the state of iḥrām. For men and women:"},
+      {t:"yn",items:[
+        [1,"Taking a bath or shower, and washing the head."],
+        [1,"Washing the iḥrām garments, or changing them for something still appropriate in iḥrām."],
+        [1,"For women: undoing the hair, combing and brushing it."],
+        [1,"Scratching the head or the skin."],
+        [1,"Looking at oneself in the mirror."],
+        [1,"Applying oil or cream to the body."],
+        [1,"Smelling a good fragrance. Applying perfume is not allowed, but smelling it is."],
+        [1,"Eating food that is very fragrant or has saffron in it."],
+        [1,"Wearing jewellery, glasses, a watch, a money belt or a bag."],
+        [1,"A belt to hold the izār in place. The belt doesn't stitch the izār, and an izār with a belt does not become trousers."],
+        [1,"Kuḥl in the eyes when there is a need."],
+        [1,"Urgent treatment, such as cupping or bandages."],
+        [1,"Killing a harmful creature, like a scorpion or a mouse."]
+      ]},
+      {t:"p",h:"Women should be careful that jewellery does not become a distraction, nor a way of showing adornment (<em>tabarruj</em>). That is not appropriate."},
+      {t:"hd",en:"A man had a complaint in his eyes while in the state of iḥrām, and he was allowed to use kuḥl."},
+      {t:"hd",en:"The Prophet ﷺ had cupping done while he was in the state of iḥrām.",ref:"Ṣaḥīḥ al-Bukhārī"},
+      {t:"p",h:"Hunting is not permissible. A harmful, dangerous creature may be killed, but you don't have to kill every ant you see. If it isn't bothering you, you can easily move away."}
+    ]
+  },
+  {
+    id:"s2c10", title:"What Is Forbidden in Iḥrām", color:PAL.rose,
+    summary:"Clothing, nails and hair, perfume, covering the head, intimacy, hunting and marriage.",
+    blocks:[
+      {t:"yn",items:[
+        [0,"Wearing clothing other than what fits the restrictions of iḥrām that the Prophet ﷺ detailed."],
+        [0,"Trimming the nails, or trimming any hair on the body."],
+        [0,"Applying perfume, or wearing clothing that has perfume on it."],
+        [0,"For men: covering the head with a turban, hat or scarf."],
+        [0,"Any intimacy between husband and wife."],
+        [0,"Hunting."],
+        [0,"Getting married, being given in marriage, or proposing."]
+      ]},
+      {t:"h",h:"Perfume after entering iḥrām"},
+      {t:"p",h:"Once a person enters iḥrām, they can no longer apply perfume, on the skin or on the body."},
+      {t:"story",kind:"Example",h:"<p>A woman wants to change into a fresh hijab, but it was packed next to a bottle of oud and now smells of oud. Can she wear it? No. Or the fabric softener had a lovely lavender or linen fragrance and the hijab smells of it. Can she wear it? No.</p>"},
+      {t:"h",h:"Soap and toothpaste"},
+      {t:"p",h:"Soap and toothpaste have fragrance in them. You can take fragrance-free soap, but you may not always have it. Are you not going to wash your hands with soap? Of course you are. The ʿulamāʾ say there is nothing wrong with it, because the purpose is to clean yourself, not to apply fragrance. This doesn't mean using strongly scented soap on purpose. Only do it when you have no other option."},
+      {t:"h",h:"Covering the head vs shade"},
+      {t:"p",h:"A man may not wear anything on his head, but he may use an umbrella, go under something that gives shade, or sit in a car. What is wrong is wearing something on the head."},
+      {t:"h",h:"Husband and wife"},
+      {t:"q",ar:"فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ",en:"There is to be no sexual relations, no disobedience and no disputing during Hajj.",ref:"Sūrat al-Baqarah 2:197"},
+      {t:"p",h:"So they will not cuddle, and will not romantically hold hands while walking in ṭawāf. This doesn't mean a husband cannot touch his wife or a wife her husband; that is permissible."},
+      {t:"h",h:"Marriage"},
+      {t:"hd",en:"A person in the state of iḥrām may not marry, be given in marriage, or ask for someone's hand in marriage.",ref:"Ṣaḥīḥ Muslim"},
+      {t:"p",h:"In iḥrām the focus is ʿibādah, not marriage, and not finding someone to propose to. If they see someone and are interested, they have to wait until afterwards."}
+    ]
+  },
+  {
+    id:"s2c11", title:"Mistakes and Illness", color:PAL.peach,
+    summary:"What to do if you slip up, and the conditional iḥrām if you're unwell.",
+    blocks:[
+      {t:"h",h:"If you do something by mistake"},
+      {t:"p",h:"Say you have a habit of applying perfume every morning as you get ready, and out of habit you apply it. You fix it: wash the perfume off your body, wash it off your clothes, or change if possible. If it happens out of ignorance, no fidyah is required."},
+      {t:"h",h:"If you fear you can't complete it"},
+      {t:"p",h:"A person falls ill a day before travelling, with a fever, and decides to go anyway. By the time they reach the mīqāt they are really unwell and don't know if they will manage the Umrah."},
+      {t:"p",h:"They can enter iḥrām with a conditional clause: “O Allah, I intend to perform Umrah and to complete it, and I will stop wherever You stop me.”"},
+      {t:"hd",en:"A woman at the time of the Prophet ﷺ wanted to go for Hajj, but she was sick. The Prophet ﷺ told her to say: O Allah, I will end my iḥrām at any place where You stop me."},
+      {t:"key",h:"With this condition, a person can stop wherever they have to and come out of iḥrām, and they are not doing anything sinful."},
+      {t:"h",h:"No iḥrām clothes at the mīqāt"},
+      {t:"p",h:"You cannot cross the mīqāt without iḥrām. If a man doesn't have his iḥrām clothes, he makes the intention and does what he can: removes his hat, wears his shirt as a shawl, keeps his trousers on, and continues in iḥrām."}
+    ]
+  },
+  {
+    id:"s2c2", title:"The Talbiyah", color:PAL.lilac,
+    summary:"What to say, why everything around you joins in, and how loudly.",
+    blocks:[
+      {t:"p",h:"Once a person enters iḥrām, they say the talbiyah. First, the intention for Umrah:"},
+      {t:"dua",kind:"Intention for Umrah",ar:"لَبَّيْكَ عُمْرَةً",en:"Here I am, O Allah, for Umrah."},
+      {t:"p",h:"Then they begin the talbiyah:"},
+      {t:"dua",kind:"The Talbiyah",ar:"لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ لَا شَرِيكَ لَكَ",en:"Here I am, O Allah, here I am. Here I am, You have no partner, here I am. Verily all praise and blessings are Yours, and all sovereignty. You have no partner."},
+      {t:"p",h:"In another version, the Prophet ﷺ would say:"},
+      {t:"dua",kind:"Also from the Prophet ﷺ",ar:"لَبَّيْكَ إِلَٰهَ الْحَقِّ لَبَّيْكَ",en:"Here I am, O God of truth, here I am."},
+      {t:"h",h:"Don't miss it"},
+      {t:"p",h:"Some people just don't say these words in iḥrām when doing Umrah. This is such a huge loss."},
+      {t:"hd",en:"There is no pilgrim who recites the talbiyah except that whatever is to his right and left recites it too: the rocks, the trees and the hills, to the farthest ends of the earth in each direction."},
+      {t:"p",h:"Can you imagine? Everything is joining you, which means so much more reward."},
+      {t:"hd",en:"There is no person who says the talbiyah except that he is given good news. It was asked: good news of Paradise? The Prophet ﷺ said: yes, the good news of Paradise."},
+      {t:"h",h:"How loudly"},
+      {t:"hd",en:"Jibrīl told the Prophet ﷺ to tell his Companions to raise their voices when reciting the talbiyah."},
+      {t:"list",items:["<b>Men</b> say the talbiyah out loud.","<b>Women</b> say it so that they can hear it themselves. If a non-maḥram is right close by and she feels awkward, she can recite it silently. A woman's voice is not ʿawrah, so she should recite it audibly enough to hear it."]},
+      {t:"key",h:"Make sure you memorise the words of the talbiyah if you don't know them already. It's in the Memorise tab."},
+      {t:"dua",kind:"The session closed with",ar:"سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا أَنْتَ أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ",en:"Glory be to You, O Allah, and praise. I bear witness that there is no god but You. I seek Your forgiveness and turn to You in repentance."}
+    ]
+  }
+  ]
+},
+{
+  id:"p3", num:"Part Three", title:"Ṭawāf", session:"Session 3",
+  chapters:[
+  {
+    id:"s3c1", title:"Walking Is Worship Too", color:PAL.sage,
+    summary:"Why building your stamina now lets you enjoy ṭawāf and saʿī.",
+    blocks:[
+      {t:"p",h:"I hope you have begun preparing for your Umrah mentally, spiritually and physically, and that you are building up your strength and increasing your daily walk."},
+      {t:"p",h:"If you want to enjoy your Umrah and focus on ʿibādah while performing the rituals, you really need the physical capacity to walk. Many people get so tired in ṭawāf that all they can think about is the pain in their feet or legs. They are just counting down the rounds, and even in the saʿī they are waiting for it to be over so they can go and rest and eat."},
+      {t:"p",h:"Of course this act of worship is physically tiring. But if you have built some capacity beforehand, it is easier to enjoy the worship."},
+      {t:"all",items:[["2,000–3,000","Steps in each walk you go for"],["8,000–10,000","Steps a day in total"]]},
+      {t:"key",h:"Every time you walk to build this capacity, it is counted as ʿibādah, because you are training yourself to worship Allah ﷻ better."},
+      {t:"p",h:"Many people exercise to stay fit, so their clothes keep fitting, or so they don't age. All of that is good. But if you keep fit so that you may worship Allah ﷻ in an excellent way, then every moment you spend exercising and walking is counted as worship and is rewardable, in shāʾ Allāh."}
+    ]
+  },
+  {
+    id:"s3c2", title:"What Ṭawāf Is", color:PAL.lilac,
+    summary:"Seven circuits from the Black Stone, legislated since the Kaʿbah was built.",
+    blocks:[
+      {t:"p",h:"Ṭawāf is one of the arkān of Umrah: without it the Umrah is incomplete and does not count."},
+      {t:"key",h:"Ṭawāf is to walk around the Baytullāh, the Kaʿbah, seven times: beginning at the Black Stone (al-Ḥajar al-Aswad) and ending at the Black Stone. Seven complete circuits."},
+      {t:"q",ar:"وَلْيَطَّوَّفُوا بِالْبَيْتِ الْعَتِيقِ",en:"And let them perform ṭawāf of the Ancient House.",ref:"Sūrat al-Ḥajj 22:29"},
+      {t:"p",h:"Ṭawāf has been legislated by Allah ﷻ since the time the Kaʿbah was built. Allah commanded Ibrahim and Ismāʿīl:"},
+      {t:"q",ar:"أَن طَهِّرَا بَيْتِيَ لِلطَّائِفِينَ وَالْعَاكِفِينَ وَالرُّكَّعِ السُّجُودِ",en:"Purify My House for those who perform ṭawāf, those who stay there in devotion, and those who bow and prostrate.",ref:"Sūrat al-Baqarah 2:125"},
+      {t:"p",h:"Make sure the House of Allah is pure and clean for these worshippers, and among them those who make ṭawāf are mentioned first."},
+      {t:"h",h:"The reward of ṭawāf"},
+      {t:"hd",en:"Whoever does ṭawāf of the Kaʿbah seven times and prays two rakʿahs after it, it is as if he has freed a slave."},
+      {t:"p",h:"These days we don't have the opportunity to free slaves, but this deed carries that reward. And the reward of freeing a slave is freedom from the Fire:"},
+      {t:"hd",kind:"Narration",en:"When a person sets a slave free, Allah frees the one who freed him from the Fire, limb for limb."},
+      {t:"hd",en:"Whoever does ṭawāf of the Kaʿbah, for every step he takes a good deed is written for him, a sin is erased, and a rank is raised."},
+      {t:"key",h:"When the crowd makes your steps increase, don't become annoyed or weary. For every step you get a reward, a sin is erased and a rank is raised."}
+    ]
+  },
+  {
+    id:"s3c3", title:"Kinds of Ṭawāf", color:PAL.sky,
+    summary:"Umrah, Hajj and voluntary ṭawāf: done the same way, with one difference.",
+    blocks:[
+      {t:"all",items:[["Ṭawāf of Umrah","A rukn; without it the Umrah is invalid"],["Ṭawāf al-Qudūm","Of Hajj"],["Ṭawāf al-Ifāḍah","Of Hajj"],["Ṭawāf al-Wadāʿ","Of Hajj"],["Voluntary ṭawāf","Any time of year, day or night"]]},
+      {t:"p",h:"All the types of ṭawāf are performed in the same way. The only difference is iḥrām: for the ṭawāf of Umrah you must be in iḥrām, and for voluntary ṭawāf you don't have to be."},
+      {t:"key",h:"Many people think that once they've done their Umrah, that's sufficient. Be eager to perform voluntary ṭawāf as well."}
+    ]
+  },
+  {
+    id:"s3c4", title:"Before You Begin", color:PAL.aqua,
+    summary:"Purity, wuḍūʾ, intention, focus, stopping the talbiyah, and clothing.",
+    blocks:[
+      {t:"h",n:1,h:"Ṭahārah"},
+      {t:"p",h:"Your clothes and body must be clean of any and all impurities."},
+      {t:"h",n:2,h:"Wuḍūʾ"},
+      {t:"p",h:"The majority of the ʿulamāʾ hold that a person must have wuḍūʾ, because of the hadith that ṭawāf is like salah: just as wuḍūʾ is required for salah, it is required for ṭawāf."},
+      {t:"p",h:"Some ʿulamāʾ, especially in the Ḥanafī school, and this is also the preferred opinion of Ibn Taymiyyah, hold that wuḍūʾ is not a condition for the validity of ṭawāf, though it is highly recommended. The Prophet ﷺ made wuḍūʾ before ṭawāf, but he did not instruct people to be in wuḍūʾ, and if it were a condition he would have told them."},
+      {t:"key",h:"It is definitely safer and more recommended to begin ṭawāf in a state of wuḍūʾ."},
+      {t:"h",n:3,h:"Intention"},
+      {t:"p",h:"If a person walks around the Kaʿbah seven times to digest a heavy dinner or to get more steps, that does not count as ṭawāf. You must intend that you are performing this act of worship. You don't have to say anything out loud, but the intention must be there, because "+ari("إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ")+"."},
+      {t:"h",n:4,h:"Khushūʿ"},
+      {t:"p",h:"As you walk towards the Kaʿbah and during the ṭawāf, show humility and feel it in your heart. Bring about the fear of Allah and be conscious of Him. You are at the best place on earth, doing a most virtuous deed. Be conscious, alert and attentive."},
+      {t:"p",h:"Be prepared beforehand: know what you are going to say during the ṭawāf and which du'as you will make, and stay focused."},
+      {t:"h",n:5,h:"Stop the talbiyah"},
+      {t:"p",h:"When you begin your ṭawāf, you stop saying "+ari("لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ")+"."},
+      {t:"h",n:6,h:"Clothing"},
+      {t:"p",h:"The ʿawrah must be covered."},
+      {t:"list",items:["<b>Men</b> doing the ṭawāf of Umrah are in iḥrām and do <em>iḍṭibāʿ</em>: uncovering the right shoulder. The teacher said this is in the first three rounds, and only for the ṭawāf of Umrah, not voluntary ṭawāf. Many ahadith mention that the Prophet ﷺ did this.","<b>Women</b> make sure they are properly covered: hair not showing, hijab proper, dressed appropriately."]},
+      {t:"story",kind:"ʿAṭāʾ and Ibn Hishām",h:"<p>Ibn Hishām once ruled that women could not do ṭawāf with men at the same time. ʿAṭāʾ said: how can you do that, when the wives of the Prophet ﷺ used to perform ṭawāf with the men? He was asked how, with hijab. He said: yes, with hijab, there was a veil, and they would not mix with the men.</p>"},
+      {t:"p",h:"So during ṭawāf, dress appropriately and, to the best of your ability, don't mix or bump into non-maḥram men."}
+    ]
+  },
+  {
+    id:"s3c5", title:"Istilām of the Black Stone", color:PAL.rose,
+    summary:"The four ways to greet the Black Stone, and what not to do there.",
+    blocks:[
+      {t:"p",h:"You begin ṭawāf by going to the Black Stone and doing <em>istilām</em>: facing it and saying:"},
+      {t:"dua",kind:"At the Black Stone",ar:"بِسْمِ اللَّهِ اللَّهُ أَكْبَرُ",en:"In the name of Allah. Allah is the Greatest."},
+      {t:"h",h:"Four ways of istilām, in order"},
+      {t:"h",n:1,h:"Touch it and kiss it"},
+      {t:"hd",en:"The Prophet ﷺ was seen touching the Black Stone and kissing it.",ref:"Ṣaḥīḥ al-Bukhārī"},
+      {t:"h",n:2,h:"Touch it with your hand, and kiss your hand"},
+      {t:"p",h:"If you can't kiss it, touch the stone with your hand and kiss your hand. The Companions were seen doing this, and a hadith mentions it clearly."},
+      {t:"h",n:3,h:"Touch it with something in your hand"},
+      {t:"hd",en:"The Prophet ﷺ did ṭawāf on a camel and touched the corner with a stick with a curved end."},
+      {t:"h",n:4,h:"Gesture from a distance"},
+      {t:"p",h:"The most common way today because of the crowds. From wherever you are, even several feet away, face the Black Stone, raise your hand towards it and say the takbīr."},
+      {t:"hd",en:"The Prophet ﷺ told ʿUmar: if you find a gap, go and kiss the Black Stone. If you cannot, just face it and say “Bismillāh, Allāhu Akbar”, or “Lā ilāha illā Allāh wa Allāhu Akbar”."},
+      {t:"dua",kind:"Also said at the Black Stone",ar:"لَا إِلَٰهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ",en:"There is no god but Allah, and Allah is the Greatest."},
+      {t:"yn",items:[[0,"Kissing your hand after gesturing from a distance."],[0,"Blowing a flying kiss to the Black Stone."],[0,"Stopping at the Black Stone to make du'as. A crowd gathers and it becomes hard for others to keep moving."]]},
+      {t:"key",h:"Istilām is done in every round. Just face it as you walk, say Bismillāh, Allāhu Akbar, and keep moving."},
+      {t:"h",h:"When it's crowded"},
+      {t:"p",h:"If it is crowded at the Black Stone, especially as a woman, don't try to reach it. Do the istilām from a distance."},
+      {t:"story",kind:"ʿĀʾishah رضي الله عنها",h:"<p>Once while ʿĀʾishah was performing ṭawāf, a woman said to her: O Mother of the Believers, let us go and touch the Black Stone. ʿĀʾishah said: you go yourself. And she refused to go, because there were people there, it was already crowded, and it would cause more crowding.</p>"},
+      {t:"p",h:"Many people become very eager to reach the Black Stone, touch it, face it for long, make du'as there and kiss their hands, and this causes a lot of problems for everyone else. Be considerate of others."}
+    ]
+  },
+  {
+    id:"s3c6", title:"Walking the Circuit", color:PAL.butter,
+    summary:"Anticlockwise, outside the Ḥaṭīm, and within the masjid.",
+    blocks:[
+      {t:"all",items:[["Kaʿbah on your left","You walk anticlockwise"],["Outside the Ḥaṭīm","The semicircle is part of the Kaʿbah"],["Inside the masjid","In the maṭāf, or on the floors above"]]},
+      {t:"h",h:"Go outside the Ḥaṭīm"},
+      {t:"p",h:"The Ḥaṭīm is the semicircle next to the Kaʿbah. It marks the original foundations of the Kaʿbah, so the area inside it is actually part of the Kaʿbah. Your ṭawāf must go around all of the Kaʿbah. Don't take a shortcut through the inside of the Ḥaṭīm; that is not correct."},
+      {t:"h",h:"Stay within the masjid"},
+      {t:"p",h:"Ṭawāf is done within the masjid, in the maṭāf: either on the level of the Kaʿbah or on the floors above. That is correct too, because what matters is that you do ṭawāf of the Kaʿbah, not ṭawāf of the masjid. You don't do ṭawāf outside the masjid."},
+      {t:"h",h:"One round"},
+      {t:"p",h:"Do istilām and say Bismillāh, Allāhu Akbar, then walk a complete circuit until you reach the Black Stone again. That is one round. At the Black Stone corner do istilām again, in any of the four ways, and begin the next round. Repeat for all seven."}
+    ]
+  },
+  {
+    id:"s3c7", title:"The Corners of the Kaʿbah", color:PAL.peach,
+    summary:"Which corners to touch, following the Sunnah, and the du'a between them.",
+    blocks:[
+      {t:"all",items:[["The Black Stone corner","One of the two Yamānī corners"],["Ar-Rukn al-Yamānī","The other Yamānī corner"],["The two Shāmī corners","On the side of the Ḥaṭīm"]]},
+      {t:"p",h:"We only touch the Black Stone corner and ar-Rukn al-Yamānī. The two Shāmī corners, where the Ḥaṭīm is, are not touched."},
+      {t:"story",kind:"Muʿāwiyah and Ibn ʿAbbās",h:"<p>When Muʿāwiyah did ṭawāf he would touch all four corners. Ibn ʿAbbās asked him why, when the Messenger of Allah ﷺ did not touch all four. Muʿāwiyah said: nothing of the House of Allah should be left out. Ibn ʿAbbās recited:</p>"},
+      {t:"q",ar:"لَّقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ",en:"Indeed, in the Messenger of Allah you have an excellent example.",ref:"Sūrat al-Aḥzāb 33:21"},
+      {t:"p",h:"Muʿāwiyah said: you are right, and he accepted."},
+      {t:"key",h:"You will see people touching every corner, holding on to the kiswah, or leaning against the walls of the Kaʿbah. Don't follow people blindly. Make sure what you do is according to the Sunnah, because the Prophet's ﷺ way is the most excellent way."},
+      {t:"hd",en:"Ibn ʿUmar reported that when the Messenger of Allah ﷺ did ṭawāf, he would only touch the Black Stone and the Yamānī corner in each circuit."},
+      {t:"h",h:"Ar-Rukn al-Yamānī"},
+      {t:"yn",items:[[1,"Touch it with your hand if you can. It is not a requirement."],[0,"Kissing it."],[0,"Rubbing it and then wiping your hands on your face."],[0,"Pointing to it, raising your hand or saying Bismillāh, Allāhu Akbar at it."]]},
+      {t:"p",h:"If you can't touch it, just keep moving."},
+      {t:"h",h:"Between the Yamānī corner and the Black Stone"},
+      {t:"dua",kind:"The Prophet ﷺ said this here",ar:"رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",en:"Our Lord, give us good in this world and good in the Hereafter, and save us from the punishment of the Fire."}
+    ]
+  },
+  {
+    id:"s3c8", title:"Why We Kiss the Stone", color:PAL.blush,
+    summary:"A stone from Paradise, a means of erasing sins, and only in the Prophet's ﷺ footsteps.",
+    blocks:[
+      {t:"hd",en:"The Black Stone descended from Paradise, and it was whiter than milk. It was blackened by the sins of the children of Ādam."},
+      {t:"p",h:"So why do you kiss it? Because it is a stone from Jannah, and kissing is a way of expressing love."},
+      {t:"hd",en:"Touching the Black Stone and the Yamānī corner erases sins."},
+      {t:"story",kind:"From the teacher",h:"<p>“When we were younger, many times, alḥamdulillāh, we got the opportunity. We would go towards the Black Stone, and sometimes the guard would see us and literally clear space for us, and we would get to kiss it.”</p>"},
+      {t:"p",h:"So especially men, young boys or young women: if you find an easy opportunity, excellent. If you can't kiss it, touch it."},
+      {t:"key",h:"Don't slap, hit, push or injure anyone trying to reach the Black Stone or the Yamānī corner. This is not a place for fighting. You don't want to commit a sin in order to have your sins erased."},
+      {t:"hd",en:"On the Day of Judgement the Black Stone will intercede for those who did istilām properly: whether they touched it, kissed it, touched it with something in their hand, or did istilām from a distance."},
+      {t:"p",h:"This is why we should be eager to perform this ritual properly."},
+      {t:"h",h:"Not for barakah"},
+      {t:"p",h:"We kiss, touch or gesture to the Black Stone only in the footsteps of the Prophet ﷺ, not for barakah, and not because the stone is powerful in and of itself."},
+      {t:"hd",kind:"ʿUmar رضي الله عنه said",en:"I know that you are just a stone. You can neither harm nor benefit. Had I not seen the Prophet ﷺ kissing you, I would not have kissed you."}
+    ]
+  },
+  {
+    id:"s3c9", title:"What to Say in Ṭawāf", color:PAL.mint,
+    summary:"Ṭawāf is like salah: plan your seven rounds of Qur'an, dhikr, istighfār and du'a.",
+    blocks:[
+      {t:"hd",en:"Ṭawāf around the Kaʿbah is like prayer, except that you may speak during it. So whoever speaks during it, let him speak only what is good."},
+      {t:"p",h:"Ṭawāf is for worshipping Allah ﷻ. In salah you recite Qur'an, make du'a, and glorify and praise Allah:"},
+      {t:"dua",kind:"As in salah",ar:"سُبْحَانَ رَبِّيَ الْأَعْلَىٰ ۝ سُبْحَانَ رَبِّيَ الْعَظِيمِ ۝ سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ وَتَبَارَكَ اسْمُكَ",en:"Glory be to my Lord, the Most High. Glory be to my Lord, the Most Great. Glory be to You, O Allah, and praise; blessed is Your name."},
+      {t:"p",h:"This is exactly what you do in ṭawāf. You can literally hold the muṣḥaf and recite Qur'an as you walk, or say different tasbīḥāt:"},
+      {t:"dua",kind:"Tasbīḥāt",ar:"لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ",en:"There is no god but You. Glory be to You. Indeed, I have been of the wrongdoers."},
+      {t:"dua",kind:"Tasbīḥāt",ar:"سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلَٰهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ",en:"Glory be to Allah, all praise is for Allah, there is no god but Allah, and Allah is the Greatest."},
+      {t:"dua",kind:"Tasbīḥāt",ar:"لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",en:"There is no god but Allah alone, with no partner. His is the dominion and His is the praise, and He has power over all things."},
+      {t:"dua",kind:"Istighfār",ar:"أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ",en:"I seek Allah's forgiveness and turn to Him in repentance."},
+      {t:"h",h:"Plan your rounds before you begin"},
+      {t:"p",h:"Before you start, decide what each round is for. The teacher's example: the first two rounds for Qur'an, the third for tasbīḥāt, the fourth for istighfār, the fifth for du'as, with your du'a book in hand. Set yours here:"},
+      {t:"plan"},
+      {t:"h",h:"Go prepared"},
+      {t:"p",h:"Some people start ṭawāf and look here and there, or talk, or are on their phones. This is very sad. Be prepared with what you will say, recite and ask for."},
+      {t:"key",h:"Don't rely on phone apps. With the phone in your hand you'll be tempted: let me take a picture, let me open that app. Then something pops up and you're distracted."},
+      {t:"p",h:"Ṭawāf is different from salah in that you may look around and talk to people, but only what is necessary. The focus should be on recitation, tasbīḥāt, du'as, dhikr and istighfār."},
+      {t:"hd",en:"Ṭawāf of the Kaʿbah, going between Ṣafā and Marwah, and the stoning of the pillars have been ordained to establish the remembrance of Allah."},
+      {t:"key",h:"The goal is not to walk seven times around the Kaʿbah. If it were, you could walk anywhere on the planet. The goal is to walk here with khushūʿ, busy remembering Allah. This is an act of worship, not physical exercise."},
+      {t:"p",h:"You may speak what is good and necessary. For example, remind your child doing ṭawāf with you: let's say "+ari("لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ")+", or remind them to recite Qur'an, or correct their recitation."}
+      ,{t:"yn",items:[[0,"“Look at that, this looks so nice.”"],[0,"“What did you eat? Are your feet okay? How was your plane ride?”"],[0,"“It's so nice to see you, I'm so happy we're doing Umrah together.”"],[0,"Telling the people with you your life story, your goals and dreams."]]}
+      ,{t:"key",h:"Ṭawāf is not for chatting. Ṭawāf is for ʿibādah."}
+      ,{t:"h",h:"Du'as led out loud in a group"}
+      ,{t:"p",h:"Some groups have a person who says du'as out loud while everyone repeats after him. This is not from the Sunnah. If the Prophet ﷺ had seen benefit in it, he would have done it, and he did not. He led people in prayer, reciting the Qur'an while they listened, but in ṭawāf everyone makes their own personal du'as and dhikr."}
+      ,{t:"p",h:"Saying it out loud also distracts everyone around, so no one can focus. Do ṭawāf with khushūʿ, softness and humility."}
+    ]
+  },
+  {
+    id:"s3c10", title:"Ramal", color:PAL.peach,
+    summary:"Men walk briskly with short steps in the first three rounds.",
+    blocks:[
+      {t:"p",h:"In the first ṭawāf, for the first three rounds, men do <em>ramal</em>: walking fast with short steps. Not running around the Kaʿbah, and not big strides. Something like a jog, even slower than a jog, walking a little fast with short steps."},
+      {t:"all",items:[["Men","Ramal in rounds 1–3, then normal walking for rounds 4–7"],["Women","Walk normally for all seven rounds"]]},
+      {t:"h",h:"Why ramal"},
+      {t:"hd",en:"When the Prophet ﷺ arrived for Umrah, before the conquest of Makkah, the Companions heard that the Quraysh were saying the Muslims had become weak. So the Prophet ﷺ told them to walk fast during ṭawāf, except between ar-Rukn al-Yamānī and the Black Stone."},
+      {t:"p",h:"At first, the purpose of ramal was to show the strength of the Muslims. But on the Farewell Pilgrimage the Prophet ﷺ and the Companions still did ramal, so that the Muslims would remember their strength."},
+      {t:"key",h:"Today there are no mushrikūn watching, and it isn't about proving anything. It is to remember the strength and bravery of the Muslims, so men still do ramal."}
+    ]
+  },
+  {
+    id:"s3c11", title:"Breaks, Wuḍūʾ and Salah", color:PAL.sky,
+    summary:"Keep the rounds consecutive, what to do if wuḍūʾ breaks, and when the iqāmah is called.",
+    blocks:[
+      {t:"h",h:"Rounds must be consecutive"},
+      {t:"p",h:"You can't do three rounds, say you're hungry, go and eat, and then come back to finish. The seven rounds are done one after the other."},
+      {t:"yn",items:[[1,"A short break: sitting down for a few minutes to drink some water, then getting up and continuing."],[0,"A long break in the middle."]]},
+      {t:"story",kind:"Example",h:"<p>You are doing ṭawāf with your child, and the child is crying or gets hurt. You stop to console them, and realise it's best to take them back to the hotel and put them to bed. When you come back, you begin the ṭawāf all over again, because it was a very long break.</p>"},
+      {t:"h",h:"If your wuḍūʾ breaks"},
+      {t:"p",h:"The majority of the ʿulamāʾ hold that wuḍūʾ is a prerequisite for ṭawāf. The minority opinion, which the teacher called the stronger one, is that wuḍūʾ is highly recommended but not required. So begin ṭawāf with wuḍūʾ."},
+      {t:"p",h:"If your wuḍūʾ breaks halfway, or even in the seventh round, and you can renew it quickly and easily, do so. But if the only way is to go all the way back to the hotel, and you don't have the time or have a bus or train to catch, it is okay to complete the ṭawāf without wuḍūʾ. That is also a valid opinion."},
+      {t:"p",h:"As for the Prophet ﷺ telling ʿĀʾishah to do everything in Hajj except ṭawāf: that was because she was menstruating. A menstruating woman does not do ṭawāf."},
+      {t:"h",h:"When the iqāmah is called"},
+      {t:"p",h:"If the adhān and iqāmah are called during your ṭawāf, you join the congregation and pray, then resume your ṭawāf."},
+      {t:"list",items:["<b>Men</b> with the right shoulder uncovered cover both shoulders for the salah. The Prophet ﷺ forbade praying with the shoulders exposed.","After the salah, if it is the ṭawāf of Umrah and they are still in the rounds where it applies, they uncover the shoulder again and complete the ṭawāf."]},
+      {t:"key",h:"Once the seven rounds are complete, men cover both shoulders for the rest of the Umrah."},
+      {t:"h",h:"Any time of day or night"},
+      {t:"p",h:"Ṭawāf can be done at any time, even at sunrise, sunset or when the sun is at its zenith. Voluntary prayer is not permissible at those times, but ṭawāf is."}
+    ]
+  },
+  {
+    id:"s3c12", title:"Manners in the Maṭāf", color:PAL.rose,
+    summary:"What is not correct during ṭawāf, for your sake and everyone around you.",
+    blocks:[
+      {t:"yn",items:[
+        [0,"Women wearing perfume that leaves a fragrance behind them, even in voluntary ṭawāf when not in iḥrām."],
+        [0,"Women in full adornment (zīnah). It is not correct in a place like that."],
+        [0,"Crowding, pushing and shoving, or stepping on people's feet. Respect people's personal space."],
+        [0,"Reciting so loudly that people around you hear you."],
+        [0,"Unnecessary talking on the phone or to each other, looking around, taking pictures, making videos."],
+        [0,"Holding hands in a way that stops others from passing."],
+        [0,"Doing ṭawāf on behalf of someone else. You only do ṭawāf for yourself."]
+      ]},
+      {t:"h",h:"Audible, but soft"},
+      {t:"p",h:"When you recite, make du'a or dhikr, say it softly: loud enough that you can hear yourself, so you can focus, and soft enough that others can't hear you, so they can focus too."},
+      {t:"h",h:"Don't tie yourselves together"},
+      {t:"hd",en:"While the Prophet ﷺ was performing ṭawāf, he passed two people who had tied their hands together with a rope or string so they wouldn't lose each other. He cut it with his hand and said: lead him by the hand."},
+      {t:"p",h:"If you have to lead someone, hold their hand, but don't tie them. In a crowd, if one trips the other trips too, and two people falling together can cause a stampede or a crush. It can be very dangerous."}
+    ]
+  },
+  {
+    id:"s3c13", title:"Two Rakʿahs at Maqām Ibrāhīm", color:PAL.butter,
+    summary:"After the seventh round: the ayah, the two sūrahs, and where to pray.",
+    blocks:[
+      {t:"p",h:"When you complete the seven rounds, go towards Maqām Ibrāhīm. When the Prophet ﷺ completed his seven circuits, he walked towards the Maqām reciting:"},
+      {t:"q",ar:"وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّى",en:"And take the standing place of Ibrāhīm as a place of prayer.",ref:"Sūrat al-Baqarah 2:125"},
+      {t:"p",h:"We do the same: walk towards the Maqām reciting this ayah, then pray two rakʿahs as he did."},
+      {t:"all",items:[["1st rakʿah","Qul yā ayyuha-l-kāfirūn"],["2nd rakʿah","Qul huwa Allāhu aḥad"]]},
+      {t:"p",h:"Pray facing the Kaʿbah with Maqām Ibrāhīm in front of you."},
+      {t:"h",h:"If you can't pray right there"},
+      {t:"p",h:"Often you will be far from the Maqām. Don't stand and pray where people are walking for ṭawāf; that causes them great inconvenience. You can pray anywhere in the masjid, or even outside it. If you lose your wuḍūʾ on the way to the Maqām, you can even pray in your hotel room."},
+      {t:"list",items:["<b>Forgot them?</b> Say you went straight to Ṣafā and Marwah and started saʿī, then remembered. It's okay. Pray the two rakʿahs whenever you remember, but you do have to pray them.","<b>ʿUmar</b> رضي الله عنه performed ṭawāf and then prayed the two rakʿahs after he had left the vicinity of the Ḥaram, not just the masjid.","<b>A farḍ salah does not count for them.</b> If you finish ṭawāf at Fajr and pray the sunnah and the farḍ with the imām, you still pray the two rakʿahs of Maqām Ibrāhīm separately."]},
+      {t:"key",h:"This is part of every ṭawāf, voluntary or of Umrah: after the seven rounds, two rakʿahs at Maqām Ibrāhīm."},
+      {t:"h",h:"What the Maqām is"},
+      {t:"p",h:"It is the stone Ibrāhīm عليه السلام stood on while building the Kaʿbah. The stone would rise so he could build the walls high, while Ismāʿīl عليه السلام passed him the stones. In another hadith we learn that it too is from Paradise."},
+      {t:"p",h:"The Companions greatly revered it. ʿUmar رضي الله عنه said to the Prophet ﷺ: if only we could pray here. And Allah revealed the ayah above."}
+    ]
+  },
+  {
+    id:"s3c14", title:"Zamzam", color:PAL.aqua,
+    summary:"Drink it standing, pour it on yourself, and make du'a with every sip.",
+    blocks:[
+      {t:"hd",en:"When the Prophet ﷺ completed the ṭawāf, he went to where the Zamzam water is, drank from it, and poured it on his head."},
+      {t:"p",h:"It is sunnah to drink Zamzam and to pour it on yourself. Zamzam came out when Ismāʿīl was a baby and his mother was searching for water for her thirsty child. The angel dug the earth with his heel, or his wing, until water flowed from that place."},
+      {t:"h",h:"Its virtues"},
+      {t:"list",items:["It is the best water on the face of the earth, and it is blessed.","It is "+ari("طَعَامُ طُعْمٍ")+": food for the one who eats. It suffices as drink and as food.","It is a healing for disease, and good for bringing down a fever, both drinking it and pouring it."]},
+      {t:"p",h:"So if you can't eat, because there is no food, or you have nausea, or the children are fussy with the time difference and fatigue, drinking Zamzam is excellent because it suffices as food. Ibn ʿAbbās said: we called Zamzam <em>Shabbāʿah</em>, the one that satisfies, and we found it very helpful in feeding our families and children."},
+      {t:"hd",ar:"مَاءُ زَمْزَمَ لِمَا شُرِبَ لَهُ",en:"The water of Zamzam is for whatever it is drunk for."},
+      {t:"key",h:"The du'a you make when drinking Zamzam is accepted."},
+      {t:"h",h:"How to drink it"},
+      {t:"list",items:["Stand while you drink. That is the sunnah.","Make du'a right before a sip, during the sip in your heart, and right after it.","Or: take a sip, make du'a; another sip, du'a; a third sip, du'a."]},
+      {t:"h",h:"More from the Sunnah"},
+      {t:"list",items:["You can make wuḍūʾ with Zamzam.","Serve Zamzam to others. That is rewardable too.","Bring Zamzam back home. You're not being greedy; it is from the Sunnah, as ʿĀʾishah رضي الله عنها reported. The Prophet ﷺ would also have Zamzam sent to him in Madinah."]},
+      {t:"h",h:"Then back to the Black Stone"},
+      {t:"p",h:"After drinking Zamzam at the water coolers, go back to the Black Stone and do istilām again, in any of the four ways. Your ṭawāf is now complete, and you move on to the next ritual: saʿī."}
+    ]
+  },
+  {
+    id:"s3c15", title:"The Multazam", color:PAL.lilac,
+    summary:"The place of clinging, between the Black Stone and the door of the Kaʿbah.",
+    blocks:[
+      {t:"p",h:"Between the Black Stone and the door of the Kaʿbah is a very small area called the <em>Multazam</em>, the place of clinging. People place their chest, face, arms and palms against the wall of the Kaʿbah there and make du'a. This is correct."},
+      {t:"key",h:"It is not a requirement. For most women it isn't something they can even imagine doing. For men, if it's easily possible, it is excellent, in shāʾ Allāh."},
+      {t:"story",kind:"From the Q&A · Can men buy iḥrām in Madinah?",h:"<p>You should be able to. But if you can, buy it before you go: find out where to get it locally, or check online. That way you can make sure it is washed, has no fragrance on it, and is ready to wear, and you don't spend your time in Madinah looking for iḥrām.</p>"}
+    ]
+  },
+  {
+    id:"s3c16", title:"Ṭawāf Step by Step", color:PAL.mint,
+    summary:"The whole ṭawāf of Umrah in order, as taught in this session.",
+    blocks:[
+      {t:"steps",items:[
+        ["Prepare","Be clean, in wuḍūʾ, with the intention of ṭawāf. Stop the talbiyah. Men uncover the right shoulder (iḍṭibāʿ). Know your plan for the rounds."],
+        ["Start at the Black Stone","Do istilām in whichever of the four ways you can: face it and say “Bismillāh, Allāhu Akbar”. Keep moving."],
+        ["Walk seven rounds","Kaʿbah on your left, outside the Ḥaṭīm. Men do ramal in rounds 1–3. Touch ar-Rukn al-Yamānī if you can, say “Rabbanā ātinā…” from there to the Black Stone, and do istilām at the Black Stone each round."],
+        ["Finish","After the seventh round, men cover both shoulders."],
+        ["Maqām Ibrāhīm","Walk towards it reciting “wattakhidhū min maqāmi Ibrāhīma muṣallā”. Pray two rakʿahs with al-Kāfirūn and al-Ikhlāṣ, wherever there's space."],
+        ["Zamzam","Drink it standing, make du'a with each sip, and pour some on your head."],
+        ["Back to the Black Stone","Istilām once more. Your ṭawāf is complete."],
+        ["On to saʿī","Head to Ṣafā and Marwah."]
+      ]},
+      {t:"dua",kind:"The session closed with",en:"Bārak Allāhu fīkum."}
+    ]
+  }
+  ]
+},
+{
+  id:"p4", num:"Part Four", title:"Saʿī", session:"Session 4",
+  chapters:[
+  {
+    id:"s4c1", title:"What Saʿī Is", color:PAL.sand,
+    summary:"Seven legs between Ṣafā and Marwah, done willingly for Allah.",
+    blocks:[
+      {t:"dua",kind:"Each session opens with",ar:"رَبِّ اشْرَحْ لِي صَدْرِي ۝ وَيَسِّرْ لِي أَمْرِي ۝ وَاحْلُلْ عُقْدَةً مِّن لِّسَانِي ۝ يَفْقَهُوا قَوْلِي",en:"My Lord, expand for me my chest, ease for me my task, and untie the knot from my tongue so they may understand my speech."},
+      {t:"p",h:"<em>As-saʿī bayna aṣ-Ṣafā wa-l-Marwah</em> is going back and forth between Ṣafā and Marwah. It is one of the pillars of Umrah: going seven times between the two hills with the intention of worship."},
+      {t:"p",h:"Ṣafā and Marwah are two hills. They don't look much like hills today, but their spots are well known and well preserved."},
+      {t:"key",h:"Ṣafā to Marwah is one round. Marwah back to Ṣafā is the second. Seven complete rounds: saʿī begins at Ṣafā and ends at Marwah."},
+      {t:"p",h:"Before saʿī you must have completed your ṭawāf, prayed the two rakʿahs at Maqām Ibrāhīm, and done istilām of the Black Stone. Then you go towards Ṣafā."},
+      {t:"q",ar:"إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ ۖ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَن يَطَّوَّفَ بِهِمَا ۚ وَمَن تَطَوَّعَ خَيْرًا فَإِنَّ اللَّهَ شَاكِرٌ عَلِيمٌ",en:"Indeed, Ṣafā and Marwah are among the symbols of Allah. So whoever makes Hajj to the House or performs Umrah, there is no blame upon him for walking between them. And whoever volunteers good, then indeed Allah is Appreciative and Knowing.",ref:"Sūrat al-Baqarah 2:158"},
+      {t:"h",h:"What this ayah teaches"},
+      {t:"list",items:["<b>They are shaʿāʾir Allāh:</b> places Allah has chosen for His religion, for the performance of certain rituals.","<b>Saʿī is part of Hajj and of Umrah.</b> Neither is complete without it.","<b>Do it willingly and happily.</b> "+ari("وَمَن تَطَوَّعَ خَيْرًا")+": whoever does good willingly."]},
+      {t:"p",h:"Walking seven times between two hills is quite a walk, and men have to run part of it. It can be tiring, and for some people very exhausting. For the average person it still takes effort and energy."},
+      {t:"key",h:"Allah is <b>Shākir</b>: He appreciates every step you take and all the effort you put in. And He is <b>ʿAlīm</b>: He knows your intention, your state, how much your feet, knees or back are hurting. He appreciates, and He rewards."},
+      {t:"p",h:"Many people feel energetic and emotional in ṭawāf, close to the Kaʿbah. By the time they reach saʿī they are tired, they are counting the rounds, and further from the Kaʿbah they don't feel the same emotional high. Remember then: I am doing this because Allah commanded it, and I will do it willingly and happily. And you will find Allah Shākir and ʿAlīm."}
+    ]
+  },
+  {
+    id:"s4c2", title:"Why “No Blame”?", color:PAL.peri,
+    summary:"Why the ayah is worded this way, and why saʿī is not optional.",
+    blocks:[
+      {t:"hd",kind:"Anas ibn Mālik رضي الله عنه",en:"Anas was asked: did you use to dislike going between Ṣafā and Marwah? He said: yes, because they were among the waymarks of the Jāhiliyyah, until Allah revealed: “Indeed, Ṣafā and Marwah are among the symbols of Allah.”"},
+      {t:"p",h:"The mushrikūn had placed idols at Ṣafā and Marwah and did saʿī even before Islam, so the Muslims were afraid that doing saʿī would be wrong. Allah removed this confusion with this ayah: there is no blame on the one doing Hajj or Umrah in going between them."},
+      {t:"story",kind:"ʿUrwah and ʿĀʾishah رضي الله عنها",h:"<p>ʿUrwah said to ʿĀʾishah: by Allah, it is evident from this ayah that there is no harm if a person does not go between Ṣafā and Marwah. It seems optional.</p><p>She said: O my nephew, your interpretation is not correct. If it were, Allah would have said: there is no blame on him if he does <em>not</em> go between them. But He said there is no blame on him if he <em>does</em>.</p><p>Then she explained that the ayah was revealed about the Anṣār. Before Islam, whoever put on iḥrām to worship the idol Manāt would not do saʿī between Ṣafā and Marwah. When they embraced Islam they asked the Messenger of Allah ﷺ about it, and Allah revealed this ayah.</p>"},
+      {t:"key",h:"Don't be confused by the wording. Saʿī is not optional. The wording removes the Companions' fear: saʿī is not a pagan tradition, it is something Allah has legislated."}
+    ]
+  },
+  {
+    id:"s4c3", title:"In the Footsteps of Hājar", color:PAL.blush,
+    summary:"Where saʿī began: a mother searching for water for her child.",
+    blocks:[
+      {t:"story",kind:"From the hadith",h:"<p>When Ibrāhīm left Hājar and Ismāʿīl in Makkah, she nursed her son and drank from the water she had. When it ran out, she and her child both became thirsty. She saw the baby tossing in agony, and she left him because she could not bear to watch.</p><p>Ṣafā was the nearest mountain to her. She climbed it and looked across the valley hoping to see someone, but saw no one. She came down, and when she reached the valley she tucked up her robe and ran like a person in distress until she crossed it and reached Marwah. She stood there and looked, but saw no one.</p><p>She went back and forth, Ṣafā to Marwah and Marwah to Ṣafā, seven times.</p>"},
+      {t:"hd",en:"The Prophet ﷺ said: this is the source of the tradition of people walking between them."},
+      {t:"p",h:"Imagine a nursing mother, thirsty, with no water, watching her child unable to get any milk."},
+      {t:"story",kind:"The seventh time",h:"<p>When she reached Marwah for the last time, she heard a voice. She told herself to be quiet and listened. She heard it again and said: whoever you are, you have made me hear your voice; have you got something to help me? And there she saw an angel at the place of Zamzam, digging the earth with his heel, or his wing, until water flowed.</p>"},
+      {t:"key",h:"This is the real reason we do saʿī. It is not a pagan tradition. Saʿī is done in the footsteps of Hājar."}
+    ]
+  },
+  {
+    id:"s4c4", title:"An Obligation, and Its Reward", color:PAL.rose,
+    summary:"Allah decreed it, the Prophet ﷺ ran it, and it carries a great reward.",
+    blocks:[
+      {t:"p",h:"Saʿī is a mandatory part of Umrah and must not be left. If a person leaves it, their Umrah is not valid."},
+      {t:"hd",en:"The Prophet ﷺ was going between Ṣafā and Marwah, running in the valley between them, exerting so much effort that his lower garment twisted around his legs. And he was saying to the Companions:"},
+      {t:"hd",ar:"اسْعَوْا فَإِنَّ اللَّهَ كَتَبَ عَلَيْكُمُ السَّعْيَ",en:"Perform saʿī, for Allah has decreed saʿī upon you."},
+      {t:"h",h:"What saʿī means"},
+      {t:"p",h:"<em>Saʿī</em> primarily means to walk quickly, and it is sometimes used for running or rushing. On the slopes of the two hills you walk. The valley between them is crossed running."},
+      {t:"key",h:"You won't see the valley today, but you will see two very visible green lights. That is where the valley was. Men run between them."},
+      {t:"h",h:"The reward"},
+      {t:"hd",en:"The reward of doing saʿī is like freeing seventy slaves."},
+      {t:"p",h:"Allāhu Akbar."},
+      {t:"hd",kind:"Ibn ʿUmar رضي الله عنهما",en:"The Prophet ﷺ arrived in Makkah, did ṭawāf of the Kaʿbah, prayed two rakʿahs, then went between Ṣafā and Marwah. And Ibn ʿUmar recited: “Indeed, in the Messenger of Allah you have an excellent example.”"},
+      {t:"p",h:"We do saʿī because the Prophet ﷺ did saʿī."},
+      {t:"h",h:"Why run"},
+      {t:"p",h:"Ibn ʿAbbās explained that one reason was to show the Muslims' strength. When the Muslims came together for Umrah for the first time, the mushrikūn watched from a distance mocking them: look how weak they've become. So men run part of ṭawāf, and in saʿī the valley is crossed running. The mushrikūn are no longer there, but we still do it to remember our strength."},
+      {t:"h",h:"Seven"},
+      {t:"hd",ar:"رَمْيُ الْجِمَارِ تَوٌّ وَالسَّعْيُ بَيْنَ الصَّفَا وَالْمَرْوَةِ تَوٌّ وَالطَّوَافُ تَوٌّ",en:"Stoning the pillars is an odd number, going between Ṣafā and Marwah is an odd number, and ṭawāf is an odd number: seven times."}
+    ]
+  },
+  {
+    id:"s4c5", title:"Wuḍūʾ for Saʿī", color:PAL.aqua,
+    summary:"Not a requirement, but better to have.",
+    blocks:[
+      {t:"p",h:"Do you need to be in wuḍūʾ for saʿī? No. Wuḍūʾ is not a requirement for saʿī."},
+      {t:"hd",kind:"ʿĀʾishah رضي الله عنها",en:"She was going for Hajj with the Prophet ﷺ when her menstruation began, and she was crying. He consoled her: this is something Allah has decreed for the daughters of Ādam. Do what the pilgrims do, except ṭawāf around the Kaʿbah, until you are purified."},
+      {t:"p",h:"He only told her not to do ṭawāf, so she could do everything else, including saʿī. If a menstruating woman can do saʿī, then certainly a person without wuḍūʾ can."},
+      {t:"key",h:"It is still better to have wuḍūʾ: if the adhān and iqāmah are called during your saʿī, you have to join the congregation and pray right away."}
+    ]
+  },
+  {
+    id:"s4c6", title:"At Ṣafā", color:PAL.butter,
+    summary:"What to recite, where to face, and the dhikr to say three times with du'a.",
+    blocks:[
+      {t:"hd",kind:"Jābir رضي الله عنه",en:"The Prophet ﷺ went out of the gate to aṣ-Ṣafā, and as he came near it he recited “Indeed, Ṣafā and Marwah are among the symbols of Allah,” and said: “I begin with what Allah began with.” He climbed Ṣafā until he saw the Kaʿbah, faced the qiblah, declared Allah's oneness and greatness, and said the words below. He repeated them three times, making du'a in between. Then he came down and went towards Marwah."},
+      {t:"h",h:"Step by step"},
+      {t:"steps",items:[
+        ["Walk towards Ṣafā","After istilām of the Black Stone, follow the signs to Ṣafā. They are very clear."],
+        ["As you near it, recite",ari("إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ")+"<br>Only this part of the ayah."],
+        ["Then say",ari("أَبْدَأُ بِمَا بَدَأَ اللَّهُ بِهِ")+"<br>I begin with what Allah began with. Allah mentions Ṣafā before Marwah, so you begin at Ṣafā, not Marwah."],
+        ["Face the qiblah","Climb and turn towards the Kaʿbah. With the crowds you may not see it; do your best. If you can see it, even better."],
+        ["Say the dhikr three times","With du'a after the first, after the second, and after the third. This is the time for du'a."],
+        ["Descend towards Marwah","Your first round begins."]
+      ]},
+      {t:"dua",kind:"First",ar:"لَا إِلَٰهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ",en:"There is no god but Allah, and Allah is the Greatest."},
+      {t:"dua",kind:"Then, three times, with du'a in between",ar:"لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ أَنْجَزَ وَعْدَهُ وَنَصَرَ عَبْدَهُ وَهَزَمَ الْأَحْزَابَ وَحْدَهُ",en:"There is no god worthy of worship but Allah alone, with no partner. To Him belongs all dominion and all praise, and He is able to do all things. There is no god but Allah alone. He fulfilled His promise, helped His slave, and routed the confederates alone."},
+      {t:"p",h:"“Routed the confederates alone” refers to how Makkah was conquered without a battle: Allah gave His Messenger ﷺ victory, routing all the different groups Himself."},
+      {t:"h",h:"Practise it now"},
+      {t:"p",h:"Many people approach Ṣafā with a book in hand, reading these words for the first time. It takes so long that they give up and just walk between Ṣafā and Marwah without the words or any du'a. The saʿī still counts, but you are travelling so far, spending so much and exerting so much effort. You want to maximise the reward, and you do that by following the Sunnah."},
+      {t:"key",h:"Memorise this dhikr. If you can't, read it enough times from now that you are fluent: smooth, not rushing, and not struggling with the ḥarakāt or panicking because everyone has moved on. It's in the Memorise tab."}
+    ]
+  },
+  {
+    id:"s4c7", title:"From Ṣafā to Marwah", color:PAL.sage,
+    summary:"Running between the green lights, and the du'a of saʿī.",
+    blocks:[
+      {t:"p",h:"Come down from Ṣafā and head towards Marwah. There is no valley today, so you walk, and men run between the two green lights."},
+      {t:"dua",kind:"The du'a of saʿī",ar:"رَبِّ اغْفِرْ وَارْحَمْ وَأَنْتَ الْأَعَزُّ الْأَكْرَمُ",en:"My Lord, forgive and have mercy, and You are truly the Most Mighty, the Most Honourable."},
+      {t:"h",h:"Men: don't take the running lightly"},
+      {t:"p",h:"The Prophet ﷺ ran in the valley between Ṣafā and Marwah. In one hadith his lower garment rose very high from running, and in another it twisted around his legs. He wasn't just walking fast; he was running fast."},
+      {t:"h",h:"If you can't run"},
+      {t:"hd",kind:"Ibn ʿUmar رضي الله عنهما",en:"A man said to him: I see you walking in the valley while people are running. He said: if I walk, it is because I saw the Messenger of Allah ﷺ walk, and if I run, it is because I saw him run. And I am now too old."},
+      {t:"p",h:"So if a man can't run because of pain, injury or old age, it is fine to walk through the valley."},
+      {t:"all",items:[["Men","Run between the green lights if able"],["Women","Walk at a normal pace throughout"]]}
+    ]
+  },
+  {
+    id:"s4c8", title:"At Marwah, and Back", color:PAL.lilac,
+    summary:"Stand, face the qiblah, repeat the dhikr, and complete the seven legs.",
+    blocks:[
+      {t:"hd",en:"When the Prophet ﷺ began to ascend al-Marwah, he walked until he reached the top, and there he did as he had done at aṣ-Ṣafā."},
+      {t:"p",h:"So at Marwah you do what you did at Ṣafā, except you don't say "+ari("أَبْدَأُ بِمَا بَدَأَ اللَّهُ بِهِ")+", because you have already begun."},
+      {t:"list",items:["Recite "+ari("إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ")+".","Face the qiblah and say "+ari("لَا إِلَٰهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ")+".","Say the full dhikr three times, making du'a in between.","Then descend and head back to Ṣafā, and do the same there."]},
+      {t:"key",h:"Many people don't stop at Marwah. They just touch it and start walking back towards Ṣafā. That is not correct. Stand on the hill, say the dhikr, and make du'a."},
+      {t:"h",h:"The seven legs"},
+      {t:"steps",items:[["Ṣafā → Marwah","Round 1"],["Marwah → Ṣafā","Round 2"],["Ṣafā → Marwah","Round 3"],["Marwah → Ṣafā","Round 4"],["Ṣafā → Marwah","Round 5"],["Marwah → Ṣafā","Round 6"],["Ṣafā → Marwah","Round 7. Your saʿī ends at Marwah."]]},
+      {t:"key",h:"On the seventh round, when you ascend Marwah for the last time, you do not recite the ayah or the dhikr. Your saʿī is complete."}
+    ]
+  },
+  {
+    id:"s4c9", title:"Dhikr and Manners in Saʿī", color:PAL.mint,
+    summary:"What to say as you walk, reviving the Sunnah on the hills, and taking your time.",
+    blocks:[
+      {t:"p",h:"As you walk between the hills, say the du'a of saʿī, "+ari("رَبِّ اغْفِرْ وَارْحَمْ وَأَنْتَ الْأَعَزُّ الْأَكْرَمُ")+", and you can also say other adhkār, such as:"},
+      {t:"dua",kind:"Dhikr",ar:"سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلَٰهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ",en:"Glory be to Allah, all praise is for Allah, there is no god but Allah, and Allah is the Greatest."},
+      {t:"hd",en:"Ṭawāf of the Kaʿbah, going between Ṣafā and Marwah, and the stoning of the pillars have been legislated "+ari("لِإِقَامَةِ ذِكْرِ اللَّهِ")+": to establish the remembrance of Allah."},
+      {t:"h",h:"Revive the Sunnah on the hills"},
+      {t:"p",h:"Make du'a when you reach Ṣafā, and make du'a when you reach Marwah. Many people neglect this Sunnah. When you are there you will hardly see anyone making the effort to stand, recite the adhkār and make du'a on the hills. Don't be of those who neglect it. Revive it."},
+      {t:"key",h:"If your saʿī feels long because you are standing, saying the dhikr three times and making du'a, remind yourself: I didn't come all this way to quickly do my saʿī and go back to the hotel to sleep. I came to do my Umrah. I will take my time, relax, and focus on every part of this ʿibādah to maximise the reward."},
+      {t:"list",items:["<b>Keep your intention in mind.</b> Remember the reward, the importance and the virtues of saʿī, and why you are doing it.","<b>Don't spend it chatting.</b> Focus on the dhikr of Allah and du'a.","<b>Men run only in the valley,</b> between the green lights. Some people run all the way from the top of Ṣafā to the top of Marwah. That is not correct."]}
+    ]
+  },
+  {
+    id:"s4c10", title:"If You Can't Walk", color:PAL.sky,
+    summary:"Doing ṭawāf or saʿī on a ride or wheelchair, and staying in the designated area.",
+    blocks:[
+      {t:"p",h:"If a person genuinely cannot walk seven times between Ṣafā and Marwah on their feet, may they do saʿī on some kind of ride? Yes, that is permissible."},
+      {t:"key",h:"Doing it on your feet is certainly better, because the Prophet ﷺ and his Companions did saʿī on foot."},
+      {t:"hd",kind:"Jābir رضي الله عنه",en:"On the Farewell Pilgrimage the Prophet ﷺ performed ṭawāf, saʿī, and even istilām of the Black Stone riding his camel. Jābir explained that he did this so people could see him and he would not be hidden, and so they could find him to ask their questions, because there was a huge crowd around him."},
+      {t:"p",h:"So if there is a reason, there is nothing wrong with performing these rituals on some means of transport. For example:"},
+      {t:"chips",items:["The elderly","A foot injury","Feet that hurt walking barefoot for long","Pregnancy","Little children","Physical weakness","Illness","Disability"]},
+      {t:"hd",kind:"Umm Salamah رضي الله عنها",en:"She complained to the Prophet ﷺ of her illness, and he told her to perform ṭawāf riding, behind the people."},
+      {t:"p",h:"Two things: he told her to ride because she was ill, and to do it behind the people, so the camel would not come among those walking and accidentally hurt or bump into someone."},
+      {t:"key",h:"If you are using a wheelchair or similar, stay in the designated area, away from those walking. Don't go into the area for people on foot; you don't want to injure someone inadvertently."}
+    ]
+  },
+  {
+    id:"s4c11", title:"Salah and Breaks in Saʿī", color:PAL.peach,
+    summary:"Pausing for congregation, and resting between ṭawāf and saʿī.",
+    blocks:[
+      {t:"h",h:"When it's time to pray"},
+      {t:"p",h:"If it is time for salah during your saʿī, pause and pray in congregation. Then resume your saʿī from where you stopped. You don't start again. This applies to women too, not just men."},
+      {t:"h",h:"A break between ṭawāf and saʿī"},
+      {t:"p",h:"If you can't do saʿī straight after ṭawāf, there is nothing wrong with taking a break in between."},
+      {t:"hd",kind:"ʿAṭāʾ and al-Ḥasan al-Baṣrī",en:"They would do ṭawāf in the morning and saʿī later in the day, and saw no problem in it."},
+      {t:"story",kind:"Example",h:"<p>You finish ṭawāf and it's really hot. You are very tired and won't be able to focus on ʿibādah or do everything properly. It's better to rest a little: eat something, take a short power nap, freshen up, and then come back for saʿī. There is nothing wrong with that.</p>"},
+      {t:"key",h:"You are still in iḥrām during the break and during saʿī, so keep to the rules of iḥrām."}
+    ]
+  },
+  {
+    id:"s4c12", title:"Shaving or Trimming", color:PAL.blush,
+    summary:"The final step: ḥalq or taqṣīr, and your Umrah is complete.",
+    blocks:[
+      {t:"p",h:"After saʿī comes <em>ḥalq</em> or <em>taqṣīr</em>."},
+      {t:"all",items:[["Ḥalq","Shaving the head: for men"],["Taqṣīr","Trimming the hair of the head: for men and women"]]},
+      {t:"hd",kind:"Muʿāwiyah رضي الله عنه",en:"I clipped the hair of the Messenger of Allah ﷺ with a clipper while he was at al-Marwah."},
+      {t:"hd",en:"When the Prophet ﷺ came to Makkah, he ordered his Companions to perform ṭawāf of the Kaʿbah, then saʿī between Ṣafā and Marwah, then to finish their iḥrām and have their hair shaved off or cut short."},
+      {t:"p",h:"So men have both options. And the Prophet ﷺ made du'a:"},
+      {t:"hd",ar:"اللَّهُمَّ اغْفِرْ لِلْمُحَلِّقِينَ",en:"“O Allah, forgive those who shave their heads.” The Companions said: “And those who trim?” He said again: “O Allah, forgive those who shave.” This happened three times, and then he said: “And those who trim.”"},
+      {t:"key",h:"The rank of men who shave after saʿī is greater than of those who only trim. But he also prayed for those who trim, so there is nothing wrong with trimming."},
+      {t:"h",h:"Women"},
+      {t:"hd",en:"Shaving the head is not a duty laid on women. Only clipping the hair is incumbent on them."},
+      {t:"h",h:"Where and when"},
+      {t:"list",items:["You can trim your hair at Marwah at the end of the seventh round. Some people carry clippers or small scissors in their bag and cut some hair right there.","If that isn't possible, say you don't have scissors or really need the bathroom, you can go back to the hotel and trim or shave there.","Many men trim a little at Marwah, then go and eat, and have their heads shaved later. It doesn't have to be done right there; you can delay it a little."]},
+      {t:"h",h:"Razor, clippers or barber"},
+      {t:"p",h:"The Prophet ﷺ used a clipper. That doesn't mean he didn't shave the head; it means he didn't use a razor. So you don't need a razor to shave the head clean. Use whatever tool you have."},
+      {t:"p",h:"You can go to a barber, but finding a good one and waiting can take very long. To save time, take clippers with you and shave in the hotel bathroom, properly, and not in the sink, so nothing gets clogged."},
+      {t:"cta2",h:"With that, alḥamdulillāh, your Umrah is complete. May Allah ﷻ give us all tawfīq, and may He accept it from all of us. Āmīn."},
+      {t:"dua",kind:"The session closed with",ar:"سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا أَنْتَ أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ",en:"Glory be to You, O Allah, and praise. I bear witness that there is no god but You. I seek Your forgiveness and turn to You in repentance."}
+    ]
+  }
+  ]
+}
+];
+
+const PLAN_OPTS = ["","Qur'an","Tasbīḥāt","Istighfār","Du'as","My du'a list"];
+const PLAN_DEFAULT = ["Qur'an","Qur'an","Tasbīḥāt","Istighfār","Du'as","",""];
+
+const PACK = ["Clothing","Medication","Toiletries","Fragrance-free soap","Notebook & pens","Du'a books","Muṣḥaf","Useful apps","Gifts for others","Snacks to share","Comfortable shoes","Men's iḥrām (washed, unscented)","Clippers or small scissors","Slippers","Musalla","Shoe bag"];
+
+const MEMORISE = [
+  {part:"Part Four",id:"m30",kind:"Dhikr",title:"On Ṣafā and Marwah",ar:"لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ أَنْجَزَ وَعْدَهُ وَنَصَرَ عَبْدَهُ وَهَزَمَ الْأَحْزَابَ وَحْدَهُ",en:"There is no god but Allah alone, with no partner. To Him belongs all dominion and all praise, and He is able to do all things. There is no god but Allah alone. He fulfilled His promise, helped His slave, and routed the confederates alone.",ref:"Hadith of Jābir",why:"Said three times on each hill, facing the qiblah, with du'a in between. Practise until fluent."},
+  {part:"Part Four",id:"m31",kind:"Du'a",title:"The du'a of saʿī",ar:"رَبِّ اغْفِرْ وَارْحَمْ وَأَنْتَ الْأَعَزُّ الْأَكْرَمُ",en:"My Lord, forgive and have mercy, and You are truly the Most Mighty, the Most Honourable.",ref:"Hadith",why:"Said while walking between Ṣafā and Marwah."},
+  {part:"Part Four",id:"m32",kind:"Qur'an",title:"Approaching Ṣafā",ar:"إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ",en:"Indeed, Ṣafā and Marwah are among the symbols of Allah.",ref:"al-Baqarah 2:158",why:"Recited as you near Ṣafā, and at Marwah."},
+  {part:"Part Four",id:"m33",kind:"Sunnah",title:"I begin with Ṣafā",ar:"أَبْدَأُ بِمَا بَدَأَ اللَّهُ بِهِ",en:"I begin with what Allah began with.",ref:"Hadith of Jābir",why:"Said once, at Ṣafā only, at the very start."},
+  {part:"Part Four",id:"m34",kind:"Qur'an",title:"Allah appreciates",ar:"وَمَن تَطَوَّعَ خَيْرًا فَإِنَّ اللَّهَ شَاكِرٌ عَلِيمٌ",en:"And whoever volunteers good, then indeed Allah is Appreciative and Knowing.",ref:"al-Baqarah 2:158",why:"Remember it when saʿī gets tiring."},
+  {part:"Part Three",id:"m28",kind:"Qur'an",title:"Walking to Maqām Ibrāhīm",ar:"وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّى",en:"And take the standing place of Ibrāhīm as a place of prayer.",ref:"al-Baqarah 2:125",why:"Recite it walking to the Maqām after the seventh round."},
+  {part:"Part Three",id:"m29",kind:"Hadith",title:"Zamzam",ar:"مَاءُ زَمْزَمَ لِمَا شُرِبَ لَهُ",en:"The water of Zamzam is for whatever it is drunk for.",ref:"Hadith",why:"Make du'a with each sip; it is accepted."},
+  {part:"Part Three",id:"m20",kind:"Du'a",title:"Between the Yamānī corner and the Black Stone",ar:"رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",en:"Our Lord, give us good in this world and good in the Hereafter, and save us from the punishment of the Fire.",ref:"al-Baqarah 2:201",why:"What the Prophet ﷺ said on this stretch of each round."},
+  {part:"Part Three",id:"m21",kind:"Dhikr",title:"At the Black Stone",ar:"بِسْمِ اللَّهِ اللَّهُ أَكْبَرُ",en:"In the name of Allah. Allah is the Greatest.",ref:"Sunnah",why:"Said at istilām, at the start of every round."},
+  {part:"Part Three",id:"m22",kind:"Dhikr",title:"Also at the Black Stone",ar:"لَا إِلَٰهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ",en:"There is no god but Allah, and Allah is the Greatest.",ref:"Hadith",why:"Taught to ʿUmar for when he couldn't reach the stone."},
+  {part:"Part Three",id:"m23",kind:"Tasbīḥ",title:"The du'a of Yūnus",ar:"لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ",en:"There is no god but You. Glory be to You. Indeed, I have been of the wrongdoers.",ref:"al-Anbiyāʾ 21:87",why:"A tasbīḥ for your ṭawāf rounds."},
+  {part:"Part Three",id:"m24",kind:"Tasbīḥ",title:"The four words",ar:"سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلَٰهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ",en:"Glory be to Allah, all praise is for Allah, there is no god but Allah, and Allah is the Greatest.",ref:"Dhikr",why:"A tasbīḥ for your ṭawāf rounds."},
+  {part:"Part Three",id:"m25",kind:"Tasbīḥ",title:"Allah alone",ar:"لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",en:"There is no god but Allah alone, with no partner. His is the dominion and His is the praise, and He has power over all things.",ref:"Dhikr",why:"A tasbīḥ for your ṭawāf rounds."},
+  {part:"Part Three",id:"m26",kind:"Istighfār",title:"Seeking forgiveness",ar:"أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ",en:"I seek Allah's forgiveness and turn to Him in repentance.",ref:"Dhikr",why:"For your istighfār round."},
+  {part:"Part Three",id:"m27",kind:"Qur'an",title:"The best example",ar:"لَّقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ",en:"Indeed, in the Messenger of Allah you have an excellent example.",ref:"al-Aḥzāb 33:21",why:"Ibn ʿAbbās's answer: follow the Sunnah, not the crowd."},
+  {part:"Part Two",id:"m9",kind:"Talbiyah",title:"The Talbiyah",ar:"لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ لَا شَرِيكَ لَكَ",en:"Here I am, O Allah, here I am. Here I am, You have no partner, here I am. Verily all praise and blessings are Yours, and all sovereignty. You have no partner.",ref:"Hadith",why:"Everything around you joins in, and it brings the good news of Paradise."},
+  {part:"Part Two",id:"m10",kind:"Talbiyah",title:"Intention for Umrah",ar:"لَبَّيْكَ عُمْرَةً",en:"Here I am, O Allah, for Umrah.",ref:"Sunnah",why:"The first words on entering iḥrām at the mīqāt."},
+  {part:"Part Two",id:"m11",kind:"Talbiyah",title:"God of truth",ar:"لَبَّيْكَ إِلَٰهَ الْحَقِّ لَبَّيْكَ",en:"Here I am, O God of truth, here I am.",ref:"Hadith",why:"Another talbiyah of the Prophet ﷺ."},
+  {part:"Part Two",id:"m12",kind:"Qur'an",title:"The Ancient House",ar:"وَلْيَطَّوَّفُوا بِالْبَيْتِ الْعَتِيقِ",en:"And let them perform ṭawāf of the Ancient House.",ref:"al-Ḥajj 22:29",why:"Ṭawāf is a pillar of Umrah."},
+  {part:"Part Two",id:"m13",kind:"Hadith",title:"Perform saʿī",ar:"اسْعَوْا فَإِنَّ اللَّهَ كَتَبَ عَلَيْكُمُ السَّعْيَ",en:"Perform saʿī, for Allah has prescribed saʿī for you.",ref:"Hadith",why:"Saʿī is a pillar of Umrah."},
+  {part:"Part Two",id:"m14",kind:"Hadith",title:"Intentions",ar:"إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ",en:"Actions are only by intentions.",ref:"Hadith",why:"Iḥrām is the intention of the heart, not only the clothing."},
+  {part:"Part Two",id:"m19",kind:"Qur'an",title:"Shaved and trimmed",ar:"مُحَلِّقِينَ رُءُوسَكُمْ وَمُقَصِّرِينَ",en:"With your heads shaved and your hair trimmed.",ref:"al-Fatḥ 48:27",why:"The second wājib of Umrah."},
+  {part:"Part One",id:"m1",kind:"Qur'an",title:"Complete it for Allah",ar:"وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ",en:"And complete the Hajj and Umrah for Allah.",ref:"al-Baqarah 2:196",why:"Repeat it from now to keep your intention for Allah."},
+  {part:"Part One",id:"m15",kind:"Qur'an",title:"The best provision",ar:"وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ",en:"And take provisions, but the best provision is taqwā.",ref:"al-Baqarah 2:197",why:"Pack wisely, and above all take taqwā."},
+  {part:"Part One",id:"m16",kind:"Du'a",title:"ʿUmar's du'a for sincerity",ar:"اللَّهُمَّ اجْعَلْ عَمَلِي كُلَّهُ صَالِحًا وَاجْعَلْهُ لِوَجْهِكَ خَالِصًا وَلَا تَجْعَلْ لِأَحَدٍ فِيهِ شَيْئًا",en:"O Allah, make all of my actions righteous, make them sincerely for Your Face alone, and do not give anyone else a share in them.",ref:"ʿUmar رضي الله عنه",why:"Mental preparation for a sincere Umrah."},
+  {part:"Part One",id:"m17",kind:"Du'a",title:"No showing off",ar:"اللَّهُمَّ حَجَّةٌ لَا رِيَاءَ فِيهَا وَلَا سُمْعَةَ",en:"O Allah, a Hajj in which there is no showing off and no seeking of reputation.",ref:"Hadith",why:"The Prophet's ﷺ words at his Hajj."},
+  {part:"Part One",id:"m2",kind:"Qur'an",title:"The call of Ibrahim",ar:"وَأَذِّن فِي النَّاسِ بِالْحَجِّ يَأْتُوكَ رِجَالًا وَعَلَىٰ كُلِّ ضَامِرٍ يَأْتِينَ مِن كُلِّ فَجٍّ عَمِيقٍ",en:"And proclaim to the people the pilgrimage. They will come to you on foot and on every lean camel; they will come from every distant pass.",ref:"al-Ḥajj 22:27",why:"Going for Umrah is answering this call."},
+  {part:"Part One",id:"m3",kind:"Hadith",title:"The guests of Allah",ar:"الْحُجَّاجُ وَالْعُمَّارُ وَفْدُ اللَّهِ إِنْ دَعَوْهُ أَجَابَهُمْ وَإِنِ اسْتَغْفَرُوهُ غَفَرَ لَهُمْ",en:"Those who perform Hajj and Umrah are the delegation of Allah. If they call upon Him, He answers them; if they seek His forgiveness, He forgives them.",ref:"Hadith",why:"Why your du'a list matters: the guest is not refused."},
+  {part:"Part One",id:"m4",kind:"Hadith",title:"Like the furnace",ar:"تَابِعُوا بَيْنَ الْحَجِّ وَالْعُمْرَةِ فَإِنَّ الْمُتَابَعَةَ بَيْنَهُمَا تَنْفِي الْفَقْرَ وَالذُّنُوبَ كَمَا يَنْفِي الْكِيرُ خَبَثَ الْحَدِيدِ",en:"Perform Hajj and Umrah one after the other, for doing so removes poverty and sins just as the furnace removes impurity from iron.",ref:"Hadith",why:"Intend to go again and again."},
+  {part:"Part One",id:"m5",kind:"Hadith",title:"In the way of Allah",ar:"إِنَّ الْحَجَّ وَالْعُمْرَةَ مِنْ سَبِيلِ اللَّهِ",en:"Indeed, Hajj and Umrah are from the way of Allah.",ref:"Hadith",why:"The effort, the travel and the spending all count in His path."},
+  {part:"Part One",id:"m18",kind:"Hadith",title:"Umrah in Ramadan",ar:"اعْتَمِرَا فِي رَمَضَانَ",en:"Both of you, perform Umrah in Ramadan.",ref:"Hadith",why:"Umrah in Ramadan equals Hajj with the Prophet ﷺ."},
+  {part:"Part One",id:"m6",kind:"Hadith",title:"Perform Umrah",ar:"أَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَحُجُّوا وَاعْتَمِرُوا",en:"Establish the prayer, give zakat, perform Hajj, and perform Umrah.",ref:"Hadith",why:"Umrah is named alongside the pillars."},
+  {part:"Part One",id:"m7",kind:"Companion",title:"Upon every Muslim",ar:"لَيْسَ مُسْلِمٌ إِلَّا عَلَيْهِ عُمْرَةٌ",en:"There is no Muslim except that upon him is the duty to perform Umrah.",ref:"Jābir رضي الله عنه",why:"At least once in a lifetime."},
+  {part:"Part One",id:"m8",kind:"Du'a",title:"Before learning",ar:"رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي وَاحْلُلْ عُقْدَةً مِّن لِّسَانِي يَفْقَهُوا قَوْلِي",en:"My Lord, expand for me my chest, ease for me my task, and untie the knot from my tongue so they may understand my speech.",ref:"Ṭā Hā 20:25–28",why:"The du'a each session opens with."}
+];
+
+const PROMPTS = ["What causes me stress","What keeps me worried","Unhealthy habits I want to leave","What makes me anxious","My short temper","Managing my work","My many responsibilities","A struggle in my family","My loved ones' tests"];
+const WHO = {me:"For me",family:"My family",loved:"Loved ones"};
+
+/* storage (safe) */
+const S = {
+  get(k,d){try{const v=localStorage.getItem("wafd-"+k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+  set(k,v){try{localStorage.setItem("wafd-"+k,JSON.stringify(v))}catch(e){}}
+};
+let state = {
+  read:S.get("read",{}), last:S.get("last",null), scroll:S.get("scroll",{}),
+  mem:S.get("mem",{}), duas:S.get("duas",[]), pack:S.get("pack",{}), plan:S.get("plan",PLAN_DEFAULT.slice()),
+  fs:S.get("fs",17), tab:S.get("tab","home")
+};
+
+const ALL = PARTS.flatMap(p=>p.chapters.map((c,i)=>({...c,part:p,idx:i+1})));
+const $ = (s,el=document)=>el.querySelector(s);
+const esc = s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cv = c=>`--c:${c.color[0]};--d:${c.color[1]}`;
+const chevron = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>';
+const check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+const countRead = p=>p.chapters.filter(c=>state.read[c.id]).length;
+
+function applySize(){ document.documentElement.style.setProperty("--fs", state.fs+"px"); $("#fsize").value = state.fs; }
+
+/* hero: one ring per chapter, turning anticlockwise like ṭawāf */
+function mataf(part){
+  const n = part.chapters.length;
+  const r0 = 36, step = Math.min(8, 50/Math.max(n-1,1));
+  let rings = "";
+  part.chapters.forEach((c,i)=>{
+    const r = r0 + i*step;
+    rings += state.read[c.id]
+      ? `<circle cx="100" cy="100" r="${r}" fill="none" stroke="#C0677F" stroke-width="2.2"/>`
+      : `<circle cx="100" cy="100" r="${r}" fill="none" stroke="#C0677F" stroke-opacity=".35" stroke-width="1.1" stroke-dasharray="1.5 4"/>`;
+  });
+  const outer = r0 + (n-1)*step;
+  return `<svg class="mataf" viewBox="0 0 200 200" role="img" aria-label="${countRead(part)} of ${n} chapters read, shown as rings around the Kaʿbah">
+    <circle cx="100" cy="100" r="${outer+9}" fill="#FFF7F9" fill-opacity=".55"/>
+    <g class="spin">${rings}<circle cx="100" cy="${100-outer-4}" r="2.8" fill="#C0677F"/></g>
+    <line x1="85" y1="115" x2="${100-(outer+9)*0.7071}" y2="${100+(outer+9)*0.7071}" stroke="#C0677F" stroke-opacity=".5" stroke-width="1" stroke-dasharray="3 3"/>
+    <rect x="84" y="84" width="32" height="32" rx="1.5" fill="#1d1a18"/>
+    <rect x="84" y="92" width="32" height="4" fill="#C29A4E"/>
+    <rect x="96.5" y="102" width="7" height="14" fill="#C29A4E" opacity=".9"/>
+    <circle cx="85" cy="115" r="1.8" fill="#7b6a55"/>
+  </svg>`;
+}
+
+function renderHome(){
+  const part = PARTS.find(p=>countRead(p)<p.chapters.length) || PARTS[PARTS.length-1];
+  const next = ALL.find(c=>c.id===state.last) || ALL.find(c=>!state.read[c.id]) || ALL[0];
+  const packed = PACK.filter(p=>state.pack[p]).length;
+  $("#v-home").innerHTML = `
+  <div class="hero"><div class="hero-grid">
+    ${mataf(part)}
+    <p class="ar ar-title">وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ</p>
+    <p class="en-title">And complete the Hajj and Umrah for Allah</p>
+    <p class="ref">al-Baqarah 2:196</p>
+    <div class="circuits"><b>${countRead(part)}</b><span>of ${part.chapters.length} chapters read · ${esc(part.num)}: ${esc(part.title)}</span></div>
+  </div></div>
+  <div class="stack">
+    <p class="label">${state.last?"Continue reading":"Begin here"}</p>
+    <button class="continue" data-open="${next.id}" style="${cv(next)}">
+      <span class="num">${next.idx}</span>
+      <span><span class="t">${esc(next.title)}</span><br><span class="s">${esc(next.part.num)} · ${esc(next.summary)}</span></span>
+      ${chevron}
+    </button>
+  </div>
+  <div class="stack">
+    <p class="label">Prepare in four ways</p>
+    <div class="prep">
+      <div><b>Spiritually</b><span>Your heart and your intention</span></div>
+      <div><b>Mentally</b><span>Ready for what it asks of you</span></div>
+      <div><b>Physically</b><span>Start walking now</span></div>
+      <div><b>Informationally</b><span>Learn the rituals</span></div>
+    </div>
+  </div>
+  <div class="stack">
+    <p class="label">Your preparation</p>
+    <button class="continue" data-tab-go="list" style="--c:#F9DCE5;--d:#8C3A55">
+      <span class="num">${state.duas.length}</span>
+      <span><span class="t">${state.duas.length?"Du'as to ask for at the Ḥaram":"Start your du'a list now"}</span><br><span class="s">“If they call upon Him, He answers them.”</span></span>
+      ${chevron}
+    </button>
+    <button class="continue" data-open="c11" style="${cv({color:PAL.sand})}">
+      <span class="num" style="font-size:16px">${packed}/${PACK.length}</span>
+      <span><span class="t">Packing list</span><br><span class="s">Pack, but pack wisely</span></span>
+      ${chevron}
+    </button>
+    <button class="continue" data-open="s3c9" style="${cv({color:PAL.mint})}">
+      <span class="num" style="font-size:16px">${state.plan.filter(Boolean).length}/7</span>
+      <span><span class="t">Plan your 7 rounds</span><br><span class="s">What you'll recite in each round of ṭawāf</span></span>
+      ${chevron}
+    </button>
+    <button class="continue" data-open="s4c6" style="${cv({color:PAL.butter})}">
+      <span class="num">${state.mem.m30?"✓":"٣"}</span>
+      <span><span class="t">The dhikr on Ṣafā</span><br><span class="s">Practise until fluent, three times with du'a</span></span>
+      ${chevron}
+    </button>
+    <button class="continue" data-open="s2c2" style="${cv({color:PAL.lilac})}">
+      <span class="num">${MEMORISE.filter(m=>m.kind==="Talbiyah"&&state.mem[m.id]).length?"✓":"۝"}</span>
+      <span><span class="t">The Talbiyah</span><br><span class="s">Memorise it before you reach the mīqāt</span></span>
+      ${chevron}
+    </button>
+  </div>`;
+}
+
+function renderChapters(){
+  let html = "";
+  PARTS.forEach(p=>{
+    html += `<div class="part-head"><p class="label">${esc(p.num)} · ${esc(p.session)}</p>
+      <div class="meta"><h2 class="h-display">${esc(p.title)}</h2><span>${countRead(p)}/${p.chapters.length}</span></div></div>
+      <ol class="chlist">` + p.chapters.map((c,i)=>`
+      <li><button class="ch ${state.read[c.id]?"done":""}" data-open="${c.id}" style="${cv(c)}">
+        <span class="no">${i+1}</span>
+        <span><span class="tt">${esc(c.title)}</span><span class="ss">${esc(c.summary)}</span></span>
+        <span class="tick" aria-label="${state.read[c.id]?"Read":"Not read yet"}">${state.read[c.id]?check:""}</span>
+      </button></li>`).join("") + `</ol>`;
+  });
+  html += `<div class="coming">More will be added as the series continues.</div>`;
+  $("#v-chapters").innerHTML = html;
+}
+
+let memMode = "all";
+function renderMemorise(){
+  const got = MEMORISE.filter(m=>state.mem[m.id]).length;
+  let lastPart = "", cards = "";
+  MEMORISE.forEach(m=>{
+    if(m.part!==lastPart){ lastPart=m.part; const p=PARTS.find(x=>x.num===m.part); cards += `<p class="label" style="margin-top:6px">${esc(m.part)} · ${esc(p?p.title:"")}</p>`; }
+    cards += `
+    <article class="mcard ${state.mem[m.id]?"got":""}">
+      <div class="top"><span class="kind">${esc(m.kind)}</span><h4>${esc(m.title)}</h4></div>
+      <p class="ar arw ${memMode==="ar"?"blur":""}" data-reveal>${m.ar}</p>
+      <p class="enw ${memMode==="en"?"blur":""}" data-reveal>${esc(m.en)}</p>
+      <p class="why"><b>Why it matters · </b>${esc(m.why)}</p>
+      <div class="foot"><span class="src">${esc(m.ref)}</span>
+        <button class="mbtn" data-mem="${m.id}">${state.mem[m.id]?check+"Memorised":"Mark memorised"}</button></div>
+    </article>`;
+  });
+  $("#v-memorise").innerHTML = `
+  <div class="mem-stat"><h2 class="h-display">Memorise</h2><span><b>${got}</b> / ${MEMORISE.length}</span></div>
+  <div class="seg" role="group" aria-label="Practice mode">
+    <button data-mode="all" aria-pressed="${memMode==="all"}">Show all</button>
+    <button data-mode="ar" aria-pressed="${memMode==="ar"}">Hide Arabic</button>
+    <button data-mode="en" aria-pressed="${memMode==="en"}">Hide meaning</button>
+  </div>
+  ${memMode!=="all"?`<p class="hint">Recite it, then tap the blurred text to check.</p>`:""}
+  ${cards}`;
+}
+
+let whoSel = "me";
+function renderList(){
+  const groups = Object.keys(WHO).map(k=>{
+    const items = state.duas.filter(d=>d.who===k);
+    if(!items.length) return "";
+    return `<div class="dgroup"><p class="label">${WHO[k]}</p>${items.map(d=>`
+      <div class="ditem ${d.asked?"asked":""}">
+        <button class="chk" data-ask="${d.id}" aria-label="${d.asked?"Mark as not yet asked":"Mark as asked"}">${check}</button>
+        <div class="tx">${esc(d.text)}</div>
+        <button class="del" data-del="${d.id}" aria-label="Remove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>`).join("")}</div>`;
+  }).join("");
+  const asked = state.duas.filter(d=>d.asked).length;
+  $("#v-list").innerHTML = `
+  <div class="mem-stat"><h2 class="h-display">My Du'as</h2><span>${state.duas.length?`<b>${asked}</b> / ${state.duas.length} asked`:""}</span></div>
+  <div class="intro"><span class="kind">From the lecture</span>
+    <div>From now, list the things that are heavy on your heart. When you go for Umrah, ask Allah to help you in these matters, to ease your tests and to solve these problems. There is no limit to how much you can ask Allah.</div></div>
+  <form class="adder" id="addForm">
+    <label class="label" for="duaText">Add something to ask for</label>
+    <textarea id="duaText" placeholder="Ya Allah, …"></textarea>
+    <div class="prompts">${PROMPTS.map(p=>`<button type="button" data-prompt="${esc(p)}">${esc(p)}</button>`).join("")}</div>
+    <div class="row">
+      <div class="seg" role="group" aria-label="Who is this for">${Object.keys(WHO).map(k=>`<button type="button" data-who="${k}" aria-pressed="${whoSel===k}">${WHO[k]}</button>`).join("")}</div>
+      <button class="btn rose" type="submit">Add</button>
+    </div>
+  </form>
+  ${groups || `<p class="empty">Your list is empty. Tap a prompt above to begin.</p>`}
+  ${state.duas.length?`<p class="hint">Tick each one once you have asked for it at the Ḥaram. Your list stays on this phone.</p>`:""}`;
+}
+
+/* reader */
+let current = null;
+function block(b){
+  switch(b.t){
+    case "p": return `<p>${b.h}</p>`;
+    case "h": return `<h3>${b.n?`<span class="badge">${b.n}</span>`:""}<span>${b.h}</span></h3>`;
+    case "list": return `<ul>${b.items.map(i=>`<li>${i}</li>`).join("")}</ul>`;
+    case "key": return `<div class="key">${b.h}</div>`;
+    case "chips": return `<div class="chips">${b.items.map(i=>`<span>${i}</span>`).join("")}</div>`;
+    case "all": return `<div class="all">${b.items.map(i=>`<div><b>${i[0]}</b><span>${i[1]}</span></div>`).join("")}</div>`;
+    case "yn": return `<div class="yn">${b.items.map(i=>`<div class="${i[0]?"ok":"no"}"><i aria-label="${i[0]?"Allowed":"Not allowed"}">${i[0]?"✓":"✕"}</i><span>${i[1]}</span></div>`).join("")}</div>`;
+    case "q": return `<div class="box quran"><span class="kind">Qur'an</span><p class="ar">${b.ar}</p><p class="en">${b.en}</p><span class="src">${b.ref}</span></div>`;
+    case "hd": return `<div class="box hadith"><span class="kind">${b.kind||"Hadith"}</span>${b.ar?`<p class="ar">${b.ar}</p>`:""}<p class="en">${b.en}</p>${b.ref?`<span class="src">${b.ref}</span>`:""}</div>`;
+    case "dua": return `<div class="box dua"><span class="kind">${b.kind}</span>${b.ar?`<p class="ar">${b.ar}</p>`:""}<p class="en">${b.en}</p></div>`;
+    case "story": return `<div class="story"><span class="kind">${b.kind}</span>${b.h}</div>`;
+    case "cta": return `<div class="cta"><h4>${b.title}</h4><p>${b.h}</p><div><button class="btn rose" data-tab-go="list">Open my du'a list</button></div></div>`;
+    case "cta2": return `<div class="cta"><h4>Your Umrah is complete</h4><p>${b.h}</p></div>`;
+    case "steps": return `<ol class="steps">${b.items.map(i=>`<li><b>${i[0]}</b><span>${i[1]}</span></li>`).join("")}</ol>`;
+    case "plan": return `<div class="plan">${state.plan.map((v,i)=>`<label class="round" for="rnd${i}"><span class="rn">${i+1}</span><span class="rl">Round ${i+1}</span><select id="rnd${i}" data-round="${i}">${PLAN_OPTS.map(o=>`<option value="${esc(o)}" ${o===v?"selected":""}>${o?esc(o):"Choose…"}</option>`).join("")}</select></label>`).join("")}<p class="hint" style="text-align:left">In every round: <b>Bismillāh, Allāhu Akbar</b> at the Black Stone, and <b>Rabbanā ātinā…</b> between the Yamānī corner and the Black Stone.</p></div>`;
+    case "pack": return `<p class="label" style="margin-bottom:-8px">Packing list · tap to tick</p><div class="pack">${PACK.map(p=>`<button data-pack="${esc(p)}" aria-pressed="${!!state.pack[p]}"><i>${check}</i>${esc(p)}</button>`).join("")}</div>`;
+  }
+  return "";
+}
+function openChapter(id, replace){
+  const c = ALL.find(x=>x.id===id); if(!c) return;
+  current = c; state.last = id; S.set("last",id);
+  const i = ALL.indexOf(c), prev = ALL[i-1], next = ALL[i+1];
+  const r = $("#reader");
+  r.setAttribute("style", cv(c));
+  r.innerHTML = `
+  <div class="r-bar">
+    <button class="iconbtn" id="rClose" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="where">${esc(c.part.num)} · Chapter ${c.idx} of ${c.part.chapters.length}</div>
+    <span style="width:40px"></span>
+  </div>
+  <div class="r-prog"><i id="rProg"></i></div>
+  <header class="r-head"><div class="inner"><div class="n">${String(c.idx).padStart(2,"0")}</div><h1>${esc(c.title)}</h1><p>${esc(c.summary)}</p></div></header>
+  <article class="r-body">
+    ${c.blocks.map(block).join("")}
+    <div class="r-end" id="rEnd">
+      <p class="done-note">${state.read[c.id]?"You have read this chapter.":"Reaching the end marks this chapter as read."}</p>
+      <div class="row">
+        ${prev?`<button class="btn ghost" data-open="${prev.id}">← ${esc(prev.title)}</button>`:""}
+        ${next?`<button class="btn rose" data-open="${next.id}">${esc(next.title)} →</button>`:`<button class="btn rose" id="rDone">Back to chapters</button>`}
+      </div>
+    </div>
+  </article>`;
+  r.hidden = false;
+  document.body.style.overflow = "hidden";
+  r.scrollTop = state.scroll[id] || 0;
+  onReaderScroll();
+  if(replace) history.replaceState({reader:id},""); else history.pushState({reader:id},"");
+}
+function saveScroll(){ const r=$("#reader"); if(current){ state.scroll[current.id]=r.scrollTop; S.set("scroll",state.scroll);} }
+function closeReader(fromPop){
+  const r = $("#reader");
+  if(r.hidden) return;
+  saveScroll();
+  r.hidden = true; document.body.style.overflow = ""; current = null;
+  renderAll();
+  if(!fromPop && history.state && history.state.reader) history.back();
+}
+let scrollT;
+function onReaderScroll(){
+  const r = $("#reader"); if(r.hidden||!current) return;
+  const max = r.scrollHeight - r.clientHeight;
+  const pct = max>0 ? Math.min(1, r.scrollTop/max) : 1;
+  const bar = $("#rProg"); if(bar) bar.style.width = (pct*100)+"%";
+  if(pct>0.97 && !state.read[current.id]){
+    state.read[current.id] = true; S.set("read",state.read);
+    toast("Chapter marked as read");
+    const note = $("#rEnd .done-note"); if(note) note.textContent = "You have read this chapter.";
+  }
+  clearTimeout(scrollT); scrollT = setTimeout(saveScroll,300);
+}
+
+/* swipe between chapters */
+let sx=0, sy=0, st=0;
+$("#reader").addEventListener("touchstart",e=>{const t=e.touches[0];sx=t.clientX;sy=t.clientY;st=Date.now()},{passive:true});
+$("#reader").addEventListener("touchend",e=>{
+  if(!current) return;
+  const t=e.changedTouches[0], dx=t.clientX-sx, dy=t.clientY-sy;
+  if(Date.now()-st<600 && Math.abs(dx)>80 && Math.abs(dy)<50){
+    const i=ALL.indexOf(current), to = dx<0 ? ALL[i+1] : ALL[i-1];
+    if(to){ saveScroll(); openChapter(to.id,true); }
+  }
+},{passive:true});
+
+function setTab(t){
+  state.tab = t; S.set("tab",t);
+  ["home","chapters","memorise","list"].forEach(k=>{ $("#v-"+k).hidden = k!==t; });
+  document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-selected", b.dataset.tab===t));
+  window.scrollTo(0,0);
+}
+function renderAll(){ renderHome(); renderChapters(); renderMemorise(); renderList(); }
+
+let toastT;
+function toast(msg){ const el=$("#toast"); el.textContent=msg; el.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>el.hidden=true,1800); }
+
+document.addEventListener("click",e=>{
+  const o = e.target.closest("[data-open]");
+  if(o){ if(!$("#reader").hidden && current){ saveScroll(); openChapter(o.dataset.open,true); } else openChapter(o.dataset.open); return; }
+  const tg = e.target.closest("[data-tab-go]");
+  if(tg){ if(!$("#reader").hidden) closeReader(); setTab(tg.dataset.tabGo); return; }
+  const tb = e.target.closest(".tabs button");
+  if(tb){ setTab(tb.dataset.tab); return; }
+  if(e.target.closest("#rClose")){ closeReader(); return; }
+  if(e.target.closest("#rDone")){ closeReader(); setTab("chapters"); return; }
+  const pk = e.target.closest("[data-pack]");
+  if(pk){ const k=pk.dataset.pack; state.pack[k]=!state.pack[k]; if(!state.pack[k]) delete state.pack[k]; S.set("pack",state.pack); pk.setAttribute("aria-pressed",!!state.pack[k]); return; }
+  const md = e.target.closest("[data-mode]");
+  if(md){ memMode = md.dataset.mode; renderMemorise(); return; }
+  const rv = e.target.closest("[data-reveal]");
+  if(rv){ rv.classList.toggle("blur"); return; }
+  const mm = e.target.closest("[data-mem]");
+  if(mm){ const id=mm.dataset.mem; state.mem[id]=!state.mem[id]; if(!state.mem[id]) delete state.mem[id]; S.set("mem",state.mem); renderMemorise(); if(state.mem[id]) toast("Memorised · الحمد لله"); return; }
+  const pr = e.target.closest("[data-prompt]");
+  if(pr){ const ta=$("#duaText"); ta.value = pr.dataset.prompt + ": "; ta.focus(); ta.setSelectionRange(ta.value.length,ta.value.length); return; }
+  const wh = e.target.closest("[data-who]");
+  if(wh){ whoSel = wh.dataset.who; document.querySelectorAll("[data-who]").forEach(b=>b.setAttribute("aria-pressed", b.dataset.who===whoSel)); return; }
+  const ak = e.target.closest("[data-ask]");
+  if(ak){ const d=state.duas.find(x=>x.id===ak.dataset.ask); if(d){d.asked=!d.asked; S.set("duas",state.duas); renderList(); renderHome();} return; }
+  const dl = e.target.closest("[data-del]");
+  if(dl){ state.duas = state.duas.filter(x=>x.id!==dl.dataset.del); S.set("duas",state.duas); renderList(); renderHome(); return; }
+});
+document.addEventListener("change",e=>{
+  const sel = e.target.closest("[data-round]");
+  if(sel){ state.plan[+sel.dataset.round] = sel.value; S.set("plan",state.plan); toast("Round "+(+sel.dataset.round+1)+" saved"); }
+});
+document.addEventListener("submit",e=>{
+  if(e.target.id!=="addForm") return;
+  e.preventDefault();
+  const v = $("#duaText").value.trim(); if(!v) return;
+  state.duas.push({id:"d"+Date.now(), text:v, who:whoSel, asked:false});
+  S.set("duas",state.duas); renderList(); renderHome(); toast("Added to your list");
+});
+$("#reader").addEventListener("scroll",onReaderScroll,{passive:true});
+window.addEventListener("popstate",()=>{ if(!$("#reader").hidden) closeReader(true); });
+
+function resetConfirm(show){
+  $("#resetWrap").innerHTML = show
+    ? `<div class="confirm"><span>Clear read chapters and memorised marks?</span><button class="danger" id="resetYes">Yes, reset</button><button class="mbtn" id="resetNo">Cancel</button></div>`
+    : `<button class="danger" id="resetBtn">Reset reading progress</button>`;
+}
+function openSheet(){ $("#scrim").hidden=false; $("#sheet").hidden=false; resetConfirm(false); }
+function closeSheet(){ $("#scrim").hidden=true; $("#sheet").hidden=true; }
+$("#openSettings").addEventListener("click",openSheet);
+$("#scrim").addEventListener("click",closeSheet);
+$("#fsize").addEventListener("input",e=>{ state.fs=+e.target.value; S.set("fs",state.fs); applySize(); });
+$("#resetWrap").addEventListener("click",e=>{
+  if(e.target.id==="resetBtn") resetConfirm(true);
+  else if(e.target.id==="resetNo") resetConfirm(false);
+  else if(e.target.id==="resetYes"){ state.read={}; state.mem={}; state.scroll={}; state.last=null; ["read","mem","scroll","last"].forEach(k=>S.set(k,state[k])); renderAll(); resetConfirm(false); closeSheet(); toast("Progress reset"); }
+});
+
+applySize(); renderAll(); setTab(state.tab||"home");
+if("serviceWorker" in navigator && location.protocol.startsWith("http")){
+  window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+}
+</script>
+</body>
+</html>
