@@ -185,7 +185,16 @@ main{padding:0 16px calc(var(--tabh) + env(safe-area-inset-bottom,0px) + 28px);m
 .mem-stat b{font-family:var(--display);font-weight:400;font-size:28px;color:var(--rose-ink)}
 .mem-stat span{color:var(--muted)}
 .mcard{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
-.mcard .top{padding:14px 16px 0}
+.mcard .top{padding:14px 16px 0;display:flex;gap:12px;align-items:center}
+.mnum{flex:none;width:30px;height:30px;border-radius:50%;background:var(--blush);color:var(--rose-ink);display:grid;place-items:center;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.when{margin:10px 16px 0;padding:10px 12px;background:var(--surface-2);border-radius:12px;font-size:14px;line-height:1.5}
+.when b{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:2px}
+.stage{display:flex;flex-direction:column;gap:12px}
+.stage-h{display:flex;gap:12px;align-items:center;padding-top:10px}
+.stage-h .sn{flex:none;width:44px;height:44px;border-radius:14px;background:var(--rose-deep);color:#fff;display:grid;place-items:center;font-family:var(--display);font-size:20px}
+.stage-h h3{margin:0;font-family:var(--display);font-weight:400;font-size:22px;line-height:1.2}
+.stage-h p{margin:2px 0 0;font-size:13px;color:var(--muted)}
+.stage-note{background:var(--blush);border-radius:16px;padding:14px 16px;line-height:1.55;font-size:15px}
 .mcard .top .kind{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-deep)}
 .mcard .top h4{margin:2px 0 0;font-size:15.5px;font-weight:600;line-height:1.3}
 .mcard .arw{margin:0;padding:8px 18px 4px;font-size:25px;color:var(--rose-ink);cursor:pointer}
@@ -1727,6 +1736,8 @@ const PLAN_DEFAULT = ["Qur'an","Qur'an","Tasbīḥāt","Istighfār","Du'as","","
 const PACK = ["Clothing","Medication","Toiletries","Fragrance-free soap","Notebook & pens","Du'a books","Muṣḥaf","Useful apps","Gifts for others","Snacks to share","Comfortable shoes","Men's iḥrām (washed, unscented)","Clippers or small scissors","Siwāk / toothbrush","Tissues","Du'a cards to give","Slippers","Musalla","Shoe bag"];
 
 const MEMORISE = [
+  {part:"Part Five",id:"m49",kind:"Dhikr",title:"Replying to “ḥayya ʿalā…”",ar:"لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",en:"There is no might nor power except with Allah.",ref:"Hadith",why:"The reply to the two ḥayya ʿalā calls of the adhān."},
+  {part:"Part Five",id:"m50",kind:"Ṣalāh",title:"Ṣalāh ibrāhīmiyyah",ar:"اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَّجِيدٌ ۝ اللَّهُمَّ بَارِكْ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَّجِيدٌ",en:"O Allah, send prayers upon Muḥammad and the family of Muḥammad, as You sent prayers upon Ibrāhīm and the family of Ibrāhīm; You are Praiseworthy, Glorious. O Allah, bless Muḥammad and the family of Muḥammad, as You blessed Ibrāhīm and the family of Ibrāhīm; You are Praiseworthy, Glorious.",ref:"Sunnah",why:"After the adhān, and when sending salām at the Prophet's ﷺ grave."},
   {part:"Part Seven",id:"m44",kind:"Du'a",title:"The du'a of return",ar:"آيِبُونَ تَائِبُونَ عَابِدُونَ سَاجِدُونَ لِرَبِّنَا حَامِدُونَ ۝ صَدَقَ اللَّهُ وَعْدَهُ وَنَصَرَ عَبْدَهُ وَهَزَمَ الْأَحْزَابَ وَحْدَهُ",en:"We are returning, repenting, worshipping, prostrating, and praising our Lord. Allah fulfilled His promise, helped His slave, and alone defeated the confederates.",ref:"Ṣaḥīḥ al-Bukhārī",why:"After Allāhu Akbar ×3 and lā ilāha illā Allāh…, on every high place on the way home."},
   {part:"Part Seven",id:"m45",kind:"Du'a",title:"At al-Baqīʿ (taught to ʿĀʾishah)",ar:"السَّلَامُ عَلَىٰ أَهْلِ الدِّيَارِ مِنَ الْمُؤْمِنِينَ وَالْمُسْلِمِينَ وَيَرْحَمُ اللَّهُ الْمُسْتَقْدِمِينَ مِنَّا وَالْمُسْتَأْخِرِينَ وَإِنَّا إِنْ شَاءَ اللَّهُ بِكُمْ لَلَاحِقُونَ",en:"Peace be upon the inhabitants of these dwellings, from the believers and the Muslims. May Allah have mercy on those of us who have gone ahead and those who come later. And we shall, if Allah wills, join you.",ref:"Ṣaḥīḥ Muslim",why:"Women can say it from outside al-Baqīʿ."},
   {part:"Part Seven",id:"m46",kind:"Du'a",title:"At any graveyard",ar:"السَّلَامُ عَلَيْكُمْ أَهْلَ الدِّيَارِ مِنَ الْمُؤْمِنِينَ وَالْمُسْلِمِينَ وَإِنَّا إِنْ شَاءَ اللَّهُ بِكُمْ لَاحِقُونَ أَنْتُمْ فَرَطُنَا وَنَحْنُ لَكُمْ تَبَعٌ وَنَسْأَلُ اللَّهَ لَنَا وَلَكُمُ الْعَافِيَةَ",en:"Peace be upon you, inhabitants of these dwellings, from the believers and the Muslims. We shall, if Allah wills, join you soon. You have gone ahead of us and we will follow you. We ask Allah for well-being for us and for you.",ref:"Hadith",why:"For Uḥud's martyrs, al-Baqīʿ, or any Muslim graveyard."},
@@ -1837,6 +1848,14 @@ function renderHome(){
     <div class="circuits"><b>${countRead(part)}</b><span>of ${part.chapters.length} chapters read · ${esc(part.num)}: ${esc(part.title)}</span></div>
   </div></div>
   <div class="stack">
+    <p class="label">Du'as in Umrah order</p>
+    <button class="continue" data-tab-go="memorise" style="--c:#F9DCE5;--d:#8C3A55">
+      <span class="num" style="font-size:16px">${MEMORISE.filter(m=>state.mem[m.id]).length}</span>
+      <span><span class="t">Every du'a, in the order you'll read it</span><br><span class="s">Mīqāt → ṭawāf → saʿī → Madinah → home</span></span>
+      ${chevron}
+    </button>
+  </div>
+  <div class="stack">
     <p class="label">${state.last?"Continue reading":"Begin here"}</p>
     <button class="continue" data-open="${next.id}" style="${cv(next)}">
       <span class="num">${next.idx}</span>
@@ -1910,23 +1929,112 @@ function renderChapters(){
 }
 
 let memMode = "all";
-function renderMemorise(){
-  const got = MEMORISE.filter(m=>state.mem[m.id]).length;
-  let lastPart = "", cards = "";
-  MEMORISE.forEach(m=>{
-    if(m.part!==lastPart){ lastPart=m.part; const p=PARTS.find(x=>x.num===m.part); cards += `<p class="label" style="margin-top:6px">${esc(m.part)} · ${esc(p?p.title:"")}</p>`; }
-    cards += `
+let memView = "order";
+/* Du'as in the order of the journey. Each item: [memorise id, when to read it] */
+const ORDER = [
+  {stage:"Before you travel", where:"At home, in the weeks before", items:[
+    ["m1","From now until you return: repeat it to keep your intention purely for Allah. Remind your family with you too."],
+    ["m16","Any time, especially while preparing: ʿUmar's du'a for sincerity."],
+    ["m17","As you set out, the words of the Prophet ﷺ at his Hajj."],
+    ["m8","Before learning or studying the rituals, as each session opens."]
+  ]},
+  {stage:"At the mīqāt", where:"After putting on iḥrām, on the plane or at Dhul-Ḥulayfah", items:[
+    ["m10","Once, first: your intention for Umrah."],
+    ["m9","Then keep repeating it, out loud for men and audibly for women, all the way to Makkah. Stop when you begin ṭawāf."],
+    ["m11","Also from the Prophet ﷺ, said with the talbiyah."]
+  ]},
+  {stage:"Entering al-Masjid al-Ḥarām", where:"At the doors, right foot first", items:[
+    ["m35","Every time you enter the masjid, in Makkah or Madinah."]
+  ]},
+  {stage:"Ṭawāf", where:"Seven rounds, the Kaʿbah on your left", items:[
+    ["m21","At the Black Stone, at the start of every round: face it, raise your hand, say it, keep moving."],
+    ["m22","Or say this at the Black Stone instead."],
+    ["m20","Every round, between ar-Rukn al-Yamānī and the Black Stone."],
+    ["m23","During the rounds: tasbīḥ."],
+    ["m24","During the rounds: tasbīḥ."],
+    ["m25","During the rounds: tasbīḥ."],
+    ["m26","During your istighfār round."]
+  ]},
+  {stage:"After ṭawāf", where:"Maqām Ibrāhīm, then Zamzam", items:[
+    ["m28","Recite while walking towards Maqām Ibrāhīm. Then pray two rakʿahs: al-Kāfirūn in the first, al-Ikhlāṣ in the second."],
+    ["m29","At the Zamzam coolers: drink standing, make du'a before, during and after each of three sips. Then istilām of the Black Stone again."]
+  ]},
+  {stage:"Saʿī", where:"Seven legs, starting at Ṣafā and ending at Marwah", items:[
+    ["m32","Once, as you approach Ṣafā at the very start. Repeat it on reaching each hill, except on the final ascent of Marwah."],
+    ["m33","Once only, at Ṣafā, at the very start."],
+    ["m30","On Ṣafā and on Marwah, facing the qiblah: first say lā ilāha illā Allāh wa Allāhu akbar, then this three times with your own du'a after each."],
+    ["m31","While walking between the hills. Men run between the green lights."],
+    ["m34","When saʿī gets tiring: Allah appreciates every step."]
+  ]},
+  {stage:"Ḥalq or taqṣīr", where:"At Marwah or back at the hotel", items:[], note:"No set du'a. Men shave or trim, women trim, and your Umrah is complete. Alḥamdulillāh."},
+  {stage:"Every day in the Ḥaram", where:"At each adhān, in Makkah and Madinah", items:[
+    ["m49","When the muʾadhdhin says ḥayya ʿala-ṣ-ṣalāh and ḥayya ʿala-l-falāḥ. Repeat everything else as he says it."],
+    ["m50","As soon as the adhān ends."],
+    ["m36","Then this, for his intercession."],
+    ["m37","Then this, then raise your hands and make your own du'a."],
+    ["m38","Whenever you look at the Kaʿbah: why you are here."]
+  ]},
+  {stage:"Madinah", where:"Al-Masjid an-Nabawī, the Rawḍah and the city", items:[
+    ["m42","On arriving in Madinah, and any time there."],
+    ["m43","Before you go to the Rawḍah: why we long to pray there."],
+    ["m39","In the Rawḍah, three times, after praying there."],
+    ["m40","Standing in front of the Prophet's ﷺ grave, then the ṣalāh ibrāhīmiyyah."],
+    ["m41","Then step to the right for Abū Bakr, then ʿUmar."],
+    ["m48","On your visit to Masjid Qubāʾ: wuḍūʾ at the hotel, two rakʿahs there."],
+    ["m47","On seeing Mount Uḥud."],
+    ["m46","At the graves of the martyrs of Uḥud, or any graveyard."],
+    ["m45","At al-Baqīʿ, men inside, women from outside."]
+  ]},
+  {stage:"Returning home", where:"On the journey back", items:[
+    ["m44","On every high place on the way home: Allāhu akbar three times, then lā ilāha illā Allāhu waḥdahu lā sharīka lah… then this."]
+  ]}
+];
+const ORDER_IDS = new Set(ORDER.flatMap(o=>o.items.map(i=>i[0])));
+
+function memCard(m, when, n){
+  return `
     <article class="mcard ${state.mem[m.id]?"got":""}">
-      <div class="top"><span class="kind">${esc(m.kind)}</span><h4>${esc(m.title)}</h4></div>
+      <div class="top">${n?`<span class="mnum">${n}</span>`:""}<div><span class="kind">${esc(m.kind)}</span><h4>${esc(m.title)}</h4></div></div>
+      ${when?`<p class="when"><b>When</b>${esc(when)}</p>`:""}
       <p class="ar arw ${memMode==="ar"?"blur":""}" data-reveal>${m.ar}</p>
       <p class="enw ${memMode==="en"?"blur":""}" data-reveal>${esc(m.en)}</p>
-      <p class="why"><b>Why it matters · </b>${esc(m.why)}</p>
+      ${when?"":`<p class="why"><b>Why it matters · </b>${esc(m.why)}</p>`}
       <div class="foot"><span class="src">${esc(m.ref)}</span>
         <button class="mbtn" data-mem="${m.id}">${state.mem[m.id]?check+"Memorised":"Mark memorised"}</button></div>
     </article>`;
-  });
+}
+function renderMemorise(){
+  const got = MEMORISE.filter(m=>state.mem[m.id]).length;
+  const byId = Object.fromEntries(MEMORISE.map(m=>[m.id,m]));
+  let cards = "";
+  if(memView==="order"){
+    let n=0;
+    ORDER.forEach((o,si)=>{
+      const done=o.items.filter(i=>state.mem[i[0]]).length;
+      cards += `<section class="stage"><div class="stage-h"><span class="sn">${si+1}</span><div><h3>${esc(o.stage)}</h3><p>${esc(o.where)}${o.items.length?` · ${done}/${o.items.length} memorised`:""}</p></div></div>`;
+      if(o.note) cards += `<div class="stage-note">${esc(o.note)}</div>`;
+      o.items.forEach(([id,when])=>{ const m=byId[id]; if(m){ n++; cards += memCard(m,when,n); } });
+      cards += `</section>`;
+    });
+    const rest = MEMORISE.filter(m=>!ORDER_IDS.has(m.id));
+    if(rest.length){
+      cards += `<section class="stage"><div class="stage-h"><span class="sn">✦</span><div><h3>Ayat and ahadith to know</h3><p>Not tied to a moment: to understand and remember</p></div></div>`;
+      rest.forEach(m=>{ cards += memCard(m,"",0); });
+      cards += `</section>`;
+    }
+  } else {
+    let lastPart = "";
+    MEMORISE.forEach(m=>{
+      if(m.part!==lastPart){ lastPart=m.part; const p=PARTS.find(x=>x.num===m.part); cards += `<p class="label" style="margin-top:6px">${esc(m.part)} · ${esc(p?p.title:"")}</p>`; }
+      cards += memCard(m,"",0);
+    });
+  }
   $("#v-memorise").innerHTML = `
   <div class="mem-stat"><h2 class="h-display">Memorise</h2><span><b>${got}</b> / ${MEMORISE.length}</span></div>
+  <div class="seg" role="group" aria-label="Arrange">
+    <button data-view="order" aria-pressed="${memView==="order"}">In Umrah order</button>
+    <button data-view="part" aria-pressed="${memView==="part"}">By session</button>
+  </div>
   <div class="seg" role="group" aria-label="Practice mode">
     <button data-mode="all" aria-pressed="${memMode==="all"}">Show all</button>
     <button data-mode="ar" aria-pressed="${memMode==="ar"}">Hide Arabic</button>
@@ -2081,6 +2189,8 @@ document.addEventListener("click",e=>{
   if(pk){ const k=pk.dataset.pack; state.pack[k]=!state.pack[k]; if(!state.pack[k]) delete state.pack[k]; S.set("pack",state.pack); pk.setAttribute("aria-pressed",!!state.pack[k]); return; }
   const md = e.target.closest("[data-mode]");
   if(md){ memMode = md.dataset.mode; renderMemorise(); return; }
+  const mv = e.target.closest("[data-view]");
+  if(mv){ memView = mv.dataset.view; renderMemorise(); window.scrollTo(0,0); return; }
   const rv = e.target.closest("[data-reveal]");
   if(rv){ rv.classList.toggle("blur"); return; }
   const mm = e.target.closest("[data-mem]");
