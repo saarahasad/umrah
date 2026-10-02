@@ -164,6 +164,13 @@ main{padding:0 16px calc(var(--tabh) + env(safe-area-inset-bottom,0px) + 28px);m
 .steps li:not(:last-child)::after{content:"";position:absolute;left:19px;top:44px;bottom:2px;width:2px;background:var(--c)}
 .steps b{font-family:var(--display);font-weight:400;font-size:1.2em;line-height:1.3;padding-top:6px}
 .steps span{line-height:1.6;font-size:.95em;color:var(--ink)}
+.juzbox{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.juzhead{display:flex;align-items:baseline;gap:10px;font-variant-numeric:tabular-nums}
+.juzhead b{font-family:var(--display);font-weight:400;font-size:30px;color:var(--d)}
+.juzhead span{font-size:13.5px;color:var(--muted)}
+.juz{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.juz button{aspect-ratio:1;max-width:100%;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);font-size:14px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.juz button[aria-pressed="true"]{background:var(--d);border-color:var(--d);color:#fff}
 .plan{display:flex;flex-direction:column;gap:8px}
 .round{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px 10px 8px 8px}
 .round .rn{width:34px;height:34px;border-radius:50%;background:var(--c);color:var(--d);display:grid;place-items:center;font-family:var(--display);font-size:17px}
@@ -1210,15 +1217,528 @@ const PARTS = [
     ]
   }
   ]
+},
+{
+  id:"p5", num:"Part Five", title:"Al-Masjid al-Ḥarām", session:"Session 5",
+  chapters:[
+  {
+    id:"s5c1", title:"Worship the Lord of This House", color:PAL.lilac,
+    summary:"Why we go to the Ḥaram, and the intention to carry there.",
+    blocks:[
+      {t:"p",h:"Al-ḥamdu lillāh, we have covered the details of performing Umrah. But on Umrah a person spends a lot of time in al-Masjid al-Ḥarām, and also visits al-Masjid an-Nabawī. So we need to learn the virtues of these two places, the etiquette to observe there, and the actions to focus on. This session is about al-Masjid al-Ḥarām in Makkah."},
+      {t:"p",h:"Al-Masjid al-Ḥarām is the masjid in which is the Kaʿbah, the House of Allah. Allah ﷻ tells us:"},
+      {t:"q",ar:"فَلْيَعْبُدُوا رَبَّ هَٰذَا الْبَيْتِ",en:"So let them worship the Lord of this House.",ref:"Sūrat Quraysh 106:3"},
+      {t:"p",h:"When we visit the Kaʿbah, do ṭawāf, perform Umrah and pray there, yes, we love that structure and that place. But we are actually going there to worship the Lord of that building: to worship Allah ﷻ."},
+      {t:"key",h:"Our intention, our ultimate goal and concern, should be to draw close to Allah and to please Him. So the journey, and every action there, big or small, should be done with utmost sincerity."}
+    ]
+  },
+  {
+    id:"s5c2", title:"The First House", color:PAL.butter,
+    summary:"Blessed, a guidance, a place of safety, and the most beloved land to Allah.",
+    blocks:[
+      {t:"q",ar:"إِنَّ أَوَّلَ بَيْتٍ وُضِعَ لِلنَّاسِ لَلَّذِي بِبَكَّةَ مُبَارَكًا وَهُدًى لِّلْعَالَمِينَ ۝ فِيهِ آيَاتٌ بَيِّنَاتٌ مَّقَامُ إِبْرَاهِيمَ ۖ وَمَن دَخَلَهُ كَانَ آمِنًا",en:"Indeed, the first House established for mankind was that at Makkah, blessed and a guidance for the worlds. In it are clear signs, such as the standing place of Ibrāhīm. And whoever enters it shall be safe.",ref:"Sūrat Āl ʿImrān 3:96–97"},
+      {t:"list",items:["The Kaʿbah is called the House of Allah because it is honoured by being attributed to Him.","It is the first building set up on earth for people to worship Allah.","It is <b>mubārak</b>, filled with blessing and good, and <b>hudā</b>, a guidance for the world.","Among its clear signs are the Black Stone and Maqām Ibrāhīm, and both stones are from Jannah.","Whoever enters Makkah, and especially al-Masjid al-Ḥarām, should be safe: their life, honour and property respected and guarded."]},
+      {t:"h",h:"The most beloved land to Allah"},
+      {t:"hd",ar:"وَاللَّهِ إِنَّكِ لَخَيْرُ أَرْضِ اللَّهِ وَأَحَبُّ أَرْضِ اللَّهِ إِلَى اللَّهِ",en:"The Prophet ﷺ stood looking towards Makkah and said: By Allah, you are the best land of Allah and the most beloved land of Allah to Allah. Had your people not driven me out, I would not have left."},
+      {t:"hd",en:"The Prophet ﷺ said to Makkah: What a fine town you are, and how dear you are to me. Were it not that my people expelled me from you, I would live nowhere else."},
+      {t:"p",h:"This is how much he loved Makkah, and he loved it because it has al-Masjid al-Ḥarām, the Kaʿbah."},
+      {t:"h",h:"The first masjid, and our qiblah"},
+      {t:"hd",en:"The Prophet ﷺ was asked which masjid was set up first on earth. He replied: al-Masjid al-Ḥarām."},
+      {t:"p",h:"It is our qiblah. Wherever we are on earth we face it when we pray. It symbolises tawḥīd: we don't face a symbol, a rock or an image, we face the direction of the Kaʿbah. And it unites all Muslims, who all face the same qiblah."},
+      {t:"q",ar:"جَعَلَ اللَّهُ الْكَعْبَةَ الْبَيْتَ الْحَرَامَ قِيَامًا لِّلنَّاسِ",en:"Allah has made the Kaʿbah, the Sacred House, a standing for the people.",ref:"Sūrat al-Māʾidah 5:97"},
+      {t:"p",h:"As long as the Kaʿbah stands, mankind stands. The ʿulamāʾ say that when the Kaʿbah is removed from the earth there will be a lot of evil for humanity. They also say people's religion rests on it: Hajj and Umrah are performed there, and salah is prayed facing it. Our dīn and even our dunyā rely on the Kaʿbah standing."}
+    ]
+  },
+  {
+    id:"s5c3", title:"A Sanctuary from Allah", color:PAL.sage,
+    summary:"Made sacred by Allah: its plants, its animals, its lost property.",
+    blocks:[
+      {t:"q",ar:"إِنَّمَا أُمِرْتُ أَنْ أَعْبُدَ رَبَّ هَٰذِهِ الْبَلْدَةِ الَّذِي حَرَّمَهَا وَلَهُ كُلُّ شَيْءٍ",en:"I have only been commanded to worship the Lord of this city, who made it sacred, and to whom belongs all things.",ref:"Sūrat an-Naml 27:91"},
+      {t:"p",h:"Makkah has been made sacred not by people but by Allah ﷻ, and it will remain sacred until the Day of Judgement."},
+      {t:"hd",en:"On the day of the conquest of Makkah the Prophet ﷺ said: Allah made this town a sanctuary on the day He created the heavens and the earth. It is a sanctuary by Allah's decree until the Day of Judgement."},
+      {t:"key",h:"Whenever we go, for Umrah, Hajj, salah or Jumuʿah, we respect the sanctity of this place. Nothing disrespectful, nothing that could harm other creatures."},
+      {t:"hd",en:"Allah has made this town a sanctuary. Its thorny bushes are not to be cut, its game is not to be chased, and its fallen things are not to be picked up except by one who will announce them publicly."},
+      {t:"p",h:"If its thorny bushes are not to be cut, what about its flowers, or its plants that have no thorns?"},
+      {t:"story",kind:"ʿIkrimah explained",h:"<p>Do you know what chasing the game means? It is driving an animal out of the shade so you can take its place.</p>"},
+      {t:"p",h:"So if an animal is sitting under a tree, you don't move it to sit there yourself. If pigeons are gathered where you want to sit, you don't move them, disturb them or chase them. If this is how animals are treated in Makkah and in the masjid, then what about people and children?"},
+      {t:"h",h:"Protected from the Dajjāl"},
+      {t:"hd",en:"There is no town the Dajjāl will not enter except Makkah and Madinah, and there is no entrance to them but angels will be standing in rows guarding it against him."}
+    ]
+  },
+  {
+    id:"s5c4", title:"One Prayer, 100,000", color:PAL.rose,
+    summary:"Be eager for every salah in the Ḥaram, and take benefit while the House stands.",
+    blocks:[
+      {t:"p",h:"Al-Masjid al-Ḥarām is not only sacred, blessed and secure. It is a place where good deeds are multiplied."},
+      {t:"hd",en:"One prayer in the Sacred Masjid is better than 100,000 prayers anywhere else."},
+      {t:"key",h:"So when you are in Makkah, be eager to pray every single salah in al-Masjid al-Ḥarām."},
+      {t:"p",h:"Sadly, some people go for only one or two prayers and spend the rest of the time resting, eating or shopping, then they're so tired from shopping they rest in the hotel and miss the salah."},
+      {t:"p",h:"What can't you buy online these days? Yes, there are better deals there on dates, perfumes, some clothing or gifts. But plan smartly. Don't go at a time that affects your salah. And if you can't find such a time, remind yourself: I came here not to shop, I came here to pray."},
+      {t:"p",h:"Missing it for health reasons is a different case. But planning poorly, and sleeping, eating or shopping at the wrong time and so missing salah in the masjid, is a huge loss."},
+      {t:"h",h:"Take benefit while it stands"},
+      {t:"hd",en:"Take benefit from this House, for it will be demolished twice, and the third time it will be lifted up."},
+      {t:"p",h:"It will not be there forever. So while you are in Makkah, take advantage of worshipping Allah in the Sacred Masjid."}
+    ]
+  },
+  {
+    id:"s5c5", title:"Walking to the Masjid", color:PAL.sky,
+    summary:"Wuḍūʾ at the hotel, clean clothes and breath, and walking with calm.",
+    blocks:[
+      {t:"h",h:"Before you leave the hotel"},
+      {t:"steps",items:[
+        ["Make wuḍūʾ in your room","So you aren't scrambling for wuḍūʾ when the prayer time comes in, and so every step is rewarded."],
+        ["Smell your clothes","Every piece: hijab, abaya, socks, inner clothes, and your children's too. If it smells, wash it or wear something else."],
+        ["Clean your mouth","Brush, floss, use siwāk or mouthwash, brush your tongue."],
+        ["Check what you ate","After garlic, onion or leek, clean your mouth well, or wait until the smell is gone."],
+        ["Leave early","If it takes 15 minutes to reach the masjid, leave 15 minutes before the adhān."]
+      ]},
+      {t:"hd",en:"Whoever purifies himself in his house and then walks to one of the houses of Allah to perform one of the obligations Allah has imposed, one of his steps erases a sin and the other raises him a rank."},
+      {t:"p",h:"With your right foot a sin is removed, and with your left your rank is raised. The more steps, the more sins erased and ranks raised. But this is for the one who makes wuḍūʾ before leaving."},
+      {t:"h",h:"Clean, unscented clothes"},
+      {t:"p",h:"A lot of people neglect this when travelling, wearing the same clothes, hijab or abaya again and again until they smell."},
+      {t:"hd",kind:"ʿĀʾishah رضي الله عنها",en:"The Prophet ﷺ was given a woollen shawl, and she described how handsome he looked in it. After some time it developed a smell, and when he sensed it, he got rid of it."},
+      {t:"p",h:"It didn't matter that it was wool or that it looked nice on him. It smelled, so he no longer wore it. And don't cover a smell with perfume: women should not put perfume on clothing when going out, which is clearly forbidden, and perfume on smelly clothes is a very bad combination anyway."},
+      {t:"h",h:"Garlic, onion and leek"},
+      {t:"hd",en:"Whoever eats onion, garlic or leek should not approach our masjid, for the angels are harmed by the same things as the children of Ādam.",ref:"Ṣaḥīḥ Muslim"},
+      {t:"p",h:"These foods affect not only the breath but the body odour. In a closed space close to people the smell spreads quickly. If you eat raw onion, have it in the middle of your meal or limit it."},
+      {t:"h",h:"Every step counts"},
+      {t:"hd",en:"The person with the greatest reward for salah is the one who comes to the masjid from the farthest distance."},
+      {t:"story",kind:"The Anṣārī with the farthest house",h:"<p>A man of the Anṣār lived in the farthest house in Madinah, yet never missed prayer with the Prophet ﷺ. Ubayy ibn Kaʿb felt sorry for him and said: why don't you buy a donkey, so you can come easily? The man said: I would not want my house to be next to the house of Muḥammad ﷺ. Ubayy was surprised and told the Prophet ﷺ, and the man explained: I hope to be rewarded for my steps to the masjid. The Prophet ﷺ said: you will have the reward you sought.</p>"},
+      {t:"p",h:"Going five times a day, back and forth, becomes quite a walk. Don't get weary of it. Make the intention as you walk, and when you're tired or it takes 10 to 15 minutes, expect more reward from Allah ﷻ."},
+      {t:"h",h:"Walk with calm"},
+      {t:"hd",en:"When you hear the iqāmah, walk to the prayer with tranquillity and dignity, and do not rush. Pray what you catch with the imām, and complete what you missed."},
+      {t:"hd",en:"Some people came into the masjid while the Prophet ﷺ was leading the prayer and made a lot of noise. Afterwards he asked what the commotion was. They said they were hurrying to join the prayer. He said: do not make haste for salah. Come with calmness, pray what you catch, and complete what you missed."},
+      {t:"p",h:"So don't run, push or bump into people, and don't enter talking on your phone, chatting, or calling to your children to hurry up. You will disturb those already praying, reciting or making du'a."},
+      {t:"hd",en:"Give good news to those who walk to the masjids in darkness of perfect light on the Day of Judgement."},
+      {t:"p",h:"Walking in darkness means going for ʿIshāʾ, for tahajjud, and for Fajr."}
+    ]
+  },
+  {
+    id:"s5c6", title:"For Women Going to the Masjid", color:PAL.blush,
+    summary:"Fragrance, dress, and keeping to the side of the crowd.",
+    blocks:[
+      {t:"hd",en:"If a woman has perfumed herself, let her not attend the ʿIshāʾ prayer."},
+      {t:"hd",en:"Do not prevent the female servants of Allah from the masjids of Allah, but let them go out unperfumed."},
+      {t:"p",h:"A light deodorant or fragrance that stays with her and doesn't spread is fine. Fragrance that spreads is not okay when going to the masjid."},
+      {t:"p",h:"The Prophet ﷺ gave a clear warning about women who are clothed yet naked. So make sure your clothes aren't tight, see-through, or attracting too much attention."},
+      {t:"h",h:"Keep to the side"},
+      {t:"p",h:"Crowds head to the masjid at prayer times. Respect people's personal space, don't bump into people, especially men, and don't mingle with men."},
+      {t:"hd",en:"As the Prophet ﷺ came out of the masjid, men and women were mixing in the road. He said to the women: do not walk in the middle of the road; keep to the side. After that, women kept so close to the wall that their garments would rub against it."},
+      {t:"key",h:"Protect yourself: don't walk into the middle of the crowd. Keep to the side."}
+    ]
+  },
+  {
+    id:"s5c7", title:"Entering the Masjid", color:PAL.peach,
+    summary:"The du'a of entering, taḥiyyat al-masjid, and where to sit.",
+    blocks:[
+      {t:"dua",kind:"On entering the masjid",ar:"أَعُوذُ بِاللَّهِ الْعَظِيمِ وَبِوَجْهِهِ الْكَرِيمِ وَسُلْطَانِهِ الْقَدِيمِ مِنَ الشَّيْطَانِ الرَّجِيمِ ۝ بِسْمِ اللَّهِ وَالسَّلَامُ عَلَىٰ رَسُولِ اللَّهِ ۝ اللَّهُمَّ اغْفِرْ لِي ذُنُوبِي وَافْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",en:"I seek refuge in Allah the Almighty, by His Noble Face and His eternal authority, from Shayṭān the outcast. In the name of Allah, and peace be upon the Messenger of Allah. O Allah, forgive my sins and open for me the doors of Your mercy."},
+      {t:"key",h:"When you see the doors of al-Masjid al-Ḥarām open, with crowds going in and coming out, imagine how great the gates of Allah's mercy are. Expect a lot from Allah. Believe that He has a lot, and can give you a lot."},
+      {t:"h",h:"Taḥiyyat al-masjid"},
+      {t:"hd",en:"When one of you enters the masjid, let him pray two rakʿahs before sitting down."},
+      {t:"list",items:["If the salah has already begun, or the iqāmah is being called, join the prayer.","Otherwise, pray two rakʿahs before you sit, recite Qur'an or make dhikr.","Even at the times when one normally doesn't pray (after Fajr, after ʿAṣr, when the sun is at its zenith), there is a difference of opinion, but when there is a reason to pray you may pray, and entering the masjid is that reason."]},
+      {t:"h",h:"Where to sit"},
+      {t:"list",items:["Wherever you find a good place, sit there and pray there. Don't keep crossing over and between people to find a spot you like, especially when it's occupied.","Only sit and pray in the designated places. Some women sit in spots where they can see the Kaʿbah and won't move even when the guards ask them to. That is not correct."]}
+    ]
+  },
+  {
+    id:"s5c8", title:"Responding to the Adhān", color:PAL.mint,
+    summary:"Repeat after the muʾadhdhin, then ṣalāh on the Prophet ﷺ, the wasīlah, and your own du'a.",
+    blocks:[
+      {t:"hd",en:"When you hear the muʾadhdhin, say what he says."},
+      {t:"p",h:"In the masjid or outside it, respond to every adhān. When he says <em>Allāhu Akbar, Allāhu Akbar</em>, you say it too, and so on. But when he says <em>ḥayya ʿala-ṣ-ṣalāh</em> and <em>ḥayya ʿala-l-falāḥ</em>, you respond as the Prophet ﷺ taught:"},
+      {t:"dua",kind:"In reply to “ḥayya ʿalā…”",ar:"لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",en:"There is no might nor power except with Allah."},
+      {t:"hd",en:"Whoever responds to the adhān with certainty (yaqīn) will enter Paradise."},
+      {t:"p",h:"So say “Allah is the Greatest” with conviction. Say “I bear witness that there is no god but Allah” with yaqīn. Don't miss that opportunity."},
+      {t:"h",h:"After the adhān"},
+      {t:"steps",items:[
+        ["Send ṣalāh on the Prophet ﷺ","The full ṣalāh ibrāhīmiyyah, as in the tashahhud."],
+        ["Ask for the wasīlah for him","The wasīlah is a rank in Jannah due to only one of Allah's slaves."],
+        ["Say the shahādah and “raḍītu…”","Whoever says it after the adhān, his sins are forgiven."],
+        ["Make your own du'a","Ask, and it will be granted."]
+      ]},
+      {t:"dua",kind:"Ṣalāh on the Prophet ﷺ",ar:"اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَّجِيدٌ ۝ اللَّهُمَّ بَارِكْ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَّجِيدٌ",en:"O Allah, send prayers upon Muḥammad and the family of Muḥammad, as You sent prayers upon Ibrāhīm and the family of Ibrāhīm; You are Praiseworthy, Glorious. O Allah, bless Muḥammad and the family of Muḥammad, as You blessed Ibrāhīm and the family of Ibrāhīm; You are Praiseworthy, Glorious."},
+      {t:"dua",kind:"The du'a of the wasīlah",ar:"اللَّهُمَّ رَبَّ هَٰذِهِ الدَّعْوَةِ التَّامَّةِ وَالصَّلَاةِ الْقَائِمَةِ آتِ مُحَمَّدًا الْوَسِيلَةَ وَالْفَضِيلَةَ وَابْعَثْهُ مَقَامًا مَّحْمُودًا الَّذِي وَعَدْتَهُ",en:"O Allah, Lord of this perfect call and the established prayer, give Muḥammad the wasīlah and superiority, and raise him to the praiseworthy station which You promised him."},
+      {t:"hd",en:"Whoever asks Allah to grant me the wasīlah, my intercession becomes due for him."},
+      {t:"dua",kind:"Then",ar:"وَأَنَا أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ وَأَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ رَضِيتُ بِاللَّهِ رَبًّا وَبِمُحَمَّدٍ رَسُولًا وَبِالْإِسْلَامِ دِينًا",en:"And I bear witness that there is no god but Allah alone, with no partner, and that Muḥammad is His slave and Messenger. I am pleased with Allah as my Lord, with Muḥammad as Messenger, and with Islam as my religion."},
+      {t:"hd",en:"Say what the muʾadhdhin says, and when you finish, ask, and you will be given."},
+      {t:"key",h:"Don't waste that time sending messages, checking Instagram or WhatsApp, chatting or taking pictures. It is the time to raise your hands and make du'a."},
+      {t:"p",h:"Living away from the Muslim world, many people rarely hear a live adhān and lose the habit of responding and making du'a after it. In Makkah, pay attention to every single adhān."},
+      {t:"h",h:"Again and again"},
+      {t:"hd",en:"Allah prepares a residence in Paradise for whoever goes to the masjid in the morning and the evening, each time they go."}
+    ]
+  },
+  {
+    id:"s5c9", title:"Praying in the Ḥaram", color:PAL.aqua,
+    summary:"Sutrah, not passing in front, straight rows, coming early and staying after.",
+    blocks:[
+      {t:"h",h:"Use a sutrah when praying alone"},
+      {t:"p",h:"When praying on your own, for taḥiyyat al-masjid, sunnah or nafl, put something in front of you as a sutrah: a screen between you and the people in front, so they don't come into your place of sajdah and can pass easily. When praying behind the imām, the imām's sutrah suffices for everyone behind him."},
+      {t:"h",h:"Don't pass in front of someone praying"},
+      {t:"hd",en:"If the one who passes in front of a person praying knew the magnitude of his sin, he would prefer to wait forty rather than pass in front of him. The narrator did not remember whether it was forty days, months or years."},
+      {t:"p",h:"Even forty minutes is a lot. If you need to get past, place your bag or something in front of them first. But in a congregational prayer, if you have to go in front of a row to reach your spot or your child, you may, because the imām's sutrah suffices for those behind him."},
+      {t:"h",h:"Fill the gaps"},
+      {t:"p",h:"In congregation, leave no gaps. If there is a gap in front of you, fill it. If there is one beside you, move right or left to fill it."},
+      {t:"hd",en:"Whoever joins a row, Allah joins him, and whoever breaks a row, Allah breaks him off."},
+      {t:"hd",en:"There is no step greater in reward than the step a man takes to fill a gap in the row."},
+      {t:"p",h:"Don't stubbornly hold your spot because the ventilation is good or the view is nice. Give priority to filling the gaps and perfecting the rows."},
+      {t:"h",h:"Go early"},
+      {t:"hd",en:"The one who waits for the prayer to pray it with the imām has a greater reward than the one who prays and then sleeps."},
+      {t:"p",h:"Whether it's five, ten or thirty minutes early: while you are waiting for the prayer, you are in prayer. The fifteen minutes you sit waiting count as if you were praying."},
+      {t:"h",h:"Stay after the salah"},
+      {t:"p",h:"Sit in your place for a while and do the adhkār after salah: Āyat al-Kursī, and subḥānallāh, alḥamdulillāh and Allāhu akbar 33 times each. Those who remember Allah after salah and keep the morning and evening adhkār are among those who remember Allah much, and the Prophet ﷺ said they have gone ahead of everyone in reward."},
+      {t:"dua",kind:"The angels pray for you",ar:"اللَّهُمَّ اغْفِرْ لَهُ اللَّهُمَّ ارْحَمْهُ",en:"O Allah, forgive him. O Allah, have mercy on him. The angels keep praying this for you as long as you remain in your place of prayer without breaking your wuḍūʾ."}
+    ]
+  },
+  {
+    id:"s5c10", title:"Filling Your Time", color:PAL.sand,
+    summary:"Qur'an, voluntary ṭawāf, and short iʿtikāf.",
+    blocks:[
+      {t:"h",h:"Set a Qur'an goal"},
+      {t:"p",h:"When you go early or have time afterwards, spend it reciting Qur'an. Set yourself a goal for Makkah: at least 10 ajzāʾ, or at least 7. You don't have to cook, do laundry, clean the house, go to work or do schoolwork. You are there for worship."},
+      {t:"juz"},
+      {t:"list",items:["Reciting the Qur'an is a means of your good mention in the heavens and a light for you on earth.","Allah fills the heart of the one who recites with īmān.","Of all the voluntary deeds that bring a person close to Allah, reciting the Qur'an is very beneficial."]},
+      {t:"key",h:"If the adhān is called while you are reciting, pause and respond to it."},
+      {t:"h",h:"Voluntary ṭawāf"},
+      {t:"p",h:"The best voluntary act of worship in al-Masjid al-Ḥarām is ṭawāf. Its reward equals freeing a slave, and for every step a reward is written, a sin is erased and a rank is raised. Do it, and pray the two rakʿahs after it."},
+      {t:"p",h:"If you're tired, there's nothing wrong with using the electric carts provided. You pay something to rent them, maybe around the price of a fancy milkshake or a Starbucks coffee. Be eager to spend on this, and do as many voluntary ṭawāfs as you can while you are there."},
+      {t:"h",h:"A short iʿtikāf"},
+      {t:"p",h:"Iʿtikāf is remaining in a place with the intention of worship and engaging in worship: not chatting with people or busying yourself with other things."},
+      {t:"key",h:"Iʿtikāf isn't only for Ramadan or for ten days. It can be two hours, or a day. Enter the masjid intending iʿtikāf from Ẓuhr to ʿAṣr, for example, and spend that time in Qur'an, du'a and adhkār. Many people neglect this."}
+    ]
+  },
+  {
+    id:"s5c11", title:"Your Best Character", color:PAL.peri,
+    summary:"Lowered gaze, quick apologies, generous sadaqah, and a clean masjid.",
+    blocks:[
+      {t:"h",h:"Guard your eyes"},
+      {t:"p",h:"Don't look at people's phones or what they're typing, don't try to overhear conversations, and don't stare at what people look like, what they're wearing or what they're eating."},
+      {t:"h",h:"No bickering"},
+      {t:"p",h:"Avoid any fighting or bickering. If someone gets annoyed with you, be quick to apologise. Display your best akhlāq."},
+      {t:"h",h:"Give sadaqah"},
+      {t:"hd",en:"Every Muslim must give sadaqah."},
+      {t:"p",h:"Sadaqah isn't only money:"},
+      {t:"chips",items:["Dates to share","Small water bottles","A cup of Zamzam for the person beside you","Small juices, snacks, yogurts","Du'a cards"]},
+      {t:"p",h:"Many people don't know what to read or which du'as to make, so share beneficial knowledge too."},
+      {t:"hd",en:"The most beloved of people to Allah is the one most beneficial to people."},
+      {t:"h",h:"Keep the masjid clean"},
+      {t:"p",h:"Don't litter. Masjids are to be kept clean and perfumed, and nothing you do should cause any damage."},
+      {t:"hd",en:"Whoever spits towards the qiblah will come on the Day of Resurrection with his spittle between his eyes."},
+      {t:"yn",items:[[0,"Spitting, or leaving tissues around."],[1,"Coughing or sneezing into your arm, and carrying napkins."],[1,"Leaving shoes in the designated area, or carrying a shoe bag."],[1,"Keeping your things with you so nothing gets broken."],[1,"Being welcoming and cooperative, with worshippers and with the staff."],[0,"Wasting Zamzam as you drink it or share it."]]},
+      {t:"dua",kind:"The session closed with",ar:"سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا أَنْتَ أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ",en:"Glory be to You, O Allah, and praise. I bear witness that there is no god but You. I seek Your forgiveness and turn to You in repentance."}
+    ]
+  }
+  ]
+},
+{
+  id:"p6", num:"Part Six", title:"Madinah", session:"Session 6",
+  chapters:[
+  {
+    id:"s6c1", title:"The City of the Prophet ﷺ", color:PAL.mint,
+    summary:"Dār al-Hijrah: where he lived, died, is buried, and will rise.",
+    blocks:[
+      {t:"p",h:"Typically, when a person goes for Hajj or Umrah they also visit Madinah on the same trip. It is one of the three holy lands, it is close to Makkah, and there is great virtue in praying in al-Masjid an-Nabawī. After Makkah, Madinah is the most sacred place on earth."},
+      {t:"list",items:["Allah chose it for His Messenger ﷺ. It is <b>Dār al-Hijrah</b>, the place he migrated to at Allah's command.","He lived there for ten years, the rest of his life. It was home to him; his masjid was and still is there.","He died there and is buried there, and on the Day of Judgement his grave will open in Madinah.","Most of the verses of commands and laws were revealed in Madinah. In Makkah laws were not revealed; they came after the Hijrah."]},
+      {t:"hd",kind:"Anas رضي الله عنه",en:"The day the Prophet ﷺ arrived in Madinah was the brightest day ever."},
+      {t:"p",h:"He loved Madinah and considered it home, which is why after conquering Makkah he did not settle there but returned to Madinah. Allah had commanded him to go to Madinah, and he would not leave it except by Allah's command, and Allah did not command him to leave."},
+      {t:"hd",en:"I was commanded to go to a town that will swallow up other towns. They call it Yathrib, but it is Madinah. It expels people as the furnace expels the impurities of iron.",ref:"Ṣaḥīḥ al-Bukhārī"},
+      {t:"key",h:"It was once called Yathrib, but the Prophet ﷺ changed its name to Madinah. So we don't call it Yathrib; we call it Madinah."}
+    ]
+  },
+  {
+    id:"s6c2", title:"A Sanctuary", color:PAL.sage,
+    summary:"Madinah is ḥaram: no innovation, no violence, no harming even its animals.",
+    blocks:[
+      {t:"hd",en:"O Allah, Ibrāhīm was Your friend and Your prophet, and You declared Makkah sacred through Ibrāhīm. O Allah, I am Your slave and Your prophet, and I declare what is between its two lava fields sacred."},
+      {t:"p",h:"In Ṣaḥīḥ al-Bukhārī, the chapter on the virtues of Madinah opens with “the sacredness of Madinah”."},
+      {t:"hd",ar:"الْمَدِينَةُ حَرَمٌ",en:"Madinah is a sanctuary, from ʿAyr to Uḥud. Its trees are not to be cut, and no ḥadath is to be committed in it. Whoever commits a ḥadath in it, upon him is the curse of Allah, the angels and all the people.",ref:"Ṣaḥīḥ al-Bukhārī"},
+      {t:"hd",en:"No voluntary or obligatory deed will be accepted from the one who commits a ḥadath in it."},
+      {t:"h",h:"What ḥadath means"},
+      {t:"list",items:["<b>Innovation.</b> Inventing a deed in Madinah that isn't from the religion, not in the Qur'an and not done or taught by the Prophet ﷺ, and treating it as righteous and holy. In his own city it is extremely disrespectful, as if saying: I know better than the Prophet ﷺ. And it is dangerous, because people will copy it thinking it is righteous. So be sure whatever you do there is truly from the Sunnah.","<b>A violent crime.</b> Committing one in Madinah is far more serious than elsewhere, as in Makkah."]},
+      {t:"key",h:"So no fighting in Madinah, no shouting at one another or raising voices, and no abuse, physical or even verbal."},
+      {t:"h",h:"Even its animals"},
+      {t:"hd",kind:"Abū Hurayrah رضي الله عنه",en:"If I saw a deer grazing in Madinah I would not disturb it, because the Prophet ﷺ said: what is between its two lava tracts is a sanctuary."},
+      {t:"p",h:"The two <em>ḥarrah</em> are the stony volcanic tracts on the edges of Madinah. Hunting between them is not allowed. Abū Hurayrah would not even chase a deer to make it leave Madinah, nor frighten an animal. Then how could we think of frightening a person there?"},
+      {t:"p",h:"Hunting in Makkah has a fidyah. Hunting in Madinah is not allowed, but there is no fidyah for it."}
+    ]
+  },
+  {
+    id:"s6c3", title:"Ṭābah", color:PAL.lilac,
+    summary:"The pure, good and pleasant city, and the mountain that loves us.",
+    blocks:[
+      {t:"hd",en:"Returning to Madinah, when the Prophet ﷺ saw it he said: this is Ṭābah. And seeing Mount Uḥud he said: this is Uḥud, a mountain that loves us and we love it."},
+      {t:"hd",en:"Indeed, Allah has named Madinah Ṭābah."},
+      {t:"p",h:"<em>Ṭābah</em> means pure, good and pleasant. Madinah is good physically and in an unseen way: there is a different feeling of contentment and peace of mind and heart there. Finding that joy and contentment is part of experiencing Madinah."},
+      {t:"p",h:"In it is the Prophet's ﷺ masjid, and in that the Rawḍah, a garden from the gardens of Paradise. So how could Madinah not be Ṭābah?"},
+      {t:"h",h:"Its names"},
+      {t:"list",items:["<b>Madinah</b> is short for <em>Madīnat an-Nabī</em>, the city of the Prophet ﷺ.","<b>Al-Madīnah al-Munawwarah</b>, the enlightened city, is a name that came about long after the Prophet ﷺ. Any place where there is Islam can be enlightened, but only Ṭābah is the city of the Prophet ﷺ, where he migrated and where he is buried."]}
+    ]
+  },
+  {
+    id:"s6c4", title:"His Love for Madinah", color:PAL.blush,
+    summary:"How he hurried home to it, and the du'as he made for it.",
+    blocks:[
+      {t:"hd",en:"Whenever the Prophet ﷺ returned from a journey and saw the walls of Madinah, he would make his mount go fast, out of love for it."},
+      {t:"p",h:"When the Prophet ﷺ and the Companions first came to Madinah, its climate did not suit their health. Abū Bakr fell ill, and Bilāl fell ill. Seeing his Companions ill, the Prophet ﷺ made du'a:"},
+      {t:"dua",kind:"The Prophet's ﷺ du'a for Madinah",ar:"اللَّهُمَّ حَبِّبْ إِلَيْنَا الْمَدِينَةَ كَحُبِّنَا مَكَّةَ أَوْ أَشَدَّ وَصَحِّحْهَا وَبَارِكْ لَنَا فِي صَاعِهَا وَمُدِّهَا",en:"O Allah, make Madinah beloved to us as You made Makkah beloved, or even more. Make it healthy for us, and bless us in its ṣāʿ and its mudd."},
+      {t:"p",h:"The ṣāʿ and mudd are measures of volume, so he was asking for barakah in its provision. And he prayed for the fever of Madinah to be moved to al-Juḥfah: whatever disease is in Madinah, take it away from here. Because of that, Madinah became Ṭābah."},
+      {t:"hd",en:"O Allah, put in Madinah twice the blessing You have put in Makkah."},
+      {t:"hd",en:"O Allah, bless us in our fruits, bless us in our city, bless us in our ṣāʿ and bless us in our mudd."},
+      {t:"key",h:"He dearly loved this city and prayed for it, so we should love Madinah too and benefit from its barakah."}
+    ]
+  },
+  {
+    id:"s6c5", title:"Respecting Its People", color:PAL.rose,
+    summary:"Never plot against, wish ill on, or frighten the people of Madinah.",
+    blocks:[
+      {t:"p",h:"Because the Prophet ﷺ loved Madinah so much, we must be very respectful there. Respect doesn't mean not wearing slippers or not using the bathroom. It means, first, not committing any innovation against his Sharīʿah, and second, not harming the people of Madinah in any way whatsoever."},
+      {t:"hd",en:"No one plots against the people of Madinah except that he dissolves as salt dissolves in water."},
+      {t:"hd",en:"No one intends harm to the people of Madinah except that Allah melts him in the Fire as lead melts."},
+      {t:"hd",ar:"مَنْ أَخَافَ أَهْلَ الْمَدِينَةِ أَخَافَهُ اللَّهُ",en:"Whoever frightens the people of Madinah, Allah will frighten him."},
+      {t:"key",h:"Walking to the masjid, shopping, sitting to eat or drink: make sure no one feels threatened by how you speak, interact or even carry yourself. Be extra friendly, gentle and easy-going. Don't get angry, annoyed or short-tempered."}
+    ]
+  },
+  {
+    id:"s6c6", title:"Safe from the Dajjāl", color:PAL.peri,
+    summary:"Angels at every path, and the Day of Deliverance.",
+    blocks:[
+      {t:"hd",en:"There is no town the Dajjāl will not enter except Makkah and Madinah. There is no mountain path of Madinah except that angels will be on it in rows, guarding it."},
+      {t:"hd",en:"The terror of al-Masīḥ ad-Dajjāl will not enter Madinah. On that day it will have seven gates, with two angels at each gate."},
+      {t:"story",kind:"The Day of Deliverance",h:"<p>The Prophet ﷺ said three times: the Day of Deliverance, and what is the Day of Deliverance? The people asked what it was. He said: the Dajjāl will come towards Madinah, climb a mountain and look at it, and say to those with him: do you see that white palace? That is the masjid of Aḥmad. Then he will approach Madinah and find at every path an angel with a drawn sword. He will make camp outside.</p><p>Then Madinah will shake three times, and every hypocrite, man or woman, will leave it and go out to join the Dajjāl.</p>"},
+      {t:"key",h:"When the Dajjāl appears, the best part of the earth will be Madinah, because only the people in it will be safe from his fitnah."}
+    ]
+  },
+  {
+    id:"s6c7", title:"Patience with Its Hardships", color:PAL.peach,
+    summary:"Everyone is tested in Madinah. Be patient, and hope for his intercession.",
+    blocks:[
+      {t:"p",h:"People are tested in Madinah in different ways: some with illness, some with difficult people."},
+      {t:"story",kind:"From the teacher",h:"<p>“Once when we visited, our test was the hotel. For our entire stay no one came to clean, no one came to do anything, no one answered. It was extremely busy, and very hard to stay like that with two children. I just reminded myself: this is my test in Madinah.”</p>"},
+      {t:"story",kind:"Abū Saʿīd al-Khudrī رضي الله عنه",h:"<p>A man came to ask his advice about leaving Madinah. He complained of the high prices, said he had a large family and could not bear its hardships, and found its environment very difficult. Abū Saʿīd said: woe to you, I will not advise you to leave, for I heard the Prophet ﷺ say:</p>"},
+      {t:"hd",ar:"لَا يَصْبِرُ أَحَدٌ عَلَىٰ لَأْوَائِهَا إِلَّا كُنْتُ لَهُ شَفِيعًا أَوْ شَهِيدًا يَوْمَ الْقِيَامَةِ إِذَا كَانَ مُسْلِمًا",en:"No one bears its hardships with patience except that I will be an intercessor or a witness for him on the Day of Judgement, if he is a Muslim."},
+      {t:"p",h:"So you will face some hardship in Madinah:"},
+      {t:"chips",items:["Trouble at the airport","Lost luggage","Falling ill","An upset stomach from plane food","A hotel below expectations","Heat by day, cold at night","Cold, windy mornings","A tiring walk to the masjid"]},
+      {t:"key",h:"When it comes, remember this hadith. It speaks of those who live in Madinah, but it encourages us to be patient with any hardship there. Don't be annoyed or upset: the Prophet ﷺ loved this city, the believers love it, and it is the hypocrites who dislike it."},
+      {t:"h",h:"To die in Madinah"},
+      {t:"hd",en:"Whoever is able to die in Madinah, let him do so, for I will intercede for the one who dies in Madinah."},
+      {t:"dua",kind:"ʿUmar's du'a",ar:"اللَّهُمَّ ارْزُقْنِي شَهَادَةً فِي سَبِيلِكَ وَاجْعَلْ مَوْتِي فِي بَلَدِ رَسُولِكَ",en:"O Allah, grant me martyrdom in Your way, and make my death in the city of Your Messenger ﷺ."},
+      {t:"p",h:"And amazingly, ʿUmar died in Madinah, and he was martyred."}
+    ]
+  },
+  {
+    id:"s6c8", title:"ʿAjwah Dates", color:PAL.sand,
+    summary:"From Jannah, and a cure.",
+    blocks:[
+      {t:"hd",en:"The ʿajwah date that grows in Madinah is from Jannah, and it is a healing: a cure for poison."},
+      {t:"hd",en:"In another hadith: it is a cure for magic."},
+      {t:"key",h:"Benefit from the dates of Madinah. Eat them for breakfast and as snacks. Instead of cookies, sugary and processed foods in your travel bag, buy dates in Madinah and keep them in your purse or backpack for whenever you get hungry. They are nutritious, and they are from Paradise."}
+    ]
+  },
+  {
+    id:"s6c9", title:"The Prophet's Masjid", color:PAL.butter,
+    summary:"Built with his own hands, and why we travel to it.",
+    blocks:[
+      {t:"p",h:"Madinah is special because in it is al-Masjid an-Nabawī, which the Prophet ﷺ built himself."},
+      {t:"hd",en:"When the Prophet ﷺ arrived in Madinah he built the masjid, carrying the bricks himself, saying: this load is better than the load of Khaybar, more pious in the sight of Allah, purer and more rewarding."},
+      {t:"p",h:"Khaybar then was prime land, fertile and full of date orchards, where people wanted to invest. Yet he said the mud bricks of Madinah were better. And he was saying:"},
+      {t:"dua",kind:"As he carried the bricks",ar:"اللَّهُمَّ إِنَّ الْأَجْرَ أَجْرُ الْآخِرَةِ فَارْحَمِ الْأَنْصَارَ وَالْمُهَاجِرَةَ",en:"O Allah, the real reward is the reward of the Hereafter, so have mercy on the Anṣār and the Muhājirūn."},
+      {t:"p",h:"Madinah is where the Anṣār and the Muhājirūn came together."},
+      {t:"h",h:"Your intention"},
+      {t:"p",h:"We go to Madinah because it is sacred, blessed and Ṭābah, and we love it as the city of the Prophet ﷺ. But our intention in going should be to pray in al-Masjid an-Nabawī."},
+      {t:"hd",ar:"لَا تُشَدُّ الرِّحَالُ إِلَّا إِلَىٰ ثَلَاثَةِ مَسَاجِدَ",en:"Do not undertake a religious journey except to three masjids: the Sacred Masjid in Makkah, the masjid of the Messenger of Allah ﷺ, and al-Masjid al-Aqṣā."},
+      {t:"list",items:["It is not permissible to make a pilgrimage to any masjid other than these three.","So we go to Madinah to pray, make du'a, read Qur'an and worship Allah in al-Masjid an-Nabawī, because that masjid itself is blessed.","Visiting Madinah is not required for Hajj or Umrah and isn't part of either. It is just convenient on the same trip.","Don't travel to Madinah with the intention of visiting the grave. The Prophet ﷺ forbade making his grave a place of ʿīd, a place frequently and specially visited."]},
+      {t:"hd",en:"A prayer in al-Masjid an-Nabawī is better than a thousand prayers anywhere else, except al-Masjid al-Ḥarām."},
+      {t:"key",h:"So pray every salah in the masjid. Remind yourself: I didn't come here to shop for abayas, long dresses or gold. If it happens conveniently, alḥamdulillāh, but it's not my goal. Don't miss salah for jewellery or deals on abayas and hijabs; you can buy those online or elsewhere."}
+    ]
+  },
+  {
+    id:"s6c10", title:"In al-Masjid an-Nabawī", color:PAL.aqua,
+    summary:"Entering, the two rakʿahs, and making good use of your time.",
+    blocks:[
+      {t:"p",h:"Enter with your <b>right foot</b> first and say the du'a of entering the masjid:"},
+      {t:"dua",kind:"On entering the masjid",ar:"أَعُوذُ بِاللَّهِ الْعَظِيمِ وَبِوَجْهِهِ الْكَرِيمِ وَسُلْطَانِهِ الْقَدِيمِ مِنَ الشَّيْطَانِ الرَّجِيمِ ۝ بِسْمِ اللَّهِ وَالصَّلَاةُ وَالسَّلَامُ عَلَىٰ رَسُولِ اللَّهِ ۝ اللَّهُمَّ اغْفِرْ لِي ذُنُوبِي وَافْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",en:"I seek refuge in Allah the Almighty, by His Noble Face and His eternal authority, from Shayṭān the outcast. In the name of Allah, and prayers and peace be upon the Messenger of Allah. O Allah, forgive my sins and open for me the gates of Your mercy."},
+      {t:"h",h:"Two rakʿahs before you sit"},
+      {t:"p",h:"In al-Masjid al-Ḥarām you do ṭawāf. In al-Masjid an-Nabawī, if the farḍ prayer is starting or has begun, join it. Otherwise, the first thing you do is pray taḥiyyat al-masjid before sitting. This is especially important here."},
+      {t:"hd",kind:"Abū Qatādah رضي الله عنه",en:"I entered the masjid while the Prophet ﷺ was sitting among the people, and I sat down too. He said: what stopped you from praying two rakʿahs before sitting? I said: O Messenger of Allah, I saw you and the people sitting, so I sat. He said: when any of you enters the masjid, let him not sit until he has prayed two rakʿahs."},
+      {t:"hd",en:"Jābir came to the Prophet ﷺ in the masjid to receive some money from him, and the Prophet ﷺ told him to pray two rakʿahs first."},
+      {t:"h",h:"Make good use of your time"},
+      {t:"chips",items:["Voluntary salah","Qur'an","Dhikr","Ṣalāh on the Prophet ﷺ","Du'a","Gatherings of knowledge","Women's Qur'an ḥalaqāt","A book of sīrah or 40 hadith"]},
+      {t:"p",h:"There are many gatherings of knowledge, and even in the women's section you'll often find ḥalaqāt of women reciting Qur'an to their teacher. Sit and read with them if they allow you, or at least benefit by listening. Or bring a book about the Prophet ﷺ, his sīrah or a collection of his sayings, and make reading it your goal while you sit in his masjid."}
+    ]
+  },
+  {
+    id:"s6c11", title:"Ar-Rawḍah", color:PAL.rose,
+    summary:"A garden of Paradise: register ahead, and never push to get there.",
+    blocks:[
+      {t:"hd",ar:"مَا بَيْنَ بَيْتِي وَمِنْبَرِي رَوْضَةٌ مِّنْ رِيَاضِ الْجَنَّةِ",en:"What is between my house and my minbar is a garden from the gardens of Paradise."},
+      {t:"p",h:"So be eager to go there and pray."},
+      {t:"list",items:["<b>Men</b> have access to it for most of the day and night.","<b>Women</b> have very limited access, and you need to register in advance. Find out the process and do it before you reach Madinah."]},
+      {t:"h",h:"Never push to get there"},
+      {t:"p",h:"Walk towards it respectfully and try to reach it and pray. If you can't, it's okay. What isn't okay is being disrespectful and uncivilised to get there."},
+      {t:"story",kind:"What the teacher has witnessed",h:"<p>“I have seen women literally getting injured, wheelchairs being pushed. Once a woman went over my foot. The pushing and shoving, no concept of personal space, hijabs flying and being pulled, women falling. This is not correct. We don't want to reach the Rawḍah after causing so much harm to people.”</p>"},
+      {t:"key",h:"Be generous, respectful and courteous. You are in the masjid of the Prophet ﷺ, so be at your best behaviour."},
+      {t:"h",h:"What to do there"},
+      {t:"p",h:"Pray there as much as you can, because it is a garden from the gardens of Paradise. If you can't, no problem: Allah knows your love and your intention. And make du'a for yourself:"},
+      {t:"dua",kind:"Three times",ar:"اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ",en:"O Allah, I ask You for Paradise."},
+      {t:"p",h:"Whoever asks Allah for Paradise three times, Paradise itself says: O Allah, admit him into Paradise."}
+    ]
+  },
+  {
+    id:"s6c12", title:"Sending Salām", color:PAL.sky,
+    summary:"Greeting the Prophet ﷺ, Abū Bakr and ʿUmar, and what to avoid.",
+    blocks:[
+      {t:"p",h:"Next to the Rawḍah are the graves of the Prophet ﷺ, Abū Bakr and ʿUmar. Send salām: stand in front of the grave in a dignified manner. You don't need to fold your hands as in salah; just stand normally."},
+      {t:"steps",items:[
+        ["Greet the Prophet ﷺ",ari("السَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ ۝ السَّلَامُ عَلَيْنَا وَعَلَىٰ عِبَادِ اللَّهِ الصَّالِحِينَ")+"<br>Peace be upon you, O Prophet, and the mercy of Allah and His blessings. Peace be upon us and upon the righteous slaves of Allah."],
+        ["Send ṣalāh on him","The full ṣalāh ibrāhīmiyyah."],
+        ["Move a little to the right","Send salām on Abū Bakr and pray that Allah is pleased with him."],
+        ["Then ʿUmar","Send salām on ʿUmar and pray that Allah is pleased with him."]
+      ]},
+      {t:"dua",kind:"Ṣalāh ibrāhīmiyyah",ar:"اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَّجِيدٌ ۝ اللَّهُمَّ بَارِكْ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَّجِيدٌ",en:"O Allah, send prayers upon Muḥammad and the family of Muḥammad, as You sent prayers upon Ibrāhīm and the family of Ibrāhīm; You are Praiseworthy, Glorious. O Allah, bless Muḥammad and the family of Muḥammad, as You blessed Ibrāhīm and the family of Ibrāhīm; You are Praiseworthy, Glorious."},
+      {t:"hd",kind:"Nāfiʿ reported",ar:"السَّلَامُ عَلَيْكَ يَا رَسُولَ اللَّهِ ۝ السَّلَامُ عَلَيْكَ يَا أَبَا بَكْرٍ ۝ السَّلَامُ عَلَيْكَ يَا أَبَتَاهُ",en:"Whenever Ibn ʿUmar returned to Madinah from a journey, he would come to the grave and say: Peace be upon you, O Messenger of Allah. Peace be upon you, O Abū Bakr. Peace be upon you, O my father. That is all he said, because ʿUmar was his father."},
+      {t:"h",h:"Be very careful"},
+      {t:"yn",items:[[0,"Touching the fence, thinking it brings barakah."],[0,"Doing ṭawāf around the ḥujrah or the graves."],[0,"Facing the grave, or the Rawḍah, while making du'a."],[1,"Facing the qiblah when making du'a. It's better, though not required."]]},
+      {t:"key",h:"In Madinah, align every action with the teaching of the Prophet ﷺ and practise no innovation. You avoid innovation by going prepared and knowing what to do there."},
+      {t:"h",h:"The grave is not the goal"},
+      {t:"p",h:"The Prophet ﷺ forbade making his grave a place of ʿīd: a place we go for rituals and celebration, visit a lot and make a big deal of. And he forbade taking his grave as a place of worship."},
+      {t:"story",kind:"Why is the grave in the masjid?",h:"<p>Masjids should not be on graves, so people wonder why his grave is in the masjid. His masjid was already there, and he died in the house of ʿĀʾishah, her ḥujrah right next to the masjid. Prophets are buried where they die. When the masjid was later expanded, the grave became part of it. The masjid was not built on the grave, nor was the grave made in the masjid.</p>"},
+      {t:"p",h:"So don't consider the grave a place of worship, or think it more virtuous to pray there. Follow the Sunnah while you are there."}
+    ]
+  },
+  {
+    id:"s6c13", title:"Lower Your Voices", color:PAL.lilac,
+    summary:"Respectful, civilised, and eager without being greedy.",
+    blocks:[
+      {t:"story",kind:"ʿUmar رضي الله عنه and two men",h:"<p>ʿUmar saw two men and sent for them. He asked: who are you, and where are you from? They said: from aṭ-Ṭāʾif. He said: had you been from Madinah, I would have punished you for raising your voices in the masjid of the Messenger of Allah ﷺ. So he pardoned them, but warned that the people of Madinah would have been punished.</p>"},
+      {t:"key",h:"Lower your voice. Be respectful. Be civilised. Be eager for reward, but being eager doesn't mean being greedy and forgetting your manners and good behaviour."},
+      {t:"dua",kind:"The teacher's du'a",en:"May Allah enable us to visit the city of the Prophet ﷺ in health and safety, to worship Him in the masjid and pray every salah there while we are in Madinah, and may He accept all our ʿibādah on this journey. Āmīn."},
+      {t:"dua",kind:"The session closed with",ar:"سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا أَنْتَ أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ",en:"Glory be to You, O Allah, and praise. I bear witness that there is no god but You. I seek Your forgiveness and turn to You in repentance."}
+    ]
+  }
+  ]
+},
+{
+  id:"p7", num:"Part Seven", title:"Madinah's Sites and the Return", session:"Session 7",
+  chapters:[
+  {
+    id:"s7c1", title:"Mount Uḥud", color:PAL.sand,
+    summary:"The mountain that loves us, and that we love.",
+    blocks:[
+      {t:"p",h:"Mount Uḥud is one of the first things you see as you approach Madinah, and you can see it from any height in the city. It isn't one mountain but a long range, barren and not green. But the Prophet ﷺ loved it."},
+      {t:"hd",ar:"أُحُدٌ جَبَلٌ يُحِبُّنَا وَنُحِبُّهُ",en:"Uḥud is a mountain that loves us, and we love it."},
+      {t:"p",h:"We usually think of the Battle of Uḥud fought beside it: the martyrs, the many Muslims killed and wounded, and the Prophet ﷺ himself injured. Yet he said this mountain loves us and we love it."},
+      {t:"hd",en:"The Prophet ﷺ climbed Uḥud with Abū Bakr, ʿUmar and ʿUthmān, and the mountain shook. He said to it: Be firm, O Uḥud, for upon you are none but a Prophet, a Ṣiddīq and two martyrs."},
+      {t:"p",h:"He spoke to it directly. Many people visit the area around Uḥud, the battlefield and the graves of the martyrs. That is good: it's a mountain the Prophet ﷺ loved, an important event happened there, and he would visit it."},
+      {t:"key",h:"The purpose isn't to collect its sand, or to think it is more virtuous to pray there."}
+    ]
+  },
+  {
+    id:"s7c2", title:"Visiting the Graves", color:PAL.peri,
+    summary:"Al-Baqīʿ and the martyrs of Uḥud: why we visit, and what to say.",
+    blocks:[
+      {t:"p",h:"Besides the graves of the Prophet ﷺ, Abū Bakr and ʿUmar in the masjid, there is <b>al-Baqīʿ</b>, the graveyard next to the masjid, where many Companions, many of the Mothers of the Believers, and many from later generations are buried."},
+      {t:"hd",en:"I used to forbid you from visiting graves, but now visit them."},
+      {t:"h",h:"Why we visit"},
+      {t:"list",items:["Visiting graves reminds us of the Ākhirah, shows us the reality of this world, softens the heart and detaches it from the dunyā.","Visiting the graves of the righteous is not to seek blessing from them. Not at all. We go to take lessons, and we feel closer to people we love, which is fine.","All our worship and du'a is directed to Allah alone, with no partner. We draw closer to Allah by remembering our own death and departure."]},
+      {t:"p",h:"One of the scholars said it is mustaḥabb to visit the people of al-Baqīʿ and the martyrs of Uḥud, to pray for them and seek forgiveness for them, because the Prophet ﷺ did so. And praying and seeking forgiveness for those in the graves is for all Muslim graves, whether in Canada, Pakistan or Saudi Arabia."},
+      {t:"key",h:"Only men may enter al-Baqīʿ. Women can't go in, but if you pass by, you can pray for its people from outside."},
+      {t:"story",kind:"ʿĀʾishah رضي الله عنها follows him at night",h:"<p>One night the Prophet ﷺ quietly got up, dressed and left. ʿĀʾishah quickly covered her head and followed him without his knowing, afraid he might be going to another wife's house. He went to al-Baqīʿ and stood there a long time, then raised his hands three times, and turned back. She hurried back ahead of him so as not to be caught.</p><p>He told her Jibrīl had come to him and said: your Lord commands you to go to the people of al-Baqīʿ and ask forgiveness for them. ʿĀʾishah asked: O Messenger of Allah, what should I say for them? So it was not only for him, and women can do this too. He taught her:</p>"},
+      {t:"dua",kind:"Taught to ʿĀʾishah · Ṣaḥīḥ Muslim",ar:"السَّلَامُ عَلَىٰ أَهْلِ الدِّيَارِ مِنَ الْمُؤْمِنِينَ وَالْمُسْلِمِينَ وَيَرْحَمُ اللَّهُ الْمُسْتَقْدِمِينَ مِنَّا وَالْمُسْتَأْخِرِينَ وَإِنَّا إِنْ شَاءَ اللَّهُ بِكُمْ لَلَاحِقُونَ",en:"Peace be upon the inhabitants of these dwellings, from the believers and the Muslims. May Allah have mercy on those of us who have gone ahead and those who come later. And we shall, if Allah wills, join you."},
+      {t:"dua",kind:"For al-Baqīʿ",ar:"السَّلَامُ عَلَيْكُمْ دَارَ قَوْمٍ مُؤْمِنِينَ وَأَتَاكُمْ مَا تُوعَدُونَ غَدًا مُؤَجَّلُونَ وَإِنَّا إِنْ شَاءَ اللَّهُ بِكُمْ لَاحِقُونَ اللَّهُمَّ اغْفِرْ لِأَهْلِ بَقِيعِ الْغَرْقَدِ",en:"Peace be upon you, abode of believing people. What you were promised has come to you, deferred until tomorrow. And we shall, if Allah wills, join you. O Allah, forgive the people of Baqīʿ al-Gharqad."},
+      {t:"dua",kind:"For any graveyard",ar:"السَّلَامُ عَلَيْكُمْ أَهْلَ الدِّيَارِ مِنَ الْمُؤْمِنِينَ وَالْمُسْلِمِينَ وَإِنَّا إِنْ شَاءَ اللَّهُ بِكُمْ لَاحِقُونَ أَنْتُمْ فَرَطُنَا وَنَحْنُ لَكُمْ تَبَعٌ وَنَسْأَلُ اللَّهَ لَنَا وَلَكُمُ الْعَافِيَةَ",en:"Peace be upon you, inhabitants of these dwellings, from the believers and the Muslims. We shall, if Allah wills, join you soon. You have gone ahead of us and we will follow you. We ask Allah for well-being for us and for you."},
+      {t:"h",h:"Prepare your notes now"},
+      {t:"p",h:"Memorise these du'as, and if you can't, have them written with you. The teacher recommends saving all your du'as in a note on your phone, because when you're standing there, opening an app and searching, you often can't find it."},
+      {t:"key",h:"While preparing, packing and shopping, remember the most important preparation is spiritual: knowing what to say and when. Dedicate an evening or a weekend afternoon to compiling your du'as, adhkār and reminders. All of them are gathered in the Memorise tab."}
+    ]
+  },
+  {
+    id:"s7c3", title:"Masjid Qubāʾ", color:PAL.aqua,
+    summary:"Men who love to purify themselves, and the reward of an Umrah.",
+    blocks:[
+      {t:"p",h:"In Madinah we also go to Masjid Qubāʾ to pray. We don't travel to it the way we travel to al-Masjid an-Nabawī or al-Masjid al-Ḥarām. We are already in Madinah, and there is great reward in praying there."},
+      {t:"q",ar:"فِيهِ رِجَالٌ يُحِبُّونَ أَن يَتَطَهَّرُوا ۚ وَاللَّهُ يُحِبُّ الْمُطَّهِّرِينَ",en:"In it are men who love to purify themselves, and Allah loves those who purify themselves.",ref:"Sūrat at-Tawbah 9:108"},
+      {t:"hd",kind:"Abū Hurayrah رضي الله عنه",en:"This ayah was revealed about the people of Qubāʾ, because they would wash with water after using the toilet."},
+      {t:"p",h:"Simply removing the impurity is sufficient, since water isn't always available. But the people of Qubāʾ made it a priority to wash every time, Allah loved it, and these people were beloved to Allah."},
+      {t:"hd",kind:"Ibn ʿUmar رضي الله عنهما",en:"The Prophet ﷺ used to come to Qubāʾ, sometimes riding and sometimes walking, and pray two rakʿahs there."},
+      {t:"hd",en:"Whoever purifies himself in his house, then comes to Masjid Qubāʾ and prays in it, has a reward like that of an Umrah."},
+      {t:"key",h:"Try going in the late morning: pray two rakʿahs at Qubāʾ and be back at al-Masjid an-Nabawī for Ẓuhr. Make wuḍūʾ before you leave."},
+      {t:"p",h:"Some people do one Umrah, go to Madinah, and come back to Makkah for a second. When people hear you are doing only one Umrah they ask why. But you are also benefiting from praying in al-Masjid an-Nabawī, and from Masjid Qubāʾ, and there is so much reward in that."},
+      {t:"hd",kind:"Saʿd ibn Abī Waqqāṣ رضي الله عنه",en:"Praying in Masjid Qubāʾ is more beloved to me than praying in Bayt al-Maqdis."},
+      {t:"p",h:"Praying in Bayt al-Maqdis is rewarding too, and we are encouraged to travel there and worship. But Saʿd held Qubāʾ more rewarding, because its reward equals an Umrah."}
+    ]
+  },
+  {
+    id:"s7c4", title:"Wādī al-ʿAqīq", color:PAL.sage,
+    summary:"The blessed valley near Dhul-Ḥulayfah.",
+    blocks:[
+      {t:"p",h:"You may see a sign for al-ʿAqīq on the map or as you drive through Madinah. It is a valley."},
+      {t:"hd",en:"On his way to Hajj the Prophet ﷺ camped in the valley of al-ʿAqīq, and the next day said: tonight someone came to me from my Lord and said: pray in this blessed valley.",ref:"Ṣaḥīḥ al-Bukhārī"},
+      {t:"p",h:"That was Jibrīl. In another hadith he was told: you are in a blessed plain. But this doesn't mean we should go there to pray; he said it as he was setting out for Hajj."},
+      {t:"key",h:"Dhul-Ḥulayfah, where people from Madinah put on iḥrām for Umrah, is right by al-ʿAqīq. On your way there, look out for it, notice it and admire it."},
+      {t:"p",h:"Tourists admire buildings and malls in a new city. In Madinah, be familiar with its places and how they link to the sīrah."}
+    ]
+  },
+  {
+    id:"s7c5", title:"Every Prayer in Congregation", color:PAL.butter,
+    summary:"Twenty-seven times the reward, and the night prayed whole.",
+    blocks:[
+      {t:"p",h:"In both Madinah and Makkah, pay attention to praying in the masjid, in congregation."},
+      {t:"list",items:["Its reward is <b>27 times</b> greater than praying alone.","Allah prepares a reward in Paradise for those who go to the masjid and pray.","Allah is pleased with them, and their previous sins are forgiven."]},
+      {t:"hd",en:"Whoever leaves his house purified to perform an obligatory prayer in the masjid has a reward like that of a pilgrim on Hajj. And whoever goes out to pray Ḍuḥā has a reward like that of one performing Umrah."},
+      {t:"p",h:"So intend to pray every prayer in the masjid, and be eager to pray Ḍuḥā there too, where the reward is even greater because these are blessed masjids."},
+      {t:"hd",en:"Whoever prays ʿIshāʾ in congregation, it is as if he prayed half the night. And whoever prays Fajr in congregation, it is as if he prayed the whole night."},
+      {t:"p",h:"Perhaps at home there's no masjid nearby and you can't go regularly. But in Madinah, when you can hear the adhān and you are there for worship, make it a point to pray in the masjid. It is forbidden for a man to leave praying in the masjid without a genuine reason. Women aren't required to pray in the masjid, but since the purpose of the trip is worship, they should pray there to the best of their ability."},
+      {t:"key",h:"Plan ahead: use the bathroom, make wuḍūʾ, then go. Plan your meals and your day so every salah in the masjid is easy."},
+      {t:"p",h:"And as covered earlier: respond to the adhān and make du'a after it, join the rows, and fill any gap, even if it means leaving your spot for the row ahead. There may be inconvenience, but the reward is great. Whoever joins a row, Allah joins him; whoever breaks it, Allah cuts him off."}
+    ]
+  },
+  {
+    id:"s7c6", title:"Travel Light", color:PAL.sky,
+    summary:"Pack light, pack carefully, and pack enough.",
+    blocks:[
+      {t:"p",h:"Too much baggage causes burden, fatigue and stress. You don't want to spend your time packing, looking after things, tidying your room, deciding what to wear and ironing. Too much of your mental effort goes into your things."},
+      {t:"list",items:["Pack clothes that don't need ironing.","Pack clothing with multiple uses.","Not two suitcases per person plus a carry-on plus a personal bag."]},
+      {t:"q",ar:"وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ",en:"And take provisions, but the best provision is taqwā.",ref:"Sūrat al-Baqarah 2:197"},
+      {t:"p",h:"Packing light doesn't mean leaving out what you need. If you usually need certain medication, take it. If you usually need certain food, take it, so you don't spend your time searching shops for it."},
+      {t:"story",kind:"A recent tip",h:"<p>Someone just back from Umrah, asked for tips, said: please pack light, because you can get everything there. That's true, but you don't want to spend most of your time looking for things.</p>"},
+      {t:"key",h:"Pack light, pack carefully, and pack enough, and ask Allah to grant you wisdom."}
+    ]
+  },
+  {
+    id:"s7c7", title:"Coming Home", color:PAL.blush,
+    summary:"Travel is a piece of hardship: hurry home, saying the du'a of return.",
+    blocks:[
+      {t:"hd",ar:"السَّفَرُ قِطْعَةٌ مِّنَ الْعَذَابِ يَمْنَعُ أَحَدَكُمْ طَعَامَهُ وَشَرَابَهُ وَنَوْمَهُ",en:"Travel is a piece of torment: it deprives each of you of his food, his drink and his sleep. So when one of you has finished what he set out for, let him hurry back to his family.",ref:"Ṣaḥīḥ al-Bukhārī, Book of Umrah"},
+      {t:"p",h:"When you're hungry you may not have food, when thirsty no drink, and many people can hardly sleep anywhere but their own bed. As you feel fatigue, hunger and thirst on this journey, remember this hadith."},
+      {t:"key",h:"This is why an Umrah trip is short. People ask: only 7 or 10 days, not 40? Yes, because you go for a particular purpose, to worship Allah, and as the Prophet ﷺ advised, you return as soon as you're done. Don't prolong the journey beyond what is needed."},
+      {t:"h",h:"The du'a of return"},
+      {t:"hd",kind:"Ibn ʿUmar رضي الله عنهما · Ṣaḥīḥ al-Bukhārī",en:"When the Messenger of Allah ﷺ returned from jihad, Hajj or Umrah, he would say the takbīr three times on every high place, then say:"},
+      {t:"dua",kind:"Allāhu Akbar ×3, then",ar:"لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ ۝ آيِبُونَ تَائِبُونَ عَابِدُونَ سَاجِدُونَ لِرَبِّنَا حَامِدُونَ ۝ صَدَقَ اللَّهُ وَعْدَهُ وَنَصَرَ عَبْدَهُ وَهَزَمَ الْأَحْزَابَ وَحْدَهُ",en:"There is no god but Allah alone, with no partner. His is the dominion and His is the praise, and He has power over all things. We are returning, repenting, worshipping, prostrating, and praising our Lord. Allah fulfilled His promise, helped His slave, and alone defeated the confederates."}
+    ]
+  }
+  ]
 }
 ];
 
 const PLAN_OPTS = ["","Qur'an","Tasbīḥāt","Istighfār","Du'as","My du'a list"];
 const PLAN_DEFAULT = ["Qur'an","Qur'an","Tasbīḥāt","Istighfār","Du'as","",""];
 
-const PACK = ["Clothing","Medication","Toiletries","Fragrance-free soap","Notebook & pens","Du'a books","Muṣḥaf","Useful apps","Gifts for others","Snacks to share","Comfortable shoes","Men's iḥrām (washed, unscented)","Clippers or small scissors","Slippers","Musalla","Shoe bag"];
+const PACK = ["Clothing","Medication","Toiletries","Fragrance-free soap","Notebook & pens","Du'a books","Muṣḥaf","Useful apps","Gifts for others","Snacks to share","Comfortable shoes","Men's iḥrām (washed, unscented)","Clippers or small scissors","Siwāk / toothbrush","Tissues","Du'a cards to give","Slippers","Musalla","Shoe bag"];
 
 const MEMORISE = [
+  {part:"Part Seven",id:"m44",kind:"Du'a",title:"The du'a of return",ar:"آيِبُونَ تَائِبُونَ عَابِدُونَ سَاجِدُونَ لِرَبِّنَا حَامِدُونَ ۝ صَدَقَ اللَّهُ وَعْدَهُ وَنَصَرَ عَبْدَهُ وَهَزَمَ الْأَحْزَابَ وَحْدَهُ",en:"We are returning, repenting, worshipping, prostrating, and praising our Lord. Allah fulfilled His promise, helped His slave, and alone defeated the confederates.",ref:"Ṣaḥīḥ al-Bukhārī",why:"After Allāhu Akbar ×3 and lā ilāha illā Allāh…, on every high place on the way home."},
+  {part:"Part Seven",id:"m45",kind:"Du'a",title:"At al-Baqīʿ (taught to ʿĀʾishah)",ar:"السَّلَامُ عَلَىٰ أَهْلِ الدِّيَارِ مِنَ الْمُؤْمِنِينَ وَالْمُسْلِمِينَ وَيَرْحَمُ اللَّهُ الْمُسْتَقْدِمِينَ مِنَّا وَالْمُسْتَأْخِرِينَ وَإِنَّا إِنْ شَاءَ اللَّهُ بِكُمْ لَلَاحِقُونَ",en:"Peace be upon the inhabitants of these dwellings, from the believers and the Muslims. May Allah have mercy on those of us who have gone ahead and those who come later. And we shall, if Allah wills, join you.",ref:"Ṣaḥīḥ Muslim",why:"Women can say it from outside al-Baqīʿ."},
+  {part:"Part Seven",id:"m46",kind:"Du'a",title:"At any graveyard",ar:"السَّلَامُ عَلَيْكُمْ أَهْلَ الدِّيَارِ مِنَ الْمُؤْمِنِينَ وَالْمُسْلِمِينَ وَإِنَّا إِنْ شَاءَ اللَّهُ بِكُمْ لَاحِقُونَ أَنْتُمْ فَرَطُنَا وَنَحْنُ لَكُمْ تَبَعٌ وَنَسْأَلُ اللَّهَ لَنَا وَلَكُمُ الْعَافِيَةَ",en:"Peace be upon you, inhabitants of these dwellings, from the believers and the Muslims. We shall, if Allah wills, join you soon. You have gone ahead of us and we will follow you. We ask Allah for well-being for us and for you.",ref:"Hadith",why:"For Uḥud's martyrs, al-Baqīʿ, or any Muslim graveyard."},
+  {part:"Part Seven",id:"m47",kind:"Hadith",title:"Uḥud",ar:"أُحُدٌ جَبَلٌ يُحِبُّنَا وَنُحِبُّهُ",en:"Uḥud is a mountain that loves us, and we love it.",ref:"Hadith",why:"What the Prophet ﷺ said on seeing it."},
+  {part:"Part Seven",id:"m48",kind:"Qur'an",title:"The people of Qubāʾ",ar:"فِيهِ رِجَالٌ يُحِبُّونَ أَن يَتَطَهَّرُوا ۚ وَاللَّهُ يُحِبُّ الْمُطَّهِّرِينَ",en:"In it are men who love to purify themselves, and Allah loves those who purify themselves.",ref:"at-Tawbah 9:108",why:"Make wuḍūʾ at your hotel, pray at Qubāʾ: the reward of an Umrah."},
+  {part:"Part Six",id:"m39",kind:"Du'a",title:"At the Rawḍah",ar:"اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ",en:"O Allah, I ask You for Paradise.",ref:"Hadith",why:"Say it three times; Paradise itself asks Allah to admit you."},
+  {part:"Part Six",id:"m40",kind:"Salām",title:"Greeting the Prophet ﷺ",ar:"السَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ ۝ السَّلَامُ عَلَيْنَا وَعَلَىٰ عِبَادِ اللَّهِ الصَّالِحِينَ",en:"Peace be upon you, O Prophet, and the mercy of Allah and His blessings. Peace be upon us and upon the righteous slaves of Allah.",ref:"Sunnah",why:"Standing in front of his grave, in a dignified manner."},
+  {part:"Part Six",id:"m41",kind:"Salām",title:"As Ibn ʿUmar greeted",ar:"السَّلَامُ عَلَيْكَ يَا رَسُولَ اللَّهِ ۝ السَّلَامُ عَلَيْكَ يَا أَبَا بَكْرٍ ۝ السَّلَامُ عَلَيْكَ يَا أَبَتَاهُ",en:"Peace be upon you, O Messenger of Allah. Peace be upon you, O Abū Bakr. Peace be upon you, O my father (ʿUmar).",ref:"Ibn ʿUmar رضي الله عنهما",why:"Short, and from the Companions. For ʿUmar, we say yā ʿUmar."},
+  {part:"Part Six",id:"m42",kind:"Du'a",title:"For Madinah",ar:"اللَّهُمَّ حَبِّبْ إِلَيْنَا الْمَدِينَةَ كَحُبِّنَا مَكَّةَ أَوْ أَشَدَّ وَصَحِّحْهَا وَبَارِكْ لَنَا فِي صَاعِهَا وَمُدِّهَا",en:"O Allah, make Madinah beloved to us as You made Makkah beloved, or even more. Make it healthy for us, and bless us in its ṣāʿ and its mudd.",ref:"Ṣaḥīḥ al-Bukhārī",why:"The Prophet's ﷺ du'a when his Companions fell ill there."},
+  {part:"Part Six",id:"m43",kind:"Hadith",title:"A garden of Paradise",ar:"مَا بَيْنَ بَيْتِي وَمِنْبَرِي رَوْضَةٌ مِّنْ رِيَاضِ الْجَنَّةِ",en:"What is between my house and my minbar is a garden from the gardens of Paradise.",ref:"Hadith",why:"Why we long to pray in the Rawḍah."},
+  {part:"Part Five",id:"m35",kind:"Du'a",title:"Entering the masjid",ar:"أَعُوذُ بِاللَّهِ الْعَظِيمِ وَبِوَجْهِهِ الْكَرِيمِ وَسُلْطَانِهِ الْقَدِيمِ مِنَ الشَّيْطَانِ الرَّجِيمِ ۝ بِسْمِ اللَّهِ وَالسَّلَامُ عَلَىٰ رَسُولِ اللَّهِ ۝ اللَّهُمَّ اغْفِرْ لِي ذُنُوبِي وَافْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",en:"I seek refuge in Allah the Almighty, by His Noble Face and His eternal authority, from Shayṭān the outcast. In the name of Allah, and peace be upon the Messenger of Allah. O Allah, forgive my sins and open for me the doors of Your mercy.",ref:"Sunnah",why:"Every time you walk through the doors of the Ḥaram."},
+  {part:"Part Five",id:"m36",kind:"Du'a",title:"After the adhān: the wasīlah",ar:"اللَّهُمَّ رَبَّ هَٰذِهِ الدَّعْوَةِ التَّامَّةِ وَالصَّلَاةِ الْقَائِمَةِ آتِ مُحَمَّدًا الْوَسِيلَةَ وَالْفَضِيلَةَ وَابْعَثْهُ مَقَامًا مَّحْمُودًا الَّذِي وَعَدْتَهُ",en:"O Allah, Lord of this perfect call and the established prayer, give Muḥammad the wasīlah and superiority, and raise him to the praiseworthy station which You promised him.",ref:"Hadith",why:"His intercession becomes due for whoever says it."},
+  {part:"Part Five",id:"m37",kind:"Dhikr",title:"After the adhān: raḍītu",ar:"وَأَنَا أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ وَأَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ رَضِيتُ بِاللَّهِ رَبًّا وَبِمُحَمَّدٍ رَسُولًا وَبِالْإِسْلَامِ دِينًا",en:"And I bear witness that there is no god but Allah alone, with no partner, and that Muḥammad is His slave and Messenger. I am pleased with Allah as my Lord, with Muḥammad as Messenger, and with Islam as my religion.",ref:"Hadith",why:"Sins are forgiven for whoever says it after the adhān."},
+  {part:"Part Five",id:"m38",kind:"Qur'an",title:"The Lord of this House",ar:"فَلْيَعْبُدُوا رَبَّ هَٰذَا الْبَيْتِ",en:"So let them worship the Lord of this House.",ref:"Quraysh 106:3",why:"Why we go to the Ḥaram at all."},
   {part:"Part Four",id:"m30",kind:"Dhikr",title:"On Ṣafā and Marwah",ar:"لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ أَنْجَزَ وَعْدَهُ وَنَصَرَ عَبْدَهُ وَهَزَمَ الْأَحْزَابَ وَحْدَهُ",en:"There is no god but Allah alone, with no partner. To Him belongs all dominion and all praise, and He is able to do all things. There is no god but Allah alone. He fulfilled His promise, helped His slave, and routed the confederates alone.",ref:"Hadith of Jābir",why:"Said three times on each hill, facing the qiblah, with du'a in between. Practise until fluent."},
   {part:"Part Four",id:"m31",kind:"Du'a",title:"The du'a of saʿī",ar:"رَبِّ اغْفِرْ وَارْحَمْ وَأَنْتَ الْأَعَزُّ الْأَكْرَمُ",en:"My Lord, forgive and have mercy, and You are truly the Most Mighty, the Most Honourable.",ref:"Hadith",why:"Said while walking between Ṣafā and Marwah."},
   {part:"Part Four",id:"m32",kind:"Qur'an",title:"Approaching Ṣafā",ar:"إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ",en:"Indeed, Ṣafā and Marwah are among the symbols of Allah.",ref:"al-Baqarah 2:158",why:"Recited as you near Ṣafā, and at Marwah."},
@@ -1265,7 +1785,7 @@ const S = {
 };
 let state = {
   read:S.get("read",{}), last:S.get("last",null), scroll:S.get("scroll",{}),
-  mem:S.get("mem",{}), duas:S.get("duas",[]), pack:S.get("pack",{}), plan:S.get("plan",PLAN_DEFAULT.slice()),
+  mem:S.get("mem",{}), juz:S.get("juz",{}), duas:S.get("duas",[]), pack:S.get("pack",{}), plan:S.get("plan",PLAN_DEFAULT.slice()),
   fs:S.get("fs",17), tab:S.get("tab","home")
 };
 
@@ -1341,6 +1861,16 @@ function renderHome(){
     <button class="continue" data-open="c11" style="${cv({color:PAL.sand})}">
       <span class="num" style="font-size:16px">${packed}/${PACK.length}</span>
       <span><span class="t">Packing list</span><br><span class="s">Pack, but pack wisely</span></span>
+      ${chevron}
+    </button>
+    <button class="continue" data-open="s6c11" style="${cv({color:PAL.rose})}">
+      <span class="num">۝</span>
+      <span><span class="t">Rawḍah: register ahead</span><br><span class="s">Women's access is limited; book before Madinah</span></span>
+      ${chevron}
+    </button>
+    <button class="continue" data-open="s5c10" style="${cv({color:PAL.sand})}">
+      <span class="num" style="font-size:16px">${Object.keys(state.juz).length}/30</span>
+      <span><span class="t">Qur'an in Makkah</span><br><span class="s">Set a goal: at least 7 or 10 ajzāʾ</span></span>
       ${chevron}
     </button>
     <button class="continue" data-open="s3c9" style="${cv({color:PAL.mint})}">
@@ -1450,6 +1980,7 @@ function block(b){
     case "dua": return `<div class="box dua"><span class="kind">${b.kind}</span>${b.ar?`<p class="ar">${b.ar}</p>`:""}<p class="en">${b.en}</p></div>`;
     case "story": return `<div class="story"><span class="kind">${b.kind}</span>${b.h}</div>`;
     case "cta": return `<div class="cta"><h4>${b.title}</h4><p>${b.h}</p><div><button class="btn rose" data-tab-go="list">Open my du'a list</button></div></div>`;
+    case "juz": { const n=Object.keys(state.juz).length; return `<div class="juzbox"><div class="juzhead"><b>${n}</b><span>of 30 ajzāʾ · tap each juzʾ as you finish it</span></div><div class="juz">${Array.from({length:30},(_,i)=>`<button data-juz="${i+1}" aria-pressed="${!!state.juz[i+1]}" aria-label="Juzʾ ${i+1}">${i+1}</button>`).join("")}</div></div>`; }
     case "cta2": return `<div class="cta"><h4>Your Umrah is complete</h4><p>${b.h}</p></div>`;
     case "steps": return `<ol class="steps">${b.items.map(i=>`<li><b>${i[0]}</b><span>${i[1]}</span></li>`).join("")}</ol>`;
     case "plan": return `<div class="plan">${state.plan.map((v,i)=>`<label class="round" for="rnd${i}"><span class="rn">${i+1}</span><span class="rl">Round ${i+1}</span><select id="rnd${i}" data-round="${i}">${PLAN_OPTS.map(o=>`<option value="${esc(o)}" ${o===v?"selected":""}>${o?esc(o):"Choose…"}</option>`).join("")}</select></label>`).join("")}<p class="hint" style="text-align:left">In every round: <b>Bismillāh, Allāhu Akbar</b> at the Black Stone, and <b>Rabbanā ātinā…</b> between the Yamānī corner and the Black Stone.</p></div>`;
@@ -1542,6 +2073,8 @@ document.addEventListener("click",e=>{
   if(tb){ setTab(tb.dataset.tab); return; }
   if(e.target.closest("#rClose")){ closeReader(); return; }
   if(e.target.closest("#rDone")){ closeReader(); setTab("chapters"); return; }
+  const jz = e.target.closest("[data-juz]");
+  if(jz){ const k=jz.dataset.juz; state.juz[k]=!state.juz[k]; if(!state.juz[k]) delete state.juz[k]; S.set("juz",state.juz); jz.setAttribute("aria-pressed",!!state.juz[k]); const h=document.querySelector(".juzhead b"); if(h) h.textContent=Object.keys(state.juz).length; return; }
   const pk = e.target.closest("[data-pack]");
   if(pk){ const k=pk.dataset.pack; state.pack[k]=!state.pack[k]; if(!state.pack[k]) delete state.pack[k]; S.set("pack",state.pack); pk.setAttribute("aria-pressed",!!state.pack[k]); return; }
   const md = e.target.closest("[data-mode]");
@@ -1594,6 +2127,5 @@ if("serviceWorker" in navigator && location.protocol.startsWith("http")){
   window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 }
 </script>
-<script src="install-prompt.js" defer></script>
 </body>
 </html>
