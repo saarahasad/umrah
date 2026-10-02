@@ -189,14 +189,24 @@ main{padding:0 16px calc(var(--tabh) + env(safe-area-inset-bottom,0px) + 28px);m
 .mnum{flex:none;width:30px;height:30px;border-radius:50%;background:var(--blush);color:var(--rose-ink);display:grid;place-items:center;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
 .when{margin:10px 16px 0;padding:10px 12px;background:var(--surface-2);border-radius:12px;font-size:14px;line-height:1.5}
 .when b{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:2px}
-.stagetabs{position:sticky;top:var(--abh,64px);z-index:15;display:flex;gap:8px;overflow-x:auto;margin:0 -16px;padding:10px 16px;background:var(--bg);scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.stagetabs::-webkit-scrollbar{display:none}
-.stagetabs button{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 14px 0 6px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:600;font-size:14px;color:var(--ink);white-space:nowrap}
-.stagetabs .tn{width:30px;height:30px;border-radius:50%;background:var(--blush);color:var(--rose-ink);display:grid;place-items:center;font-size:13px;font-weight:700}
-.stagetabs .tok{width:18px;height:18px;border-radius:50%;background:var(--rose-deep);color:#fff;display:grid;place-items:center}
-.stagetabs .tok svg{width:11px;height:11px}
-.stagetabs button[aria-selected="true"]{background:var(--rose-deep);border-color:var(--rose-deep);color:#fff}
-.stagetabs button[aria-selected="true"] .tn{background:#fff;color:var(--rose-deep)}
+.scards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (min-width:640px){.scards{gap:16px}}
+.scard,.sbanner{position:relative;overflow:hidden;color:#fff;text-align:left;border-radius:24px;padding:16px 16px 14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.13' stroke-width='1.2'%3E%3Crect x='17' y='17' width='22' height='22'/%3E%3Crect x='17' y='17' width='22' height='22' transform='rotate(45 28 28)'/%3E%3Ccircle cx='28' cy='28' r='5'/%3E%3C/g%3E%3C/svg%3E"),linear-gradient(150deg,var(--g1),var(--g2));background-size:56px 56px,auto;box-shadow:0 10px 24px -14px var(--g2);display:flex;flex-direction:column;gap:6px;min-height:176px}
+.scard{transition:transform .15s}
+.scard:active{transform:scale(.98)}
+.scard .sg,.sbanner .sg{position:absolute;right:-4px;top:-14px;font-family:var(--display);font-size:96px;line-height:1;color:#fff;opacity:.16;pointer-events:none;letter-spacing:-.04em}
+.scard .sk,.sbanner .sk{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;opacity:.85;position:relative}
+.scard .st,.sbanner .st{font-family:var(--display);font-size:20px;line-height:1.15;font-weight:400;margin:0;position:relative;text-wrap:balance}
+.scard .sc,.sbanner .sc{font-size:13px;opacity:.85;margin:0;position:relative;font-style:italic}
+.scard .sp,.sbanner .sp{margin-top:auto;display:flex;align-items:center;gap:10px;position:relative;padding-top:8px}
+.sp i{flex:1;height:5px;border-radius:9px;background:rgba(255,255,255,.25);overflow:hidden;display:block}
+.sp i b{display:block;height:100%;background:#fff;border-radius:9px}
+.sp em{font-style:normal;font-weight:700;font-size:13px;white-space:nowrap}
+.sbanner{min-height:0;padding:20px 20px 18px}
+.sbanner .st{font-size:28px}
+.sbanner .sg{font-size:120px}
+.backlink{align-self:flex-start;font-weight:600;color:var(--rose-ink);font-size:14.5px;padding:4px 0}
+@media (min-width:640px){.scard{min-height:200px;padding:20px}.scard .st{font-size:24px}.scard .sg{font-size:120px}}
 .stage{display:flex;flex-direction:column;gap:12px}
 .stage-h{display:flex;gap:12px;align-items:center;padding-top:10px}
 .stage-h .sn{flex:none;width:44px;height:44px;border-radius:14px;background:var(--rose-deep);color:#fff;display:grid;place-items:center;font-family:var(--body);font-weight:700;font-size:18px}
@@ -2010,31 +2020,65 @@ function memCard(m, when, n){
         <button class="mbtn" data-mem="${m.id}">${state.mem[m.id]?check+"Memorised":"Mark memorised"}</button></div>
     </article>`;
 }
-let memStage = (()=>{ const v=S.get("stage",0); return Number.isInteger(v)?v:0; })();
+let memStage = (()=>{ const v=S.get("stage",-1); return Number.isInteger(v)?v:-1; })();
+/* [from, to] gradient per stage */
+const STAGE_COL = [
+  ["#7A4BB0","#4B2C7E"], /* Before: dusk plum */
+  ["#3A8C86","#1F5A57"], /* Mīqāt: teal */
+  ["#3B3946","#1B1A22"], /* Entering: kiswah black */
+  ["#C2557C","#8A2F52"], /* Ṭawāf: deep rose */
+  ["#3A7CC0","#1F4F86"], /* After ṭawāf: Zamzam blue */
+  ["#C98632","#8F561A"], /* Saʿī: desert amber */
+  ["#5E9566","#335E3D"], /* Ḥalq: sage */
+  ["#4C5BC0","#2A3487"], /* Daily: indigo */
+  ["#24936A","#135C42"], /* Madinah: green dome */
+  ["#C26446","#87402B"], /* Home: terracotta */
+  ["#A8873E","#6E5524"]  /* To know: gold */
+];
+const NUMW = ["One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"];
 function memStages(){
   const st = ORDER.map(o=>({...o}));
   const rest = MEMORISE.filter(m=>!ORDER_IDS.has(m.id));
   if(rest.length) st.push({stage:"Ayat and ahadith to know", short:"To know", where:"Not tied to a moment: to understand and remember", items:rest.map(m=>[m.id,""])});
   return st;
 }
+const stageGrad = i=>{ const c=STAGE_COL[i%STAGE_COL.length]; return `--g1:${c[0]};--g2:${c[1]}`; };
 function renderMemorise(){
   const got = MEMORISE.filter(m=>state.mem[m.id]).length;
   const byId = Object.fromEntries(MEMORISE.map(m=>[m.id,m]));
   const st = memStages();
-  if(memStage<0||memStage>=st.length) memStage=0;
+  if(memStage>=st.length) memStage=-1;
+  if(memStage<0){
+    $("#v-memorise").innerHTML = `
+    <div class="mem-stat"><h2 class="h-display">Du'as in order</h2><span><b>${got}</b> / ${MEMORISE.length}</span></div>
+    <p class="hint" style="text-align:left;margin-top:-10px">Each stage of your Umrah, with every du'a in the order you'll read it.</p>
+    <div class="scards">${st.map((x,i)=>{
+      const n=x.items.length, d=x.items.filter(it=>state.mem[it[0]]).length, last=i>=ORDER.length;
+      const pct=n?Math.round(d/n*100):0;
+      return `<button class="scard" data-stage="${i}" style="${stageGrad(i)}">
+        <span class="sg">${last?"✦":String(i+1).padStart(2,"0")}</span>
+        <span class="sk">${last?"Also":"Stage "+NUMW[i]}</span>
+        <span class="st">${esc(x.stage)}</span>
+        <span class="sc">${n?n+(n===1?" du'a":" du'as"):"No set du'a"}</span>
+        <span class="sp"><i><b style="width:${pct}%"></b></i><em>${!n?"Read":d===n?"Done ✓":d?d+" / "+n:"Start"}</em></span>
+      </button>`;}).join("")}</div>`;
+    return;
+  }
   const o = st[memStage];
   const done = o.items.filter(i=>state.mem[i[0]]).length;
   let cards = "";
   if(o.note) cards += `<div class="stage-note">${esc(o.note)}</div>`;
   o.items.forEach(([id,when],i)=>{ const m=byId[id]; if(m) cards += memCard(m,when,i+1); });
-  const prev = st[memStage-1], next = st[memStage+1];
+  const prev = st[memStage-1], next = st[memStage+1], last=memStage>=ORDER.length;
   $("#v-memorise").innerHTML = `
-  <div class="mem-stat"><h2 class="h-display">Du'as in order</h2><span><b>${got}</b> / ${MEMORISE.length}</span></div>
-  <div class="stagetabs" role="tablist" aria-label="Stages of Umrah">${st.map((x,i)=>{
-      const n=x.items.length, d=x.items.filter(it=>state.mem[it[0]]).length;
-      return `<button role="tab" data-stage="${i}" aria-selected="${i===memStage}"><span class="tn">${i<ORDER.length?i+1:"✦"}</span><span class="tl">${esc(x.short||x.stage)}</span>${n&&d===n?`<span class="tok">${check}</span>`:""}</button>`;
-    }).join("")}</div>
-  <div class="stage-h"><span class="sn">${memStage<ORDER.length?memStage+1:"✦"}</span><div><h3>${esc(o.stage)}</h3><p>${esc(o.where)}${o.items.length?` · ${done}/${o.items.length} memorised`:""}</p></div></div>
+  <button class="backlink" data-stage="-1">← All stages</button>
+  <div class="sbanner" style="${stageGrad(memStage)}">
+    <span class="sg">${last?"✦":String(memStage+1).padStart(2,"0")}</span>
+    <span class="sk">${last?"Also":"Stage "+NUMW[memStage]}</span>
+    <h3 class="st">${esc(o.stage)}</h3>
+    <p class="sc">${esc(o.where)}</p>
+    ${o.items.length?`<span class="sp"><i><b style="width:${Math.round(done/o.items.length*100)}%"></b></i><em>${done} / ${o.items.length} memorised</em></span>`:""}
+  </div>
   <div class="seg" role="group" aria-label="Practice mode">
     <button data-mode="all" aria-pressed="${memMode==="all"}">Show all</button>
     <button data-mode="ar" aria-pressed="${memMode==="ar"}">Hide Arabic</button>
@@ -2043,11 +2087,9 @@ function renderMemorise(){
   ${memMode!=="all"?`<p class="hint">Recite it, then tap the blurred text to check.</p>`:""}
   ${cards}
   <div class="r-end"><div class="row">
-    ${prev?`<button class="btn ghost" data-stage="${memStage-1}">← ${esc(prev.short||prev.stage)}</button>`:""}
-    ${next?`<button class="btn rose" data-stage="${memStage+1}">${esc(next.short||next.stage)} →</button>`:""}
+    ${prev?`<button class="btn ghost" data-stage="${memStage-1}">← ${esc(prev.short||prev.stage)}</button>`:`<button class="btn ghost" data-stage="-1">← All stages</button>`}
+    ${next?`<button class="btn rose" data-stage="${memStage+1}">${esc(next.short||next.stage)} →</button>`:`<button class="btn rose" data-stage="-1">All stages</button>`}
   </div></div>`;
-  const act = document.querySelector('.stagetabs [aria-selected="true"]');
-  if(act) act.scrollIntoView({block:"nearest",inline:"center"});
 }
 
 let whoSel = "me";
