@@ -1712,7 +1712,9 @@ const PARTS = [
       {t:"key",h:"This is why an Umrah trip is short. People ask: only 7 or 10 days, not 40? Yes, because you go for a particular purpose, to worship Allah, and as the Prophet ﷺ advised, you return as soon as you're done. Don't prolong the journey beyond what is needed."},
       {t:"h",h:"The du'a of return"},
       {t:"hd",kind:"Ibn ʿUmar رضي الله عنهما · Ṣaḥīḥ al-Bukhārī",en:"When the Messenger of Allah ﷺ returned from jihad, Hajj or Umrah, he would say the takbīr three times on every high place, then say:"},
-      {t:"dua",kind:"Allāhu Akbar ×3, then",ar:"لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ ۝ آيِبُونَ تَائِبُونَ عَابِدُونَ سَاجِدُونَ لِرَبِّنَا حَامِدُونَ ۝ صَدَقَ اللَّهُ وَعْدَهُ وَنَصَرَ عَبْدَهُ وَهَزَمَ الْأَحْزَابَ وَحْدَهُ",en:"There is no god but Allah alone, with no partner. His is the dominion and His is the praise, and He has power over all things. We are returning, repenting, worshipping, prostrating, and praising our Lord. Allah fulfilled His promise, helped His slave, and alone defeated the confederates."}
+      {t:"dua",kind:"Allāhu Akbar ×3, then",ar:"لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ ۝ آيِبُونَ تَائِبُونَ عَابِدُونَ سَاجِدُونَ لِرَبِّنَا حَامِدُونَ ۝ صَدَقَ اللَّهُ وَعْدَهُ وَنَصَرَ عَبْدَهُ وَهَزَمَ الْأَحْزَابَ وَحْدَهُ",en:"There is no god but Allah alone, with no partner. His is the dominion and His is the praise, and He has power over all things. We are returning, repenting, worshipping, prostrating, and praising our Lord. Allah fulfilled His promise, helped His slave, and alone defeated the confederates."},
+      {t:"cta2",title:"The journey, complete",h:"With that, the series is complete, alḥamdulillāh. May Allah ﷻ make your Umrah easy in every step, accept it from you, and make it a means of forgiveness and of drawing ever closer to Him. Āmīn."},
+      {t:"dua",kind:"Each session closes with",ar:"سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا أَنْتَ أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ",en:"Glory be to You, O Allah, and praise. I bear witness that there is no god but You. I seek Your forgiveness and turn to You in repentance."}
     ]
   }
   ]
@@ -1903,7 +1905,7 @@ function renderChapters(){
         <span class="tick" aria-label="${state.read[c.id]?"Read":"Not read yet"}">${state.read[c.id]?check:""}</span>
       </button></li>`).join("") + `</ol>`;
   });
-  html += `<div class="coming">More will be added as the series continues.</div>`;
+  html += `<div class="coming">The series is complete, alḥamdulillāh. May Allah accept your Umrah.</div>`;
   $("#v-chapters").innerHTML = html;
 }
 
@@ -1981,7 +1983,7 @@ function block(b){
     case "story": return `<div class="story"><span class="kind">${b.kind}</span>${b.h}</div>`;
     case "cta": return `<div class="cta"><h4>${b.title}</h4><p>${b.h}</p><div><button class="btn rose" data-tab-go="list">Open my du'a list</button></div></div>`;
     case "juz": { const n=Object.keys(state.juz).length; return `<div class="juzbox"><div class="juzhead"><b>${n}</b><span>of 30 ajzāʾ · tap each juzʾ as you finish it</span></div><div class="juz">${Array.from({length:30},(_,i)=>`<button data-juz="${i+1}" aria-pressed="${!!state.juz[i+1]}" aria-label="Juzʾ ${i+1}">${i+1}</button>`).join("")}</div></div>`; }
-    case "cta2": return `<div class="cta"><h4>Your Umrah is complete</h4><p>${b.h}</p></div>`;
+    case "cta2": return `<div class="cta"><h4>${b.title||"Your Umrah is complete"}</h4><p>${b.h}</p></div>`;
     case "steps": return `<ol class="steps">${b.items.map(i=>`<li><b>${i[0]}</b><span>${i[1]}</span></li>`).join("")}</ol>`;
     case "plan": return `<div class="plan">${state.plan.map((v,i)=>`<label class="round" for="rnd${i}"><span class="rn">${i+1}</span><span class="rl">Round ${i+1}</span><select id="rnd${i}" data-round="${i}">${PLAN_OPTS.map(o=>`<option value="${esc(o)}" ${o===v?"selected":""}>${o?esc(o):"Choose…"}</option>`).join("")}</select></label>`).join("")}<p class="hint" style="text-align:left">In every round: <b>Bismillāh, Allāhu Akbar</b> at the Black Stone, and <b>Rabbanā ātinā…</b> between the Yamānī corner and the Black Stone.</p></div>`;
     case "pack": return `<p class="label" style="margin-bottom:-8px">Packing list · tap to tick</p><div class="pack">${PACK.map(p=>`<button data-pack="${esc(p)}" aria-pressed="${!!state.pack[p]}"><i>${check}</i>${esc(p)}</button>`).join("")}</div>`;
