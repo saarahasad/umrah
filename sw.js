@@ -1,6 +1,6 @@
 // Bump this when you add a new session so phones pick up the new content.
-const CACHE = "wafd-v8";
-const CORE = ["./", "index.html", "manifest.webmanifest",
+const CACHE = "wafd-v9";
+const CORE = ["./", "index.html", "install-prompt.js", "manifest.webmanifest",
   "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-512.png",
   "icons/apple-touch-icon.png", "icons/favicon-64.png", "fonts/uthmanic-hafs.woff2"];
 
